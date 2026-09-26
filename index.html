@@ -286,58 +286,6 @@
       border-radius: 4px;
       line-height: 1.6;
     }
-
-    /* Program Note Content & Google Docs Override Fix */
-    .program-note-content {
-      font-size: 15px; 
-      margin-bottom: 12px; 
-      max-height: 550px; 
-      overflow-y: auto; 
-      border: 1px solid #ccc; 
-      background: #fff; 
-      padding: 15px; 
-      border-radius: 4px;
-      line-height: 1.6;
-    }
-    .program-note-content p {
-      text-align: justify !important;
-      text-justify: inter-word !important;
-    }
-    .program-note-content * {
-      font-family: Arial, sans-serif !important;
-      max-width: 100% !important;
-      box-sizing: border-box !important;
-      letter-spacing: normal !important;
-    }
-    .program-note-content h1, .program-note-content h2, .program-note-content h3, .program-note-content h4 {
-      text-align: left !important;
-    }
-    .program-note-content b, .program-note-content strong {
-      font-weight: bold !important;
-    }
-    .program-note-content i, .program-note-content em {
-      font-style: italic !important;
-    }
-    .program-note-content table {
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 auto 15px auto !important;
-      border-collapse: collapse !important;
-      border: none !important;
-      background: transparent !important;
-    }
-    .program-note-content tr, .program-note-content td, .program-note-content th {
-      border: none !important;
-      background: transparent !important;
-      word-wrap: break-word !important;
-      overflow-wrap: break-word !important;
-      padding: 4px !important;
-    }
-    .program-note-content input[type="checkbox"], 
-    .program-note-content span[role="checkbox"],
-    .program-note-content img[src*="checkbox"] {
-      display: none !important;
-    }
   </style>
 </head>
 <body>
@@ -488,8 +436,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Jennifer Smith (soprano), Maldwyn Davies (tenor), Peter McBrien (bass), Boys of the Palestrina Choir and of St Patrick's Cathedral, RTÉ Philharmonic Choir, Colin Mawby (chorus director), RTÉ Symphony Orchestra, Colman Pearce (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
-      <button onclick="loadProgramNote('1dlbLyeGn9vUycyJcy-HT2fdx3W1E-OShgaBLbBfXsbQ', 'note-wr-1986')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-wr-1986" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('1dlbLyeGn9vUycyJcy-HT2fdx3W1E-OShgaBLbBfXsbQ', 'Britten, War Requiem, 27 June 1986')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('war-requiem-1986').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -500,8 +447,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Cara O'Sullivan (soprano), Anthony Rolfe Johnson (tenor), Johannes Mannov (baritone), Boys of St. Patrick's Cathedral, Boys of the Palestrina Choir, Boys of St. Bartholomew's Choir, RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, David Brophy (conductor of chamber orchestra), Alexander Anissimov (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
-      <button onclick="loadProgramNote('1MpUjQRFC5CZNyvpL-aYE7ALjdc-4ZHWdf06X4T69WeA', 'note-wr-2002')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-wr-2002" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('1MpUjQRFC5CZNyvpL-aYE7ALjdc-4ZHWdf06X4T69WeA', 'Britten, War Requiem, 1 March 2002')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('war-requiem-2002').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -512,8 +458,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Ailish Tynan (soprano), Robin Tritschler (tenor), Gavan Ring (baritone), The Choristers of St Patrick's Cathedral, RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ Concert Orchestra and RTÉ National Symphony Orchestra, David Brophy (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <button onclick="loadProgramNote('1RwUSVonwDMJ_9SuJtqhcswG3HiyaDOFtwOXjJksVUBc', 'note-wr-2018')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-wr-2018" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('1RwUSVonwDMJ_9SuJtqhcswG3HiyaDOFtwOXjJksVUBc', 'Britten, War Requiem, 9 November 2018')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('war-requiem-2018').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -524,8 +469,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> James Oxley (tenor, Evangelist), Philip O'Reilly (bass, Jesus), Róisín O'Grady (soprano), Sharon Carty (alto), Eamonn Mulhall (tenor), Padraic Rowan (bass, Pilate), Pascall Kennedy (bass), Shokri Raoof (bass), Margaret Bridge (alto), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Robert Howarth (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <button onclick="loadProgramNote('1oawEhKSc0aEr64aTF9mmJMJETFBHdnUsDVfzClrEnec', 'note-bach-2015')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-bach-2015" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('1oawEhKSc0aEr64aTF9mmJMJETFBHdnUsDVfzClrEnec', 'Bach, St Matthew Passion, 3 April 2015')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('bach-2015').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -536,8 +480,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Ben Johnson (tenor, Evangelist), Stephan Loges (bass, Jesus), Aoife Miskelly (soprano), Madeleine Shaw (mezzo-soprano), Mark Wilde (tenor), Brendan Collins (bass, Pilate), Peter Manning & Tim Shaffrey (basses, High Priests), Mihaela Loredana Chirvase (alto, Witness), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <button onclick="loadProgramNote('11cUDWilCk8PkjFSVITPTZ5PRLbBwPyTKn47BWGvUagY', 'note-bach-2017')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-bach-2017" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('11cUDWilCk8PkjFSVITPTZ5PRLbBwPyTKn47BWGvUagY', 'Bach, St Matthew Passion, 14 April 2017')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('bach-2017').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -548,8 +491,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> James Way (tenor, Evangelist), James Newby (bass, Jesus), Daire Halpin (soprano), Claudia Huckle (alto), James Oxley (tenor), Padraic Rowan (bass, Pilate), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, David Young (guest chorus director), RTÉ National Symphony Orchestra, David Hill (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <button onclick="loadProgramNote('1O9tGVKQeyCNIz-5DiIaJmxiWQ1mke1d4D3f2AX7D6bI', 'note-bach-2019')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-bach-2019" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('1O9tGVKQeyCNIz-5DiIaJmxiWQ1mke1d4D3f2AX7D6bI', 'Bach, St Matthew Passion, 19 April 2019')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('bach-2019').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -560,8 +502,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Gavan Ring (tenor, Evangelist), Dan D’Souza (bass, Jesus), Kelli-Ann Masterson (soprano), Bethany Horak-Hallett (alto), Ilker Arcayürek (tenor), Michael Mofidian (bass, Pilate), Cór na nÓg (Mary Amond O’Brien, choral director), National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, David Young (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <button onclick="loadProgramNote('179VLD_6o6TTMt8Owcg84OvgIN5u-KxJteXKXQU-bB5o', 'note-bach-2024')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-bach-2024" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('179VLD_6o6TTMt8Owcg84OvgIN5u-KxJteXKXQU-bB5o', 'Bach, St Matthew Passion, 29 March 2024')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('bach-2024').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -572,8 +513,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ National Symphony Orchestra, José Serebrier (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <button onclick="loadProgramNote('13q9fO3kmqRQzngQ6RbOhxfzle-xQYn52FbgN9aEEd5o', 'note-holst-2018')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-holst-2018" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('13q9fO3kmqRQzngQ6RbOhxfzle-xQYn52FbgN9aEEd5o', 'Holst, The Planets, 28 September 2018')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('holst-2018').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -584,8 +524,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Anne Murray (mezzo-soprano, Marguerite, Celestial Voice), Peter Hoare (tenor, Faust), Gerard O'Connor (bass, Mephistopheles), Darren Jeffrey (bass, Brander), Boys of Clongowes Wood College & De La Salle College, Waterford, RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <button onclick="loadProgramNote('1YtwGZziu97-OsooSwadl9DcxFUU7Ag-0UfkMQ8tfiEw', 'note-berlioz-2003')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
-      <div id="note-berlioz-2003" style="display: none; margin-top: 10px;"></div>
+      <button onclick="openProgramNoteWindow('1YtwGZziu97-OsooSwadl9DcxFUU7Ag-0UfkMQ8tfiEw', 'Berlioz, Damnation of Faust, 5 December 2003')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('berlioz-2003').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
@@ -658,31 +597,54 @@
     }
   }
 
-  async function loadProgramNote(docId, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-
-    if (container.style.display === 'block') {
-      container.style.display = 'none';
-      return;
+  async function openProgramNoteWindow(docId, noteTitle) {
+    // Open a loading window immediately
+    const win = window.open('', '_blank');
+    if (win) {
+      win.document.write(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <title>${noteTitle}</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fdfdfd; }
+            h2 { color: #292524; border-bottom: 2px solid #78716c; padding-bottom: 8px; margin-top: 0; }
+            .print-btn { background: #57534e; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 25px; }
+            .print-btn:hover { background: #44403c; }
+            p { text-align: justify; text-justify: inter-word; }
+            @media print { .print-btn { display: none; } }
+          </style>
+        </head>
+        <body>
+          <button class="print-btn" onclick="window.print()">Print Program Note</button>
+          <h2>${noteTitle}</h2>
+          <div id="content" style="font-size: 16px;"><em>Loading program note...</em></div>
+        </body>
+        </html>
+      `);
     }
-
-    container.style.display = 'block';
-    container.innerHTML = '<div class="program-note-content"><em>Loading program note...</em></div>';
 
     try {
       const response = await fetch(`${PROGRAM_NOTE_WORKER}?docId=${docId}`);
       if (!response.ok) throw new Error(`Server returned status ${response.status}`);
       
       const data = await response.json();
-      if (data.content) {
-        container.innerHTML = `<div class="program-note-content">${data.content}</div>`;
-      } else {
-        container.innerHTML = '<div class="program-note-content"><em>No content available for this program note.</em></div>';
+      if (win && !win.closed) {
+        const contentDiv = win.document.getElementById('content');
+        if (contentDiv) {
+          contentDiv.innerHTML = data.content || '<em>No content available for this program note.</em>';
+        }
       }
     } catch (err) {
       console.error('Failed to load program note:', err);
-      container.innerHTML = '<div class="program-note-content" style="color: #d32f2f;"><em>Failed to load program note. Please check connection or sharing permissions.</em></div>';
+      if (win && !win.closed) {
+        const contentDiv = win.document.getElementById('content');
+        if (contentDiv) {
+          contentDiv.innerHTML = '<span style="color: #d32f2f;"><em>Failed to load program note. Please check connection or sharing permissions.</em></span>';
+        }
+      }
     }
   }
 
