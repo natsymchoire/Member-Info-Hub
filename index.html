@@ -324,18 +324,24 @@
       max-width: 100% !important;
       margin: 0 auto 15px auto !important;
       border-collapse: collapse !important;
-      table-layout: auto !important;
-      display: table !important;
+      border: none !important;
+      background: transparent !important;
     }
     .program-note-content tr {
-      display: table-row !important;
+      border: none !important;
+      background: transparent !important;
     }
     .program-note-content td, .program-note-content th {
-      display: table-cell !important;
+      border: none !important;
+      background: transparent !important;
       word-wrap: break-word !important;
       overflow-wrap: break-word !important;
-      padding: 6px !important;
-      float: none !important;
+      padding: 4px 0 !important;
+    }
+    .program-note-content input[type="checkbox"], 
+    .program-note-content span[role="checkbox"],
+    .program-note-content img[src*="checkbox"] {
+      display: none !important;
     }
   </style>
 </head>
