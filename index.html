@@ -274,7 +274,7 @@
       border-left-width: 4px;
     }
 
-    /* Content styling supporting inline email HTML formatting & full-width program notes */
+    /* Content styling supporting inline email HTML formatting */
     #director-content, #manager-content {
       font-size: 16px; 
       margin-bottom: 12px; 
@@ -286,8 +286,10 @@
       border-radius: 4px;
       line-height: 1.6;
     }
+
+    /* Program Note Content & Google Docs Override Fix */
     .program-note-content {
-      font-size: 16px; 
+      font-size: 15px; 
       margin-bottom: 12px; 
       max-height: 550px; 
       overflow-y: auto; 
@@ -296,20 +298,34 @@
       padding: 15px; 
       border-radius: 4px;
       line-height: 1.6;
+      text-align: left !important;
+    }
+    .program-note-content * {
+      font-weight: normal !important;
+      font-family: Arial, sans-serif !important;
+      text-align: left !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      letter-spacing: normal !important;
+    }
+    .program-note-content b, .program-note-content strong {
+      font-weight: bold !important;
+    }
+    .program-note-content i, .program-note-content em {
+      font-style: italic !important;
     }
     .program-note-content table {
       width: 100% !important;
       max-width: 100% !important;
-      margin: 0 auto !important;
+      margin: 0 !important;
       border-collapse: collapse !important;
+      table-layout: auto !important;
     }
     .program-note-content td, .program-note-content th {
       word-wrap: break-word;
       overflow-wrap: break-word;
-      padding: 8px !important;
-    }
-    .program-note-content div, .program-note-content span {
-      max-width: 100% !important;
+      padding: 6px !important;
+      text-align: left !important;
     }
   </style>
 </head>
@@ -457,7 +473,7 @@
 
   <!-- 1. War Requiem - 27 June 1986 -->
   <div id="war-requiem-1986" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Britten: War Requiem (27 June 1986)</h3>
+    <h3>Britten, War Requiem, 27 June 1986</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Jennifer Smith (soprano), Maldwyn Davies (tenor), Peter McBrien (bass), Boys of the Palestrina Choir and of St Patrick's Cathedral, RTÉ Philharmonic Choir, Colin Mawby (chorus director), RTÉ Symphony Orchestra, Colman Pearce (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
@@ -469,7 +485,7 @@
 
   <!-- 2. War Requiem - 1 March 2002 -->
   <div id="war-requiem-2002" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Britten: War Requiem (1 March 2002)</h3>
+    <h3>Britten, War Requiem, 1 March 2002</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Cara O'Sullivan (soprano), Anthony Rolfe Johnson (tenor), Johannes Mannov (baritone), Boys of St. Patrick's Cathedral, Boys of the Palestrina Choir, Boys of St. Bartholomew's Choir, RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, David Brophy (conductor of chamber orchestra), Alexander Anissimov (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
@@ -481,7 +497,7 @@
 
   <!-- 3. War Requiem - 9 November 2018 -->
   <div id="war-requiem-2018" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Britten: War Requiem (9 November 2018)</h3>
+    <h3>Britten, War Requiem, 9 November 2018</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Ailish Tynan (soprano), Robin Tritschler (tenor), Gavan Ring (baritone), The Choristers of St Patrick's Cathedral, RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ Concert Orchestra and RTÉ National Symphony Orchestra, David Brophy (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
@@ -493,7 +509,7 @@
 
   <!-- 4. Bach: St Matthew Passion - 3 April 2015 -->
   <div id="bach-2015" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Bach: St Matthew Passion (3 April 2015)</h3>
+    <h3>Bach, St Matthew Passion, 3 April 2015</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> James Oxley (tenor, Evangelist), Philip O'Reilly (bass, Jesus), Róisín O'Grady (soprano), Sharon Carty (alto), Eamonn Mulhall (tenor), Padraic Rowan (bass, Pilate), Pascall Kennedy (bass), Shokri Raoof (bass), Margaret Bridge (alto), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Robert Howarth (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
@@ -505,7 +521,7 @@
 
   <!-- 5. Bach: St Matthew Passion - 14 April 2017 -->
   <div id="bach-2017" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Bach: St Matthew Passion (14 April 2017)</h3>
+    <h3>Bach, St Matthew Passion, 14 April 2017</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Ben Johnson (tenor, Evangelist), Stephan Loges (bass, Jesus), Aoife Miskelly (soprano), Madeleine Shaw (mezzo-soprano), Mark Wilde (tenor), Brendan Collins (bass, Pilate), Peter Manning & Tim Shaffrey (basses, High Priests), Mihaela Loredana Chirvase (alto, Witness), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
@@ -517,7 +533,7 @@
 
   <!-- 6. Bach: St Matthew Passion - 19 April 2019 -->
   <div id="bach-2019" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Bach: St Matthew Passion (19 April 2019)</h3>
+    <h3>Bach, St Matthew Passion, 19 April 2019</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> James Way (tenor, Evangelist), James Newby (bass, Jesus), Daire Halpin (soprano), Claudia Huckle (alto), James Oxley (tenor), Padraic Rowan (bass, Pilate), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, David Young (guest chorus director), RTÉ National Symphony Orchestra, David Hill (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
@@ -529,7 +545,7 @@
 
   <!-- 7. Bach: St Matthew Passion - 29 March 2024 -->
   <div id="bach-2024" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Bach: St Matthew Passion (29 March 2024)</h3>
+    <h3>Bach, St Matthew Passion, 29 March 2024</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Gavan Ring (tenor, Evangelist), Dan D’Souza (bass, Jesus), Kelli-Ann Masterson (soprano), Bethany Horak-Hallett (alto), Ilker Arcayürek (tenor), Michael Mofidian (bass, Pilate), Cór na nÓg (Mary Amond O’Brien, choral director), National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, David Young (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
@@ -541,7 +557,7 @@
 
   <!-- 8. Holst: The Planets - 28 September 2018 -->
   <div id="holst-2018" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Holst: The Planets (28 September 2018)</h3>
+    <h3>Holst, The Planets, 28 September 2018</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ National Symphony Orchestra, José Serebrier (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
@@ -553,7 +569,7 @@
 
   <!-- 9. Berlioz: Damnation of Faust - 5 December 2003 -->
   <div id="berlioz-2003" class="card card-archive-detail detail-card" style="display: none;">
-    <h3>Berlioz: La Damnation de Faust, Op.24 (5 December 2003)</h3>
+    <h3>Berlioz, La Damnation de Faust Op.24, 5 December 2003</h3>
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Anne Murray (mezzo-soprano, Marguerite, Celestial Voice), Peter Hoare (tenor, Faust), Gerard O'Connor (bass, Mephistopheles), Darren Jeffrey (bass, Brander), Boys of Clongowes Wood College & De La Salle College, Waterford, RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)</p>
       <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
