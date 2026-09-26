@@ -298,15 +298,20 @@
       padding: 15px; 
       border-radius: 4px;
       line-height: 1.6;
-      text-align: left !important;
+    }
+    .program-note-content p {
+      text-align: justify !important;
+      text-justify: inter-word !important;
     }
     .program-note-content * {
       font-weight: normal !important;
       font-family: Arial, sans-serif !important;
-      text-align: left !important;
       max-width: 100% !important;
       box-sizing: border-box !important;
       letter-spacing: normal !important;
+    }
+    .program-note-content h1, .program-note-content h2, .program-note-content h3, .program-note-content h4 {
+      text-align: left !important;
     }
     .program-note-content b, .program-note-content strong {
       font-weight: bold !important;
@@ -317,15 +322,20 @@
     .program-note-content table {
       width: 100% !important;
       max-width: 100% !important;
-      margin: 0 !important;
+      margin: 0 auto 15px auto !important;
       border-collapse: collapse !important;
       table-layout: auto !important;
+      display: table !important;
+    }
+    .program-note-content tr {
+      display: table-row !important;
     }
     .program-note-content td, .program-note-content th {
-      word-wrap: break-word;
-      overflow-wrap: break-word;
+      display: table-cell !important;
+      word-wrap: break-word !important;
+      overflow-wrap: break-word !important;
       padding: 6px !important;
-      text-align: left !important;
+      float: none !important;
     }
   </style>
 </head>
