@@ -786,10 +786,10 @@
 
       const nchUrl = `https://www.nch.ie/all-events-listing/?search=&from=${dateKey}`;
       
-      // Alternate between card-event-1 (Blue) and card-event-alt (Green)
-      const cardClass = (i % 2 === 1) ? 'card-event-1' : 'card-event-alt';
-      const borderColor = (i % 2 === 1) ? '#1d4ed8' : '#22c55e';
-      const linkColor = (i % 2 === 1) ? '#1e3a8a' : '#15803d';
+      // i=1 is Green (card-event-alt), i=2 is Blue, i=3 is Green, etc.
+      const cardClass = (i % 2 === 1) ? 'card-event-alt' : 'card-event-1';
+      const borderColor = (i % 2 === 1) ? '#22c55e' : '#1d4ed8';
+      const linkColor = (i % 2 === 1) ? '#15803d' : '#1e3a8a';
 
       fullHTML += `
         <div class="card ${cardClass}">
@@ -1050,7 +1050,7 @@
       </html>
     `;
 
-    const blob = new Blob([instructionsHTML], { type: 'text/html' });
+    const blob = new Blob([printPageHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
     window.open(blobUrl, '_blank');
   }
