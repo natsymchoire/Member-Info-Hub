@@ -96,12 +96,12 @@
     .card-app-install { background-color: #e8f5f4; border-color: #1d5c5a; }
     .card-app-install h3 { color: #1d5c5a; }
 
-    /* Green Theme for Previous Performances Container */
-    .card-performances { background-color: #f0fdf4; border-color: #22c55e; }
-    .card-performances h3 { color: #15803d; }
+    /* Editorial Archive Theme (Restrained Warm Neutral / Slate) */
+    .card-performances { background-color: #fafaf9; border-color: #78716c; }
+    .card-performances h3 { color: #44403c; }
 
-    .card-archive-detail { background-color: #f0fdf4; border-color: #16a34a; }
-    .card-archive-detail h3 { color: #166534; }
+    .card-archive-detail { background-color: #fafaf9; border-color: #57534e; }
+    .card-archive-detail h3 { color: #292524; }
 
     /* Top External Navigation Buttons */
     .top-nav {
@@ -154,7 +154,7 @@
     }
     .bottom-nav-btn:hover { background-color: #475569; }
 
-    /* Bottom Full-Width Toggle Button (Subtle, less glaring green) */
+    /* Bottom Full-Width Toggle Button (Restrained Deep Warm Charcoal / Slate) */
     .bottom-nav-full {
       margin-bottom: 20px;
     }
@@ -168,15 +168,15 @@
       text-align: center;
       padding: 14px 10px;
       border-radius: 8px;
-      border: 1px solid #16a34a;
-      background-color: #22c55e;
+      border: 1px solid #475569;
+      background-color: #57534e;
       cursor: pointer;
       font-weight: bold;
       line-height: 1.2;
-      box-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
+      box-shadow: 0 2px 4px rgba(87, 83, 78, 0.2);
       font-family: Arial, sans-serif;
     }
-    .bottom-nav-full-btn:hover { background-color: #16a34a; }
+    .bottom-nav-full-btn:hover { background-color: #44403c; }
 
     .load-more-btn, .reduce-btn {
       display: block;
@@ -215,13 +215,13 @@
     }
     .sub-btn-alt { background-color: #1d5c5a; }
 
-    /* Buttons for the 4 works (Medium green / ~66% brightness feel) */
+    /* Buttons for the 4 works (Muted Taupe / Editorial Neutral) */
     .perf-btn {
       display: block;
       width: 100%;
       box-sizing: border-box;
-      background-color: #4ade80;
-      color: #14532d;
+      background-color: #78716c;
+      color: #ffffff;
       text-align: center;
       padding: 12px;
       border-radius: 6px;
@@ -232,23 +232,22 @@
       border: none;
       cursor: pointer;
       font-family: Arial, sans-serif;
-      box-shadow: 0 1px 3px rgba(74, 222, 128, 0.2);
+      box-shadow: 0 1px 3px rgba(120, 113, 108, 0.2);
     }
     .perf-btn:first-of-type {
       margin-top: 0;
     }
     .perf-btn:hover {
-      background-color: #22c55e;
-      color: #ffffff;
+      background-color: #57534e;
     }
 
-    /* Sub-performances buttons (Lighter green, stepping down importance) */
+    /* Sub-performances buttons (Soft Stone / Pale Neutral) */
     .sub-perf-btn {
       display: block;
       width: 100%;
       box-sizing: border-box;
-      background-color: #bbf7d0;
-      color: #166534;
+      background-color: #e7e5e4;
+      color: #292524;
       text-align: center;
       padding: 10px;
       border-radius: 6px;
@@ -256,13 +255,13 @@
       font-weight: bold;
       font-size: 13px;
       margin-top: 8px;
-      border: none;
+      border: 1px solid #d7d3cb;
       cursor: pointer;
       font-family: Arial, sans-serif;
     }
     .sub-perf-btn:hover {
-      background-color: #4ade80;
-      color: #14532d;
+      background-color: #d6d3d1;
+      color: #1c1917;
     }
 
     .parking-banner {
@@ -275,8 +274,8 @@
       border-left-width: 4px;
     }
 
-    /* Content styling supporting inline email HTML formatting */
-    #director-content, #manager-content, .program-note-content {
+    /* Content styling supporting inline email HTML formatting & full-width program notes */
+    #director-content, #manager-content {
       font-size: 16px; 
       margin-bottom: 12px; 
       max-height: 440px; 
@@ -287,16 +286,30 @@
       border-radius: 4px;
       line-height: 1.6;
     }
-    #director-content table, #manager-content table, .program-note-content table {
+    .program-note-content {
+      font-size: 16px; 
+      margin-bottom: 12px; 
+      max-height: 550px; 
+      overflow-y: auto; 
+      border: 1px solid #ccc; 
+      background: #fff; 
+      padding: 15px; 
+      border-radius: 4px;
+      line-height: 1.6;
+    }
+    .program-note-content table {
       width: 100% !important;
       max-width: 100% !important;
-      table-layout: fixed;
-      box-sizing: border-box;
+      margin: 0 auto !important;
+      border-collapse: collapse !important;
     }
-    #director-content td, #director-content th, #manager-content td, #manager-content th, .program-note-content td, .program-note-content th {
+    .program-note-content td, .program-note-content th {
       word-wrap: break-word;
       overflow-wrap: break-word;
-      padding: 6px !important;
+      padding: 8px !important;
+    }
+    .program-note-content div, .program-note-content span {
+      max-width: 100% !important;
     }
   </style>
 </head>
@@ -402,7 +415,7 @@
         Britten: War Requiem
       </button>
       <div id="war-requiem-sub" style="display: none; background: #f8fafc; padding: 10px; border-radius: 6px; margin-top: 8px; border: 1px solid #cbd5e1;">
-        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #15803d;">Select performance date:</p>
+        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #44403c;">Select performance date:</p>
         <button onclick="showPerformanceDetail('war-requiem-1986')" class="sub-perf-btn">27 June 1986</button>
         <button onclick="showPerformanceDetail('war-requiem-2002')" class="sub-perf-btn">1 March 2002</button>
         <button onclick="showPerformanceDetail('war-requiem-2018')" class="sub-perf-btn">9 November 2018</button>
@@ -413,7 +426,7 @@
         Bach: St Matthew Passion
       </button>
       <div id="bach-sub" style="display: none; background: #f8fafc; padding: 10px; border-radius: 6px; margin-top: 8px; border: 1px solid #cbd5e1;">
-        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #15803d;">Select performance date:</p>
+        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #44403c;">Select performance date:</p>
         <button onclick="showPerformanceDetail('bach-2015')" class="sub-perf-btn">3 April 2015</button>
         <button onclick="showPerformanceDetail('bach-2017')" class="sub-perf-btn">14 April 2017</button>
         <button onclick="showPerformanceDetail('bach-2019')" class="sub-perf-btn">19 April 2019</button>
@@ -425,7 +438,7 @@
         Holst: The Planets
       </button>
       <div id="holst-sub" style="display: none; background: #f8fafc; padding: 10px; border-radius: 6px; margin-top: 8px; border: 1px solid #cbd5e1;">
-        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #15803d;">Select performance date:</p>
+        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #44403c;">Select performance date:</p>
         <button onclick="showPerformanceDetail('holst-2018')" class="sub-perf-btn">28 September 2018</button>
       </div>
 
@@ -434,7 +447,7 @@
         Berlioz: Damnation of Faust
       </button>
       <div id="berlioz-sub" style="display: none; background: #f8fafc; padding: 10px; border-radius: 6px; margin-top: 8px; border: 1px solid #cbd5e1;">
-        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #15803d;">Select performance date:</p>
+        <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #44403c;">Select performance date:</p>
         <button onclick="showPerformanceDetail('berlioz-2003')" class="sub-perf-btn">5 December 2003</button>
       </div>
     </div>
@@ -446,13 +459,11 @@
   <div id="war-requiem-1986" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Britten: War Requiem (27 June 1986)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        Jennifer Smith (soprano), Maldwyn Davies (tenor), Peter McBrien (bass), Boys of the Palestrina Choir and of St Patrick's Cathedral, RTÉ Philharmonic Choir, Colin Mawby (chorus director), RTÉ Symphony Orchestra, Colman Pearce (conductor)
-      </p>
-      <button onclick="loadProgramNote('1dlbLyeGn9vUycyJcy-HT2fdx3W1E-OShgaBLbBfXsbQ', 'note-wr-1986')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Jennifer Smith (soprano), Maldwyn Davies (tenor), Peter McBrien (bass), Boys of the Palestrina Choir and of St Patrick's Cathedral, RTÉ Philharmonic Choir, Colin Mawby (chorus director), RTÉ Symphony Orchestra, Colman Pearce (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
+      <button onclick="loadProgramNote('1dlbLyeGn9vUycyJcy-HT2fdx3W1E-OShgaBLbBfXsbQ', 'note-wr-1986')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-wr-1986" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('war-requiem-1986').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('war-requiem-1986').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -460,13 +471,11 @@
   <div id="war-requiem-2002" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Britten: War Requiem (1 March 2002)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        Cara O'Sullivan (soprano), Anthony Rolfe Johnson (tenor), Johannes Mannov (baritone), Boys of St. Patrick's Cathedral, Boys of the Palestrina Choir, Boys of St. Bartholomew's Choir, RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, David Brophy (conductor of chamber orchestra), Alexander Anissimov (conductor)
-      </p>
-      <button onclick="loadProgramNote('1MpUjQRFC5CZNyvpL-aYE7ALjdc-4ZHWdf06X4T69WeA', 'note-wr-2002')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Cara O'Sullivan (soprano), Anthony Rolfe Johnson (tenor), Johannes Mannov (baritone), Boys of St. Patrick's Cathedral, Boys of the Palestrina Choir, Boys of St. Bartholomew's Choir, RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, David Brophy (conductor of chamber orchestra), Alexander Anissimov (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> St Patrick's Cathedral, Dublin</p>
+      <button onclick="loadProgramNote('1MpUjQRFC5CZNyvpL-aYE7ALjdc-4ZHWdf06X4T69WeA', 'note-wr-2002')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-wr-2002" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('war-requiem-2002').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('war-requiem-2002').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -474,13 +483,11 @@
   <div id="war-requiem-2018" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Britten: War Requiem (9 November 2018)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        Ailish Tynan (soprano), Robin Tritschler (tenor), Gavan Ring (baritone), The Choristers of St Patrick's Cathedral, RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ Concert Orchestra and RTÉ National Symphony Orchestra, David Brophy (conductor)
-      </p>
-      <button onclick="loadProgramNote('1RwUSVonwDMJ_9SuJtqhcswG3HiyaDOFtwOXjJksVUBc', 'note-wr-2018')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Ailish Tynan (soprano), Robin Tritschler (tenor), Gavan Ring (baritone), The Choristers of St Patrick's Cathedral, RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ Concert Orchestra and RTÉ National Symphony Orchestra, David Brophy (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
+      <button onclick="loadProgramNote('1RwUSVonwDMJ_9SuJtqhcswG3HiyaDOFtwOXjJksVUBc', 'note-wr-2018')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-wr-2018" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('war-requiem-2018').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('war-requiem-2018').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -488,13 +495,11 @@
   <div id="bach-2015" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Bach: St Matthew Passion (3 April 2015)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        James Oxley (tenor, Evangelist), Philip O'Reilly (bass, Jesus), Róisín O'Grady (soprano), Sharon Carty (alto), Eamonn Mulhall (tenor), Padraic Rowan (bass, Pilate), Pascall Kennedy (bass), Shokri Raoof (bass), Margaret Bridge (alto), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Robert Howarth (conductor)
-      </p>
-      <button onclick="loadProgramNote('1oawEhKSc0aEr64aTF9mmJMJETFBHdnUsDVfzClrEnec', 'note-bach-2015')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> James Oxley (tenor, Evangelist), Philip O'Reilly (bass, Jesus), Róisín O'Grady (soprano), Sharon Carty (alto), Eamonn Mulhall (tenor), Padraic Rowan (bass, Pilate), Pascall Kennedy (bass), Shokri Raoof (bass), Margaret Bridge (alto), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Robert Howarth (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
+      <button onclick="loadProgramNote('1oawEhKSc0aEr64aTF9mmJMJETFBHdnUsDVfzClrEnec', 'note-bach-2015')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-bach-2015" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('bach-2015').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('bach-2015').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -502,13 +507,11 @@
   <div id="bach-2017" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Bach: St Matthew Passion (14 April 2017)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        Ben Johnson (tenor, Evangelist), Stephan Loges (bass, Jesus), Aoife Miskelly (soprano), Madeleine Shaw (mezzo-soprano), Mark Wilde (tenor), Brendan Collins (bass, Pilate), Peter Manning & Tim Shaffrey (basses, High Priests), Mihaela Loredana Chirvase (alto, Witness), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)
-      </p>
-      <button onclick="loadProgramNote('11cUDWilCk8PkjFSVITPTZ5PRLbBwPyTKn47BWGvUagY', 'note-bach-2017')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Ben Johnson (tenor, Evangelist), Stephan Loges (bass, Jesus), Aoife Miskelly (soprano), Madeleine Shaw (mezzo-soprano), Mark Wilde (tenor), Brendan Collins (bass, Pilate), Peter Manning & Tim Shaffrey (basses, High Priests), Mihaela Loredana Chirvase (alto, Witness), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
+      <button onclick="loadProgramNote('11cUDWilCk8PkjFSVITPTZ5PRLbBwPyTKn47BWGvUagY', 'note-bach-2017')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-bach-2017" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('bach-2017').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('bach-2017').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -516,13 +519,11 @@
   <div id="bach-2019" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Bach: St Matthew Passion (19 April 2019)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        James Way (tenor, Evangelist), James Newby (bass, Jesus), Daire Halpin (soprano), Claudia Huckle (alto), James Oxley (tenor), Padraic Rowan (bass, Pilate), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, David Young (guest chorus director), RTÉ National Symphony Orchestra, David Hill (conductor)
-      </p>
-      <button onclick="loadProgramNote('1O9tGVKQeyCNIz-5DiIaJmxiWQ1mke1d4D3f2AX7D6bI', 'note-bach-2019')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> James Way (tenor, Evangelist), James Newby (bass, Jesus), Daire Halpin (soprano), Claudia Huckle (alto), James Oxley (tenor), Padraic Rowan (bass, Pilate), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, David Young (guest chorus director), RTÉ National Symphony Orchestra, David Hill (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
+      <button onclick="loadProgramNote('1O9tGVKQeyCNIz-5DiIaJmxiWQ1mke1d4D3f2AX7D6bI', 'note-bach-2019')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-bach-2019" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('bach-2019').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('bach-2019').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -530,13 +531,11 @@
   <div id="bach-2024" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Bach: St Matthew Passion (29 March 2024)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        Gavan Ring (tenor, Evangelist), Dan D’Souza (bass, Jesus), Kelli-Ann Masterson (soprano), Bethany Horak-Hallett (alto), Ilker Arcayürek (tenor), Michael Mofidian (bass, Pilate), Cór na nÓg (Mary Amond O’Brien, choral director), National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, David Young (conductor)
-      </p>
-      <button onclick="loadProgramNote('179VLD_6o6TTMt8Owcg84OvgIN5u-KxJteXKXQU-bB5o', 'note-bach-2024')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Gavan Ring (tenor, Evangelist), Dan D’Souza (bass, Jesus), Kelli-Ann Masterson (soprano), Bethany Horak-Hallett (alto), Ilker Arcayürek (tenor), Michael Mofidian (bass, Pilate), Cór na nÓg (Mary Amond O’Brien, choral director), National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, David Young (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
+      <button onclick="loadProgramNote('179VLD_6o6TTMt8Owcg84OvgIN5u-KxJteXKXQU-bB5o', 'note-bach-2024')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-bach-2024" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('bach-2024').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('bach-2024').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -544,13 +543,11 @@
   <div id="holst-2018" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Holst: The Planets (28 September 2018)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ National Symphony Orchestra, José Serebrier (conductor)
-      </p>
-      <button onclick="loadProgramNote('13q9fO3kmqRQzngQ6RbOhxfzle-xQYn52FbgN9aEEd5o', 'note-holst-2018')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ National Symphony Orchestra, José Serebrier (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
+      <button onclick="loadProgramNote('13q9fO3kmqRQzngQ6RbOhxfzle-xQYn52FbgN9aEEd5o', 'note-holst-2018')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-holst-2018" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('holst-2018').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('holst-2018').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -558,13 +555,11 @@
   <div id="berlioz-2003" class="card card-archive-detail detail-card" style="display: none;">
     <h3>Berlioz: La Damnation de Faust, Op.24 (5 December 2003)</h3>
     <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
-      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Performers:</strong><br>
-        Anne Murray (mezzo-soprano, Marguerite, Celestial Voice), Peter Hoare (tenor, Faust), Gerard O'Connor (bass, Mephistopheles), Darren Jeffrey (bass, Brander), Boys of Clongowes Wood College & De La Salle College, Waterford, RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)
-      </p>
-      <button onclick="loadProgramNote('1YtwGZziu97-OsooSwadl9DcxFUU7Ag-0UfkMQ8tfiEw', 'note-berlioz-2003')" class="sub-btn" style="background-color: #16a34a; margin-bottom: 10px;">Click here for Program Note</button>
+      <p style="margin-top: 0; font-size: 14px;"><strong>Performers:</strong> Anne Murray (mezzo-soprano, Marguerite, Celestial Voice), Peter Hoare (tenor, Faust), Gerard O'Connor (bass, Mephistopheles), Darren Jeffrey (bass, Brander), Boys of Clongowes Wood College & De La Salle College, Waterford, RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)</p>
+      <p style="font-size: 14px; margin-bottom: 12px;"><strong>Venue:</strong> National Concert Hall, Dublin</p>
+      <button onclick="loadProgramNote('1YtwGZziu97-OsooSwadl9DcxFUU7Ag-0UfkMQ8tfiEw', 'note-berlioz-2003')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Click here for Program Note</button>
       <div id="note-berlioz-2003" style="display: none; margin-top: 10px;"></div>
-      <button onclick="document.getElementById('berlioz-2003').style.display='none';" class="sub-btn" style="background-color: #64748b; margin-top: 10px;">Close Details</button>
+      <button onclick="document.getElementById('berlioz-2003').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
   </div>
 
@@ -584,24 +579,29 @@
     const installSection = document.getElementById('install-section');
     const performancesSection = document.getElementById('performances-section');
 
+    const isTargetAlreadyOpen = document.getElementById(sectionId).style.display === 'block';
+
     subscribeSection.style.display = 'none';
     installSection.style.display = 'none';
     performancesSection.style.display = 'none';
 
-    if (sectionId === 'subscribe-section' && subscribeSection.style.display === 'none') {
-      subscribeSection.style.display = 'block';
-      subscribeSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    } else if (sectionId === 'install-section' && installSection.style.display === 'none') {
-      installSection.style.display = 'block';
-      installSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    } else if (sectionId === 'performances-section' && performancesSection.style.display === 'none') {
-      performancesSection.style.display = 'block';
-      performancesSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (!isTargetAlreadyOpen) {
+      const target = document.getElementById(sectionId);
+      target.style.display = 'block';
+      target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } else if (sectionId === 'performances-section') {
+      const subMenus = ['war-requiem-sub', 'bach-sub', 'holst-sub', 'berlioz-sub'];
+      subMenus.forEach(id => {
+        document.getElementById(id).style.display = 'none';
+      });
+      const allDetailCards = document.querySelectorAll('.detail-card');
+      allDetailCards.forEach(card => {
+        card.style.display = 'none';
+      });
     }
   }
 
   function toggleWorkSubMenu(subId) {
-    // Automatically close any open detail cards when switching works
     const allDetailCards = document.querySelectorAll('.detail-card');
     allDetailCards.forEach(card => {
       card.style.display = 'none';
@@ -619,7 +619,6 @@
   }
 
   function showPerformanceDetail(detailId) {
-    // Automatically close all other detail cards first for mutual exclusivity
     const allDetailCards = document.querySelectorAll('.detail-card');
     allDetailCards.forEach(card => {
       card.style.display = 'none';
@@ -764,7 +763,7 @@
       <div class="card card-manager">
         <h3>Notes from Choir Manager</h3>
         <div class="card-inner">
-          <p style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;" id="manager-timestamp">Last Updated: Loading...</p>
+          <p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
           <div id="manager-content">
             <em>No notes currently available.</em>
           </div>
@@ -866,7 +865,7 @@
             <em>No notes currently available.</em>
           </div>
           <div style="text-align: right; margin-top: 5px;">
-            <a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #7e22ce; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
+            <a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #7e22ce; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a>
           </div>
         </div>
       </div>
