@@ -124,9 +124,9 @@
     .card-archive-detail { background-color: #fafaf9; border-color: #57534e; }
     .card-archive-detail h3 { color: #292524; }
 
-    /* Muted Fault Card (approx 25% visual glare) */
-    .card-fault { background-color: #fdf8f8; border-color: #e5989b; }
-    .card-fault h3 { color: #8c2d2d; }
+    /* Muted Fault Card (softened by another 50% for a subtle neutral-rose appearance) */
+    .card-fault { background-color: #fcfbfb; border-color: #d8b4b4; }
+    .card-fault h3 { color: #734040; }
 
     /* Top External Navigation Buttons */
     .top-nav {
@@ -600,12 +600,17 @@
           <textarea id="fault-desc" rows="4" style="width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;" required placeholder="Please provide details about what went wrong..."></textarea>
         </div>
 
-        <div style="margin-bottom: 15px;">
-          <label for="fault-contact" style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 4px;">Email address or mobile phone number (optional):</label>
-          <input type="text" id="fault-contact" style="width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;" placeholder="e.g., name@example.com or 087 123 4567">
+        <div style="margin-bottom: 12px;">
+          <label for="fault-email" style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 4px;">Email address (optional):</label>
+          <input type="email" id="fault-email" style="width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;" placeholder="e.g., name@example.com">
         </div>
 
-        <button type="submit" class="sub-btn" style="background-color: #8c2d2d; margin-top: 0;">Open Email to Send Fault Report</button>
+        <div style="margin-bottom: 15px;">
+          <label for="fault-phone" style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 4px;">Mobile phone number (optional):</label>
+          <input type="tel" id="fault-phone" style="width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;" placeholder="e.g., 087 123 4567">
+        </div>
+
+        <button type="submit" class="sub-btn" style="background-color: #734040; margin-top: 0;">Open Email to Send Fault Report</button>
         <button type="button" onclick="toggleSection('fault-section')" class="sub-btn" style="background-color: #78716c; margin-top: 8px;">Cancel</button>
       </form>
     </div>
@@ -617,7 +622,7 @@
       <span class="btn-large">Generate QR Code</span>
       <span class="btn-large">for this App</span>
     </button>
-    <button onclick="toggleSection('fault-section')" class="bottom-dual-btn" style="background-color: #8c2d2d; border-color: #752525;">
+    <button onclick="toggleSection('fault-section')" class="bottom-dual-btn" style="background-color: #734040; border-color: #5c3333;">
       <span class="btn-large">Report Faults or Glitches</span>
       <span class="btn-large">With this App</span>
     </button>
@@ -669,7 +674,8 @@
     const checkboxes = document.querySelectorAll('input[name="fault_area"]:checked');
     const selectedAreas = Array.from(checkboxes).map(cb => cb.value);
     const description = document.getElementById('fault-desc').value.trim();
-    const contact = document.getElementById('fault-contact').value.trim();
+    const emailContact = document.getElementById('fault-email').value.trim();
+    const phoneContact = document.getElementById('fault-phone').value.trim();
 
     // Get exact Irish time timestamp
     const now = new Date();
@@ -690,15 +696,15 @@
       bodyText += " - None specifically checked\n";
     }
     bodyText += "\nDescription of Problem:\n" + description + "\n";
-    if (contact) {
-      bodyText += "\nContact Info provided: " + contact + "\n";
+    
+    if (emailContact || phoneContact) {
+      bodyText += "\nContact Information Provided:\n";
+      if (emailContact) bodyText += " - Email: " + emailContact + "\n";
+      if (phoneContact) bodyText += " - Mobile Phone: " + phoneContact + "\n";
     }
 
-    // Encrypted recipient routing keeping personal admin address hidden from plain view on GitHub
-    const primaryRecipient = "natsymphchorus@gmail.com";
-    const ccRecipient = "kevinfoconnell@gmail.com";
-
-    const mailtoUri = "mailto:" + primaryRecipient + "?cc=" + ccRecipient + "&subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyText);
+    const recipient = "natsymphchorus@gmail.com";
+    const mailtoUri = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyText);
 
     window.location.href = mailtoUri;
   }
