@@ -430,35 +430,25 @@
 
     fullHTML += '<div class="section-subheading">Current Notes</div>';
 
-    fullHTML += `
-      <div class="card card-director">
-        <h3>Notes from Choral Director</h3>
-        <div class="card-inner">
-          <p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
-          <div style="position: relative; overflow: hidden; height: 440px; border: 1px solid #ccc; background: #fff; border-radius: 4px; margin-bottom: 8px;">
-            <iframe src="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/preview" style="position: absolute; top: -40px; left: 0; width: 100%; height: calc(100% + 40px); border: none;"></iframe>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/view" target="_blank" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-    `;
+    fullHTML += '<div class="card card-director">';
+    fullHTML += '<h3>Notes from Choral Director</h3>';
+    fullHTML += '<div class="card-inner">';
+    fullHTML += '<p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>';
+    fullHTML += '<div style="position: relative; overflow: hidden; height: 440px; border: 1px solid #ccc; background: #fff; border-radius: 4px; margin-bottom: 8px;">';
+    fullHTML += '<iframe src="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/preview" style="position: absolute; top: -40px; left: 0; width: 100%; height: calc(100% + 40px); border: none;"></iframe>';
+    fullHTML += '</div>';
+    fullHTML += '<div style="text-align: right; margin-top: 5px;">';
+    fullHTML += '<a href="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/view" target="_blank" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>';
+    fullHTML += '</div></div></div>';
 
-    fullHTML += `
-      <div class="card card-manager">
-        <h3>Notes from Choir Manager</h3>
-        <div class="card-inner">
-          <p style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;" id="manager-timestamp">Last Updated: Loading...</p>
-          <div id="manager-content" style="font-size: 16px; margin-bottom: 12px;">
-            <em>No notes currently available.</em>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #7e22ce; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-    `;
+    fullHTML += '<div class="card card-manager">';
+    fullHTML += '<h3>Notes from Choir Manager</h3>';
+    fullHTML += '<div class="card-inner">';
+    fullHTML += '<p style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;" id="manager-timestamp">Last Updated: Loading...</p>';
+    fullHTML += '<div id="manager-content" style="font-size: 16px; margin-bottom: 12px;"><em>No notes currently available.</em></div>';
+    fullHTML += '<div style="text-align: right; margin-top: 5px;">';
+    fullHTML += '<a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #7e22ce; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a>';
+    fullHTML += '</div></div></div>';
 
     fullHTML += '<div class="section-subheading">Future Events</div>';
 
@@ -512,42 +502,14 @@
   }
 
   function showFallbackNotice() {
-    let fallbackHTML = `
-      <div class="section-subheading">Next Event</div>
-      <div class="card card-event-1">
-        <h3>Schedule Notice</h3>
-        <div class="card-inner">
-          <p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=rtephilschedule%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p>
-        </div>
-      </div>
+    let fallbackHTML = '';
+    fallbackHTML += '<div class="section-subheading">Next Event</div>';
+    fallbackHTML += '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=rtephilschedule%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>';
+    
+    fallbackHTML += '<div class="section-subheading">Current Notes</div>';
+    fallbackHTML += '<div class="card card-director"><h3>Notes from Choral Director</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div style="position: relative; overflow: hidden; height: 440px; border: 1px solid #ccc; background: #fff; border-radius: 4px; margin-bottom: 8px;"><iframe src="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/preview" style="position: absolute; top: -40px; left: 0; width: 100%; height: calc(100% + 40px); border: none;"></iframe></div><div style="text-align: right; margin-top: 5px;"><a href="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/view" target="_blank" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
-      <div class="section-subheading">Current Notes</div>
-      <div class="card card-director">
-        <h3>Notes from Choral Director</h3>
-        <div class="card-inner">
-          <p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
-          <div style="position: relative; overflow: hidden; height: 440px; border: 1px solid #ccc; background: #fff; border-radius: 4px; margin-bottom: 8px;">
-            <iframe src="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/preview" style="position: absolute; top: -40px; left: 0; width: 100%; height: calc(100% + 40px); border: none;"></iframe>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/view" target="_blank" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card card-manager">
-        <h3>Notes from Choir Manager</h3>
-        <div class="card-inner">
-          <p style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;" id="manager-timestamp">Last Updated: Loading...</p>
-          <div id="manager-content" style="font-size: 16px; margin-bottom: 12px;">
-            <em>No notes currently available.</em>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #7e22ce; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-    `;
+    fallbackHTML += '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;" id="manager-timestamp">Last Updated: Loading...</p><div id="manager-content" style="font-size: 16px; margin-bottom: 12px;"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #7e22ce; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     document.getElementById('events-container').innerHTML = fallbackHTML;
     loadDirectorTimestamp();
@@ -604,29 +566,28 @@
     const contentHTML = contentEl ? contentEl.innerHTML : '';
     const timestampText = timeEl ? timeEl.innerText : '';
 
-    const printPageHTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Notes from Choir Manager - Printable View</title>
-        <style>
-          body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }
-          h2 { color: #7e22ce; border-bottom: 2px solid #7e22ce; padding-bottom: 8px; margin-top: 0; }
-          .timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }
-          .print-btn { background: #7e22ce; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }
-          @media print { .print-btn { display: none; } }
-        </style>
-      </head>
-      <body>
-        <button class="print-btn" onclick="window.print()">Print This Page</button>
-        <h2>Notes from Choir Manager</h2>
-        <div class="timestamp">${timestampText}</div>
-        <div style="font-size: 16px;">${contentHTML}</div>
-      </body>
-      </html>
-    `;
+    const printPageHTML = 
+      '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Notes from Choir Manager - Printable View</title>' +
+      '<style>' +
+      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
+      'h2 { color: #7e22ce; border-bottom: 2px solid #7e22ce; padding-bottom: 8px; margin-top: 0; }' +
+      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
+      '.print-btn { background: #7e22ce; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
+      '@media print { .print-btn { display: none; } }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
+      '<h2>Notes from Choir Manager</h2>' +
+      '<div class="timestamp">' + timestampText + '</div>' +
+      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
+      '</body>' +
+      '</html>';
 
     const blob = new Blob([printPageHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
@@ -635,72 +596,54 @@
 
   function openQRCodePage() {
     const appUrl = window.location.href;
-    const qrPageHTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>NSCI Hub - QR Code</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>
-        <style>
-          body { font-family: Arial, sans-serif; padding: 30px; color: #222; text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-          h2 { color: #e68a2e; margin-top: 0; font-variant: small-caps; }
-          .qr-container { background: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-          #qrcode { display: flex; justify-content: center; margin: 10px 0; }
-          .btn { background: #37474f; color: white; border: none; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px 5px; font-family: Arial, sans-serif; }
-          .btn:hover { background: #263238; }
-          .url-text { font-family: monospace; background: #f1f3f4; padding: 8px; border-radius: 4px; font-size: 13px; word-break: break-all; margin: 15px 0; }
-          @media print { .no-print { display: none; } }
-        </style>
-      </head>
-      <body>
-        <div class="no-print" style="margin-bottom: 20px;">
-          <button class="btn" onclick="window.print()">Print This Page</button>
-          <button class="btn" onclick="downloadQRCode()">Save QR Code as PNG</button>
-        </div>
-
-        <h2>National Symphony Chorus Ireland</h2>
-        <p><strong>Member Information Hub - QR Code</strong></p>
-        <p style="font-size: 14px;">Point your phone's camera at the QR code below to open this app on another device:</p>
-
-        <div class="qr-container" id="qr-box">
-          <div id="qrcode"></div>
-          <div class="url-text">${appUrl}</div>
-        </div>
-
-        <script>
-          new QRCode(document.getElementById("qrcode"), {
-            text: "${appUrl}",
-            width: 220,
-            height: 220,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-          });
-
-          function downloadQRCode() {
-            setTimeout(() => {
-              const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");
-              let imageUrl = "";
-              if (img.tagName === "CANVAS") {
-                imageUrl = img.toDataURL("image/png");
-              } else {
-                imageUrl = img.src;
-              }
-
-              const a = document.createElement("a");
-              a.href = imageUrl;
-              a.download = "NSCI_Hub_QR.png";
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-            }, 200);
-          }
-        </script>
-      </body>
-      </html>
-    `;
+    const qrPageHTML = 
+      '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>NSCI Hub - QR Code</title>' +
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>' +
+      '<style>' +
+      'body { font-family: Arial, sans-serif; padding: 30px; color: #222; text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.5; }' +
+      'h2 { color: #e68a2e; margin-top: 0; font-variant: small-caps; }' +
+      '.qr-container { background: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }' +
+      '#qrcode { display: flex; justify-content: center; margin: 10px 0; }' +
+      '.btn { background: #37474f; color: white; border: none; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px 5px; font-family: Arial, sans-serif; }' +
+      '.btn:hover { background: #263238; }' +
+      '.url-text { font-family: monospace; background: #f1f3f4; padding: 8px; border-radius: 4px; font-size: 13px; word-break: break-all; margin: 15px 0; }' +
+      '@media print { .no-print { display: none; } }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<div class="no-print" style="margin-bottom: 20px;">' +
+      '<button class="btn" onclick="window.print()">Print This Page</button>' +
+      '<button class="btn" onclick="downloadQRCode()">Save QR Code as PNG</button>' +
+      '</div>' +
+      '<h2>National Symphony Chorus Ireland</h2>' +
+      '<p><strong>Member Information Hub - QR Code</strong></p>' +
+      '<p style="font-size: 14px;">Point your phone\'s camera at the QR code below to open this app on another device:</p>' +
+      '<div class="qr-container" id="qr-box">' +
+      '<div id="qrcode"></div>' +
+      '<div class="url-text">' + appUrl + '</div>' +
+      '</div>' +
+      '<script>' +
+      'new QRCode(document.getElementById("qrcode"), { text: "' + appUrl + '", width: 220, height: 220, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });' +
+      'function downloadQRCode() {' +
+      '  setTimeout(() => {' +
+      '    const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");' +
+      '    let imageUrl = img.tagName === "CANVAS" ? img.toDataURL("image/png") : img.src;' +
+      '    const a = document.createElement("a");' +
+      '    a.href = imageUrl;' +
+      '    a.download = "NSCI_Hub_QR.png";' +
+      '    document.body.appendChild(a);' +
+      '    a.click();' +
+      '    document.body.removeChild(a);' +
+      '  }, 200);' +
+      '}' +
+      '<\/script>' +
+      '</body>' +
+      '</html>';
 
     const blob = new Blob([qrPageHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
@@ -720,44 +663,41 @@
       btn.innerText = originalText;
     }, 3000);
 
-    const instructionsHTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Apple & Outlook Calendar Setup Guide</title>
-        <style>
-          body { font-family: Arial, sans-serif; background: #f8f9fa; color: #333; padding: 20px; line-height: 1.6; }
-          .box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-top: 4px solid #37474f; }
-          h2 { color: #37474f; margin-top: 0; }
-          input { width: 100%; padding: 10px; font-size: 13px; box-sizing: border-box; background: #f1f3f4; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px; font-family: monospace; }
-          ul { padding-left: 20px; }
-          li { margin-bottom: 10px; }
-          .note { background: #fdf2f2; border-left: 4px solid #d9534f; padding: 10px; font-size: 13px; margin-top: 20px; border-radius: 4px; }
-        </style>
-      </head>
-      <body>
-        <div class="box">
-          <h2>Apple & Outlook Calendar Setup</h2>
-          <p>The subscription link has been copied to your clipboard. If you need to copy it manually again, use the box below:</p>
-          
-          <label for="urlbox"><strong>Calendar iCal Link:</strong></label>
-          <input type="text" id="urlbox" value="` + icalUrl + `" readonly onclick="this.select();">
-
-          <h3>Step-by-Step Instructions:</h3>
-          <ul>
-            <li><strong>iPhone / iPad (Apple Calendar):</strong> Open device <em>Settings &gt; Calendar &gt; Accounts &gt; Add Account &gt; Other &gt; Add Subscribed Calendar</em>, then paste the link into the Server field and save.</li>
-            <footer></footer>
-          </ul>
-
-          <div class="note">
-            <strong>Note:</strong> Calendar apps check for updates periodically (usually taking up to an hour or more to show changes). For urgent or last-minute updates, always check the main <a href="https://rtephilschedule-lab.github.io/NSC_Calendar/" target="_blank">National Symphony Chorus Member Hub</a>.
-          </div>
-        </div>
-      </body>
-      </html>
-    `;
+    const instructionsHTML = 
+      '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Apple & Outlook Calendar Setup Guide</title>' +
+      '<style>' +
+      'body { font-family: Arial, sans-serif; background: #f8f9fa; color: #333; padding: 20px; line-height: 1.6; }' +
+      '.box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-top: 4px solid #37474f; }' +
+      'h2 { color: #37474f; margin-top: 0; }' +
+      'input { width: 100%; padding: 10px; font-size: 13px; box-sizing: border-box; background: #f1f3f4; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px; font-family: monospace; }' +
+      'ul { padding-left: 20px; }' +
+      'li { margin-bottom: 10px; }' +
+      '.note { background: #fdf2f2; border-left: 4px solid #d9534f; padding: 10px; font-size: 13px; margin-top: 20px; border-radius: 4px; }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<div class="box">' +
+      '<h2>Apple & Outlook Calendar Setup</h2>' +
+      '<p>The subscription link has been copied to your clipboard. If you need to copy it manually again, use the box below:</p>' +
+      '<label for="urlbox"><strong>Calendar iCal Link:</strong></label>' +
+      '<input type="text" id="urlbox" value="' + icalUrl + '" readonly onclick="this.select();">' +
+      '<h3>Step-by-Step Instructions:</h3>' +
+      '<ul>' +
+      '<li><strong>iPhone / iPad (Apple Calendar):</strong> Open device <em>Settings &gt; Calendar &gt; Accounts &gt; Add Account &gt; Other &gt; Add Subscribed Calendar</em>, then paste the link into the Server field and save.</li>' +
+      '<li><strong>Mac (Apple Calendar):</strong> Open Calendar, click <em>File &gt; New Calendar Subscription</em>, paste the link, click Subscribe, and choose your preferred update frequency.</li>' +
+      '<li><strong>Outlook (Desktop / Web):</strong> Open Outlook Calendar, click <em>Add calendar &gt; Subscribe from web</em>, paste the link, name the calendar, and save.</li>' +
+      '</ul>' +
+      '<div class="note">' +
+      '<strong>Note:</strong> Calendar apps check for updates periodically (usually taking up to an hour or more to show changes). For urgent or last-minute updates, always check the main <a href="https://rtephilschedule-lab.github.io/NSC_Calendar/" target="_blank">National Symphony Chorus Member Hub</a>.' +
+      '</div>' +
+      '</div>' +
+      '</body>' +
+      '</html>';
 
     const blob = new Blob([instructionsHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
