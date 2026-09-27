@@ -124,7 +124,7 @@
     .card-archive-detail { background-color: #fafaf9; border-color: #57534e; }
     .card-archive-detail h3 { color: #292524; }
 
-    /* Muted Fault Card (softened by another 50% for a subtle neutral-rose appearance) */
+    /* Muted Fault Card (softened neutral-rose appearance) */
     .card-fault { background-color: #fcfbfb; border-color: #d8b4b4; }
     .card-fault h3 { color: #734040; }
 
@@ -870,7 +870,7 @@
       const diffTime = dateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       let parkingHTML = '';
-      if (diffDays <= 21 && diffDays >= 0) {
+      if (diffDays <= 14 && diffDays >= 0) {
         parkingHTML = '<div class="parking-banner" style="border-left-color: #1d4ed8;">Parking: <a href="' + nchUrl + '" target="_blank" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
       }
 
@@ -902,7 +902,7 @@
       const diffTime = dateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       let parkingHTML = '';
-      if (diffDays <= 21 && diffDays >= 0) {
+      if (diffDays <= 14 && diffDays >= 0) {
         parkingHTML = '<div class="parking-banner" style="border-left-color: #78909c;">Parking: <a href="' + nchUrl + '" target="_blank" style="color: #455a64; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
       }
 
