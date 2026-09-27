@@ -349,22 +349,6 @@
     </button>
   </div>
 
-  <!-- Additional Bottom Full-Width Button -->
-  <div class="bottom-nav-full">
-    <button onclick="toggleSection('performances-section')" class="bottom-nav-full-btn">
-      <span class="btn-large">Previous NSCI Performances</span>
-      <span class="btn-large">of Works in 2026/27 Season</span>
-    </button>
-  </div>
-
-  <!-- QR Code Generator Button -->
-  <div class="bottom-nav-full" style="margin-top: -10px;">
-    <button onclick="openQRCodePage()" class="bottom-nav-full-btn" style="background-color: #37474f; border-color: #263238;">
-      <span class="btn-large">Generate QR Code</span>
-      <span class="btn-large">for this App</span>
-    </button>
-  </div>
-
   <!-- Collapsible: Subscribe to Choir Calendar -->
   <div id="subscribe-section" class="card card-subscribe" style="display: none;">
     <h3>Subscribe to Choir Calendar</h3>
@@ -402,6 +386,14 @@
         </ol>
       </div>
     </div>
+  </div>
+
+  <!-- Additional Bottom Full-Width Button: Previous Performances -->
+  <div class="bottom-nav-full">
+    <button onclick="toggleSection('performances-section')" class="bottom-nav-full-btn">
+      <span class="btn-large">Previous NSCI Performances</span>
+      <span class="btn-large">of Works in 2026/27 Season</span>
+    </button>
   </div>
 
   <!-- Collapsible: Previous NSCI Performances of Works in 2026/27 Season -->
@@ -552,6 +544,14 @@
       <button onclick="openProgramNoteWindow('1YtwGZziu97-OsooSwadl9DcxFUU7Ag-0UfkMQ8tfiEw', 'Berlioz, Damnation of Faust, 5 December 2003')" class="sub-btn" style="background-color: #57534e; margin-bottom: 10px;">Open Program Note in New Window</button>
       <button onclick="document.getElementById('berlioz-2003').style.display='none';" class="sub-btn" style="background-color: #78716c; margin-top: 10px;">Close Details</button>
     </div>
+  </div>
+
+  <!-- QR Code Generator Button (Permanently Anchored at Bottom) -->
+  <div class="bottom-nav-full" style="margin-top: 10px;">
+    <button onclick="openQRCodePage()" class="bottom-nav-full-btn" style="background-color: #37474f; border-color: #263238;">
+      <span class="btn-large">Generate QR Code</span>
+      <span class="btn-large">for this App</span>
+    </button>
   </div>
 
 </div>
