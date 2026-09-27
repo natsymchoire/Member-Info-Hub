@@ -243,7 +243,7 @@
 
   <!-- Secondary Navigation Buttons -->
   <div class="top-nav">
-    <a href="https://calendar.google.com/calendar/embed?src=rtephilschedule%40gmail.com&ctz=Europe%2FDublin" target="_blank" class="nav-btn-calendar">
+    <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" class="nav-btn-calendar">
       <span class="btn-large">Choir</span>
       <span class="btn-large">Calendar</span>
     </a>
@@ -289,7 +289,7 @@
     <div class="card-inner">
       <p style="margin-top: 0; font-size: 14px; margin-bottom: 12px;">Add online choir calendar to your personal calendar app. Changes will sync automatically over time.</p>
       
-      <a href="https://calendar.google.com/calendar/u/0?cid=cnRlcGhpbHNjaGVkdWxlQGdtYWlsLmNvbQ" target="_blank" class="sub-btn">
+      <a href="https://calendar.google.com/calendar/u/0?cid=bmF0c3ltcGhjaG9ydXNAZ21haWwuY29t" target="_blank" class="sub-btn">
         Subscribe with Google Calendar
       </a>
       <button onclick="copyAndOpenInstructions(this)" class="sub-btn sub-btn-alt">
@@ -325,8 +325,9 @@
 </div>
 
 <script>
-  const WORKER_URL = 'https://nsc-calendar-proxy.rtephilschedule.workers.dev';
-  const DIRECTOR_TIMESTAMP_URL = 'https://script.google.com/macros/s/AKfycbxU4cm3ykUNinWSMzccfS-FMYlgFmjNb2vtC0cbMd2mdDWYuaCEvXEa80jzSEgY_tPMPQ/exec';
+  const WORKER_URL = 'https://nsc-calendar-proxy.natsymphchorus.workers.dev';
+  const DIRECTOR_WORKER_URL = 'https://nsc-choral-director-notes.natsymphchorus.workers.dev';
+  const MANAGER_WORKER_URL = 'https://nch-manager-notes.natsymphchorus.workers.dev';
 
   let cachedEvents = [];
   let showAllFuture = false;
@@ -354,7 +355,7 @@
       }
 
       renderEvents();
-      loadDirectorTimestamp();
+      loadDirectorNotes();
       loadManagerNotes();
 
     } catch (err) {
@@ -488,7 +489,7 @@
   function showAllEvents() {
     showAllFuture = true;
     renderEvents();
-    loadDirectorTimestamp();
+    loadDirectorNotes();
     loadManagerNotes();
     window.scrollBy({ top: 300, behavior: 'smooth' });
   }
@@ -496,7 +497,7 @@
   function reduceEvents() {
     showAllFuture = false;
     renderEvents();
-    loadDirectorTimestamp();
+    loadDirectorNotes();
     loadManagerNotes();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -504,7 +505,7 @@
   function showFallbackNotice() {
     let fallbackHTML = '';
     fallbackHTML += '<div class="section-subheading">Next Event</div>';
-    fallbackHTML += '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=rtephilschedule%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>';
+    fallbackHTML += '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>';
     
     fallbackHTML += '<div class="section-subheading">Current Notes</div>';
     fallbackHTML += '<div class="card card-director"><h3>Notes from Choral Director</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div style="position: relative; overflow: hidden; height: 440px; border: 1px solid #ccc; background: #fff; border-radius: 4px; margin-bottom: 8px;"><iframe src="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/preview" style="position: absolute; top: -40px; left: 0; width: 100%; height: calc(100% + 40px); border: none;"></iframe></div><div style="text-align: right; margin-top: 5px;"><a href="https://docs.google.com/document/d/1dxqo6xmYl27tcO-lZ_a3j3n1CNiGwBYq702fNI1bBKk/view" target="_blank" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
@@ -512,15 +513,15 @@
     fallbackHTML += '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;" id="manager-timestamp">Last Updated: Loading...</p><div id="manager-content" style="font-size: 16px; margin-bottom: 12px;"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #7e22ce; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     document.getElementById('events-container').innerHTML = fallbackHTML;
-    loadDirectorTimestamp();
+    loadDirectorNotes();
     loadManagerNotes();
   }
 
   loadDynamicEvents();
 
-  async function loadDirectorTimestamp() {
+  async function loadDirectorNotes() {
     try {
-      const response = await fetch(DIRECTOR_TIMESTAMP_URL);
+      const response = await fetch(DIRECTOR_WORKER_URL);
       if (response.ok) {
         const data = await response.json();
         if (data.modifiedTime) {
@@ -532,7 +533,7 @@
         }
       }
     } catch (e) {
-      console.error('Failed to load director timestamp', e);
+      console.error('Failed to load director notes timestamp', e);
       const el = document.getElementById('director-timestamp');
       if (el) el.innerText = 'Last Updated: Unavailable';
     }
@@ -540,12 +541,22 @@
 
   async function loadManagerNotes() {
     try {
-      const response = await fetch('https://nch-manager-notes.rtephilschedule.workers.dev');
+      const response = await fetch(MANAGER_WORKER_URL);
       if (response.ok) {
         const data = await response.json();
         if (data.content) {
           const contentEl = document.getElementById('manager-content');
-          if (contentEl) contentEl.innerHTML = data.content;
+          if (contentEl) {
+            contentEl.innerHTML = data.content;
+            const ps = contentEl.querySelectorAll('p');
+            ps.forEach((p, idx) => {
+              if (idx % 2 === 0) {
+                p.style.backgroundColor = '#fbf7ff';
+                p.style.padding = '8px';
+                p.style.borderRadius = '4px';
+              }
+            });
+          }
         }
         if (data.modifiedTime) {
           const dateObj = new Date(data.modifiedTime);
@@ -651,7 +662,7 @@
   }
 
   function copyAndOpenInstructions(btn) {
-    const icalUrl = "https://calendar.google.com/calendar/ical/rtephilschedule%40gmail.com/public/basic.ics";
+    const icalUrl = "https://calendar.google.com/calendar/ical/natsymphchorus%40gmail.com/public/basic.ics";
     
     navigator.clipboard.writeText(icalUrl).catch(err => {
       console.error("Clipboard write failed", err);
@@ -693,7 +704,7 @@
       '<li><strong>Outlook (Desktop / Web):</strong> Open Outlook Calendar, click <em>Add calendar &gt; Subscribe from web</em>, paste the link, name the calendar, and save.</li>' +
       '</ul>' +
       '<div class="note">' +
-      '<strong>Note:</strong> Calendar apps check for updates periodically (usually taking up to an hour or more to show changes). For urgent or last-minute updates, always check the main <a href="https://rtephilschedule-lab.github.io/NSC_Calendar/" target="_blank">National Symphony Chorus Member Hub</a>.' +
+      '<strong>Note:</strong> Calendar apps check for updates periodically (usually taking up to an hour or more to show changes). For urgent or last-minute updates, always check the main <a href="https://natsymphchoire.github.io/Member-Info-Hub/" target="_blank">National Symphony Chorus Member Hub</a>.' +
       '</div>' +
       '</div>' +
       '</body>' +
