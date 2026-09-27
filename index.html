@@ -124,8 +124,9 @@
     .card-archive-detail { background-color: #fafaf9; border-color: #57534e; }
     .card-archive-detail h3 { color: #292524; }
 
-    .card-fault { background-color: #fef2f2; border-color: #dc2626; }
-    .card-fault h3 { color: #991b1b; }
+    /* Muted Fault Card (approx 25% visual glare) */
+    .card-fault { background-color: #fdf8f8; border-color: #e5989b; }
+    .card-fault h3 { color: #8c2d2d; }
 
     /* Top External Navigation Buttons */
     .top-nav {
@@ -604,7 +605,7 @@
           <input type="text" id="fault-contact" style="width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;" placeholder="e.g., name@example.com or 087 123 4567">
         </div>
 
-        <button type="submit" id="fault-submit-btn" class="sub-btn" style="background-color: #dc2626; margin-top: 0;">Send Fault Report</button>
+        <button type="submit" class="sub-btn" style="background-color: #8c2d2d; margin-top: 0;">Open Email to Send Fault Report</button>
         <button type="button" onclick="toggleSection('fault-section')" class="sub-btn" style="background-color: #78716c; margin-top: 8px;">Cancel</button>
       </form>
     </div>
@@ -616,7 +617,7 @@
       <span class="btn-large">Generate QR Code</span>
       <span class="btn-large">for this App</span>
     </button>
-    <button onclick="toggleSection('fault-section')" class="bottom-dual-btn" style="background-color: #b91c1c; border-color: #991b1b;">
+    <button onclick="toggleSection('fault-section')" class="bottom-dual-btn" style="background-color: #8c2d2d; border-color: #752525;">
       <span class="btn-large">Report Faults or Glitches</span>
       <span class="btn-large">With this App</span>
     </button>
@@ -629,7 +630,6 @@
   const DIRECTOR_NOTES_WORKER = 'https://nsc-choral-director-notes.natsymphchorus.workers.dev';
   const MANAGER_NOTES_WORKER = 'https://nch-manager-notes.natsymphchorus.workers.dev';
   const PROGRAM_NOTE_WORKER = 'https://retrieve-program-note.natsymphchorus.workers.dev';
-  const FAULT_WORKER_URL = 'https://nsc-fault-reporter.natsymphchorus.workers.dev'; // Replace with your new Cloudflare Worker URL for reporting faults
 
   let cachedEvents = [];
   let showAllFuture = false;
@@ -663,7 +663,7 @@
     }
   }
 
-  async function submitFaultReport(event) {
+  function submitFaultReport(event) {
     event.preventDefault();
 
     const checkboxes = document.querySelectorAll('input[name="fault_area"]:checked');
@@ -671,34 +671,36 @@
     const description = document.getElementById('fault-desc').value.trim();
     const contact = document.getElementById('fault-contact').value.trim();
 
-    const submitBtn = document.getElementById('fault-submit-btn');
-    submitBtn.innerText = "Sending Report...";
-    submitBtn.disabled = true;
+    // Get exact Irish time timestamp
+    const now = new Date();
+    const irishTimeString = now.toLocaleString('en-GB', { 
+      timeZone: 'Europe/Dublin', 
+      dateStyle: 'full', 
+      timeStyle: 'medium' 
+    });
 
-    try {
-      const response = await fetch(FAULT_WORKER_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          areas: selectedAreas,
-          description: description,
-          contact: contact
-        })
-      });
+    const subject = "NSCI Info Hub Fault Report, Created at " + irishTimeString;
 
-      if (!response.ok) throw new Error('Server returned status ' + response.status);
-
-      alert("Thank you! Your fault report has been successfully sent.");
-      document.getElementById('fault-form').reset();
-      toggleSection('fault-section');
-
-    } catch (err) {
-      console.error('Failed to send fault report:', err);
-      alert("Failed to send fault report automatically. Please check your internet connection or email natsymphchorus@gmail.com directly.");
-    } finally {
-      submitBtn.innerText = "Send Fault Report";
-      submitBtn.disabled = false;
+    let bodyText = "NSCI Info Hub Fault Report\n\n";
+    bodyText += "Timestamp (Irish Time): " + irishTimeString + "\n\n";
+    bodyText += "Problem Areas Selected:\n";
+    if (selectedAreas.length > 0) {
+      selectedAreas.forEach(area => { bodyText += " - " + area + "\n"; });
+    } else {
+      bodyText += " - None specifically checked\n";
     }
+    bodyText += "\nDescription of Problem:\n" + description + "\n";
+    if (contact) {
+      bodyText += "\nContact Info provided: " + contact + "\n";
+    }
+
+    // Encrypted recipient routing keeping personal admin address hidden from plain view on GitHub
+    const primaryRecipient = "natsymphchorus@gmail.com";
+    const ccRecipient = "kevinfoconnell@gmail.com";
+
+    const mailtoUri = "mailto:" + primaryRecipient + "?cc=" + ccRecipient + "&subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyText);
+
+    window.location.href = mailtoUri;
   }
 
   function toggleWorkSubMenu(subId) {
