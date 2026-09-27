@@ -124,6 +124,9 @@
     .card-archive-detail { background-color: #fafaf9; border-color: #57534e; }
     .card-archive-detail h3 { color: #292524; }
 
+    .card-fault { background-color: #fef2f2; border-color: #dc2626; }
+    .card-fault h3 { color: #991b1b; }
+
     /* Top External Navigation Buttons */
     .top-nav {
       display: flex;
@@ -197,6 +200,32 @@
       font-family: Arial, sans-serif;
     }
     .bottom-nav-full-btn:hover { background-color: #44403c; }
+
+    /* Side-by-Side Bottom Action Buttons */
+    .bottom-dual-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .bottom-dual-btn {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 12px 8px;
+      border-radius: 8px;
+      border: 1px solid #263238;
+      background-color: #37474f;
+      cursor: pointer;
+      font-weight: bold;
+      line-height: 1.2;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      font-family: Arial, sans-serif;
+    }
+    .bottom-dual-btn:hover { background-color: #263238; }
 
     .load-more-btn, .reduce-btn {
       display: block;
@@ -546,11 +575,50 @@
     </div>
   </div>
 
-  <!-- QR Code Generator Button (Permanently Anchored at Bottom) -->
-  <div class="bottom-nav-full" style="margin-top: 10px;">
-    <button onclick="openQRCodePage()" class="bottom-nav-full-btn" style="background-color: #37474f; border-color: #263238;">
+  <!-- Collapsible: Report Faults or Glitches -->
+  <div id="fault-section" class="card card-fault" style="display: none;">
+    <h3>Report Faults or Glitches With this App</h3>
+    <div class="card-inner">
+      <p style="margin-top: 0; font-size: 14px; margin-bottom: 12px;">Please select the area(s) of the app where you are experiencing issues:</p>
+      
+      <form id="fault-form" onsubmit="submitFaultReport(event)">
+        <div style="font-size: 14px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 6px;">
+          <label><input type="checkbox" name="fault_area" value="Next Event / Today's Event display"> Next Event / Today's Event display</label>
+          <label><input type="checkbox" name="fault_area" value="Parking Checker Banner"> Parking Checker Banner</label>
+          <label><input type="checkbox" name="fault_area" value="Notes from Chorus Director"> Notes from Chorus Director</label>
+          <label><input type="checkbox" name="fault_area" value="Notes from Choir Manager"> Notes from Choir Manager</label>
+          <label><input type="checkbox" name="fault_area" value="Choir Calendar Subscription"> Choir Calendar Subscription</label>
+          <label><input type="checkbox" name="fault_area" value="Phone Installation Guide"> Phone Installation Guide</label>
+          <label><input type="checkbox" name="fault_area" value="Previous Performances & Archive"> Previous Performances & Archive</label>
+          <label><input type="checkbox" name="fault_area" value="QR Code Generator"> QR Code Generator</label>
+          <label><input type="checkbox" name="fault_area" value="General / Other App Glitch"> General / Other App Glitch</label>
+        </div>
+
+        <div style="margin-bottom: 12px;">
+          <label for="fault-desc" style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 4px;">Describe the problem you are experiencing:</label>
+          <textarea id="fault-desc" rows="4" style="width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;" required placeholder="Please provide details about what went wrong..."></textarea>
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label for="fault-contact" style="display: block; font-weight: bold; font-size: 14px; margin-bottom: 4px;">Email address or mobile phone number (optional):</label>
+          <input type="text" id="fault-contact" style="width: 100%; box-sizing: border-box; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: Arial, sans-serif;" placeholder="e.g., name@example.com or 087 123 4567">
+        </div>
+
+        <button type="submit" id="fault-submit-btn" class="sub-btn" style="background-color: #dc2626; margin-top: 0;">Send Fault Report</button>
+        <button type="button" onclick="toggleSection('fault-section')" class="sub-btn" style="background-color: #78716c; margin-top: 8px;">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bottom Dual Action Buttons (QR Code & Fault Reporting) -->
+  <div class="bottom-dual-nav">
+    <button onclick="openQRCodePage()" class="bottom-dual-btn">
       <span class="btn-large">Generate QR Code</span>
       <span class="btn-large">for this App</span>
+    </button>
+    <button onclick="toggleSection('fault-section')" class="bottom-dual-btn" style="background-color: #b91c1c; border-color: #991b1b;">
+      <span class="btn-large">Report Faults or Glitches</span>
+      <span class="btn-large">With this App</span>
     </button>
   </div>
 
@@ -561,6 +629,7 @@
   const DIRECTOR_NOTES_WORKER = 'https://nsc-choral-director-notes.natsymphchorus.workers.dev';
   const MANAGER_NOTES_WORKER = 'https://nch-manager-notes.natsymphchorus.workers.dev';
   const PROGRAM_NOTE_WORKER = 'https://retrieve-program-note.natsymphchorus.workers.dev';
+  const FAULT_WORKER_URL = 'https://nsc-fault-reporter.natsymphchorus.workers.dev'; // Replace with your new Cloudflare Worker URL for reporting faults
 
   let cachedEvents = [];
   let showAllFuture = false;
@@ -569,12 +638,14 @@
     const subscribeSection = document.getElementById('subscribe-section');
     const installSection = document.getElementById('install-section');
     const performancesSection = document.getElementById('performances-section');
+    const faultSection = document.getElementById('fault-section');
 
     const isTargetAlreadyOpen = document.getElementById(sectionId).style.display === 'block';
 
     subscribeSection.style.display = 'none';
     installSection.style.display = 'none';
     performancesSection.style.display = 'none';
+    faultSection.style.display = 'none';
 
     if (!isTargetAlreadyOpen) {
       const target = document.getElementById(sectionId);
@@ -589,6 +660,44 @@
       allDetailCards.forEach(card => {
         card.style.display = 'none';
       });
+    }
+  }
+
+  async function submitFaultReport(event) {
+    event.preventDefault();
+
+    const checkboxes = document.querySelectorAll('input[name="fault_area"]:checked');
+    const selectedAreas = Array.from(checkboxes).map(cb => cb.value);
+    const description = document.getElementById('fault-desc').value.trim();
+    const contact = document.getElementById('fault-contact').value.trim();
+
+    const submitBtn = document.getElementById('fault-submit-btn');
+    submitBtn.innerText = "Sending Report...";
+    submitBtn.disabled = true;
+
+    try {
+      const response = await fetch(FAULT_WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          areas: selectedAreas,
+          description: description,
+          contact: contact
+        })
+      });
+
+      if (!response.ok) throw new Error('Server returned status ' + response.status);
+
+      alert("Thank you! Your fault report has been successfully sent.");
+      document.getElementById('fault-form').reset();
+      toggleSection('fault-section');
+
+    } catch (err) {
+      console.error('Failed to send fault report:', err);
+      alert("Failed to send fault report automatically. Please check your internet connection or email natsymphchorus@gmail.com directly.");
+    } finally {
+      submitBtn.innerText = "Send Fault Report";
+      submitBtn.disabled = false;
     }
   }
 
