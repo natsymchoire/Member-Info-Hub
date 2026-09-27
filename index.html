@@ -823,7 +823,7 @@
       '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>' +
       '<div class="section-subheading">Current Notes</div>' +
       '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>' +
-      '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
+      '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     document.getElementById('events-container').innerHTML = fallbackHTML;
     loadDirectorNotes();
@@ -847,6 +847,9 @@
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
           const timeEl = document.getElementById('director-timestamp');
           if (timeEl) timeEl.innerText = 'Last Updated: ' + formattedTime + ' on ' + formattedDate;
+        } else {
+          const timeEl = document.getElementById('director-timestamp');
+          if (timeEl) timeEl.innerText = 'Last Updated: Unavailable';
         }
       }
     } catch (e) {
@@ -871,6 +874,9 @@
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
           const timeEl = document.getElementById('manager-timestamp');
           if (timeEl) timeEl.innerText = 'Last Updated: ' + formattedTime + ' on ' + formattedDate;
+        } else {
+          const timeEl = document.getElementById('manager-timestamp');
+          if (timeEl) timeEl.innerText = 'Last Updated: Unavailable';
         }
       }
     } catch (e) {
