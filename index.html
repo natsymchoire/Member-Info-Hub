@@ -7,7 +7,6 @@
   <link rel="icon" type="image/png" href="icon.png">
   <link rel="apple-touch-icon" href="icon.png">
   <link rel="manifest" href="manifest.json">
-  <!-- Include QRCode.js library for generating QR code dynamically -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
     body {
@@ -33,8 +32,8 @@
       font-variant: small-caps;
       font-weight: bold;
       font-size: 32px;
-      background-color: #d97706; /* Choir Brand Orange-Ochre */
-      color: #000000;            /* Bold black text */
+      background-color: #d97706;
+      color: #000000;
       padding: 14px 10px;
       border-radius: 8px 8px 0 0;
       letter-spacing: 0.5px;
@@ -51,7 +50,7 @@
       border-top: none;
     }
 
-    /* Subheadings / Cross Headings (~20% smaller than subtitle 22px -> 18px) */
+    /* Subheadings / Cross Headings */
     .section-subheading {
       text-align: center;
       font-style: italic;
@@ -107,7 +106,6 @@
     } 
     .card-manager h3 { color: #1e3a8a; }
 
-    /* Alternating Event Style 2 (Green Theme) / Uniform Neutral Scheme for Secondary Events */
     .card-event-secondary { 
       background-color: #f8f9fa; 
       border-color: #78909c; 
@@ -120,7 +118,6 @@
     .card-app-install { background-color: #e8f5f4; border-color: #1d5c5a; }
     .card-app-install h3 { color: #1d5c5a; }
 
-    /* Editorial Archive Theme (Restrained Warm Neutral / Slate) */
     .card-performances { background-color: #fafaf9; border-color: #78716c; }
     .card-performances h3 { color: #44403c; }
 
@@ -152,7 +149,7 @@
     .nav-btn-archive { background-color: #455a64; }
     .btn-large { font-size: 15px; font-weight: bold; }
 
-    /* Bottom Functional Toggle Buttons (Medium Grey with clear borders) */
+    /* Bottom Functional Toggle Buttons */
     .bottom-nav {
       display: flex;
       gap: 10px;
@@ -178,7 +175,6 @@
     }
     .bottom-nav-btn:hover { background-color: #475569; }
 
-    /* Bottom Full-Width Toggle Button (Restrained Deep Warm Charcoal / Slate) */
     .bottom-nav-full {
       margin-bottom: 20px;
     }
@@ -239,7 +235,6 @@
     }
     .sub-btn-alt { background-color: #1d5c5a; }
 
-    /* Buttons for the 4 works (Muted Taupe / Editorial Neutral) */
     .perf-btn {
       display: block;
       width: 100%;
@@ -265,7 +260,6 @@
       background-color: #57534e;
     }
 
-    /* Sub-performances buttons (Soft Stone / Pale Neutral) */
     .sub-perf-btn {
       display: block;
       width: 100%;
@@ -298,7 +292,6 @@
       border-left-width: 4px;
     }
 
-    /* Content styling supporting inline email HTML formatting */
     #director-content, #manager-content {
       font-size: 16px; 
       margin-bottom: 12px; 
@@ -632,34 +625,34 @@
   async function openProgramNoteWindow(docId, noteTitle) {
     const win = window.open('', '_blank');
     if (win) {
-      win.document.write(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-          <title>${noteTitle}</title>
-          <style>
-            body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fdfdfd; }
-            h2 { color: #292524; border-bottom: 2px solid #78716c; padding-bottom: 8px; margin-top: 0; }
-            .print-btn { background: #57534e; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 25px; }
-            .print-btn:hover { background: #44403c; }
-            p { text-align: justify; text-justify: inter-word; }
-            @media print { .print-btn { display: none; } }
-          </style>
-        </head>
-        <body>
-          <button class="print-btn" onclick="window.print()">Print Program Note</button>
-          <h2>${noteTitle}</h2>
-          <div id="content" style="font-size: 16px;"><em>Loading program note...</em></div>
-        </body>
-        </html>
-      `);
+      win.document.write(
+        '<!DOCTYPE html>' +
+        '<html lang="en">' +
+        '<head>' +
+        '<meta charset="utf-8">' +
+        '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+        '<title>' + noteTitle + '</title>' +
+        '<style>' +
+        'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fdfdfd; }' +
+        'h2 { color: #292524; border-bottom: 2px solid #78716c; padding-bottom: 8px; margin-top: 0; }' +
+        '.print-btn { background: #57534e; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 25px; }' +
+        '.print-btn:hover { background: #44403c; }' +
+        'p { text-align: justify; text-justify: inter-word; }' +
+        '@media print { .print-btn { display: none; } }' +
+        '</style>' +
+        '</head>' +
+        '<body>' +
+        '<button class="print-btn" onclick="window.print()">Print Program Note</button>' +
+        '<h2>' + noteTitle + '</h2>' +
+        '<div id="content" style="font-size: 16px;"><em>Loading program note...</em></div>' +
+        '</body>' +
+        '</html>'
+      );
     }
 
     try {
-      const response = await fetch(`${PROGRAM_NOTE_WORKER}?docId=${docId}`);
-      if (!response.ok) throw new Error(`Server returned status ${response.status}`);
+      const response = await fetch(PROGRAM_NOTE_WORKER + '?docId=' + docId);
+      if (!response.ok) throw new Error('Server returned status ' + response.status);
       
       const data = await response.json();
       if (win && !win.closed) {
@@ -682,7 +675,7 @@
   async function loadDynamicEvents() {
     try {
       const response = await fetch(WORKER_URL);
-      if (!response.ok) throw new Error(`Server returned status ${response.status}`);
+      if (!response.ok) throw new Error('Server returned status ' + response.status);
       
       cachedEvents = await response.json();
 
@@ -709,8 +702,8 @@
     let hasEventsBeyondLimit = false;
 
     cachedEvents.forEach(ev => {
-      const [year, month, day] = ev.startDateStr.split('-').map(Number);
-      const evDate = new Date(year, month - 1, day);
+      const parts = ev.startDateStr.split('-').map(Number);
+      const evDate = new Date(parts[0], parts[1] - 1, parts[2]);
       if (evDate > initialLimitDate) {
         hasEventsBeyondLimit = true;
       }
@@ -718,8 +711,8 @@
 
     const dateMap = new Map();
     cachedEvents.forEach(ev => {
-      const [year, month, day] = ev.startDateStr.split('-').map(Number);
-      const evDate = new Date(year, month - 1, day);
+      const parts = ev.startDateStr.split('-').map(Number);
+      const evDate = new Date(parts[0], parts[1] - 1, parts[2]);
       
       if (showAllFuture || evDate <= initialLimitDate) {
         if (!dateMap.has(ev.startDateStr)) {
@@ -738,137 +731,71 @@
 
     let fullHTML = '';
 
-    // --- Determine Subheading for First Event ("Today's Event" vs "Next Event") ---
     let firstDateKey = targetDates[0];
     let subheadingText = (firstDateKey === todayStr) ? "Today's Event" : "Next Event";
 
-    fullHTML += `<div class="section-subheading">${subheadingText}</div>`;
+    fullHTML += '<div class="section-subheading">' + subheadingText + '</div>';
 
-    // --- 1. First Event Card ---
     if (targetDates.length > 0) {
       const dateKey = firstDateKey;
       const dayEvents = dateMap.get(dateKey);
-      const [year, month, day] = dateKey.split('-').map(Number);
-      const dateObj = new Date(year, month - 1, day);
+      const parts = dateKey.split('-').map(Number);
+      const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
       const formattedDateTitle = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
       let eventsDetailsHTML = '';
       dayEvents.forEach(ev => {
-        eventsDetailsHTML += `<p style="margin-top: 0; margin-bottom: 8px;"><strong>${ev.summary}</strong><br><strong>Time:</strong> ${ev.timeStr}<br><strong>Venue:</strong> ${ev.location}</p>`;
+        eventsDetailsHTML += '<p style="margin-top: 0; margin-bottom: 8px;"><strong>' + ev.summary + '</strong><br><strong>Time:</strong> ' + ev.timeStr + '<br><strong>Venue:</strong> ' + ev.location + '</p>';
       });
 
-      const nchUrl = `https://www.nch.ie/all-events-listing/?search=&from=${dateKey}`;
+      const nchUrl = 'https://www.nch.ie/all-events-listing/?search=&from=' + dateKey;
       
-      // 21-day parking rule check
       const diffTime = dateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       let parkingHTML = '';
       if (diffDays <= 21 && diffDays >= 0) {
-        parkingHTML = `
-          <div class="parking-banner" style="border-left-color: #1d4ed8;">
-            Parking: <a href="${nchUrl}" target="_blank" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a>
-          </div>
-        `;
+        parkingHTML = '<div class="parking-banner" style="border-left-color: #1d4ed8;">Parking: <a href="' + nchUrl + '" target="_blank" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
       }
 
-      fullHTML += `
-        <div class="card card-event-1">
-          <h3>${formattedDateTitle}</h3>
-          <div class="card-inner">
-            ${eventsDetailsHTML}
-            ${parkingHTML}
-          </div>
-        </div>
-      `;
+      fullHTML += '<div class="card card-event-1"><h3>' + formattedDateTitle + '</h3><div class="card-inner">' + eventsDetailsHTML + parkingHTML + '</div></div>';
     }
 
-    // --- Subheading: Current Notes ---
-    fullHTML += `<div class="section-subheading">Current Notes</div>`;
+    fullHTML += '<div class="section-subheading">Current Notes</div>';
 
-    // --- Notes from Chorus Director Card ---
-    fullHTML += `
-      <div class="card card-director">
-        <h3>Notes from Chorus Director</h3>
-        <div class="card-inner">
-          <p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
-          <div id="director-content">
-            <em>No notes currently available.</em>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-    `;
+    fullHTML += '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
-    // --- Notes from Choir Manager Card ---
-    fullHTML += `
-      <div class="card card-manager">
-        <h3>Notes from Choir Manager</h3>
-        <div class="card-inner">
-          <p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
-          <div id="manager-content">
-            <em>No notes currently available.</em>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-    `;
+    fullHTML += '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
-    // --- Subheading: Future Events ---
-    fullHTML += `<div class="section-subheading">Future Events</div>`;
+    fullHTML += '<div class="section-subheading">Future Events</div>';
 
-    // --- Future Events Cards (Neutral/Bland Scheme, 21-day parking rule) ---
     for (let i = 1; i < targetDates.length; i++) {
       const dateKey = targetDates[i];
       const dayEvents = dateMap.get(dateKey);
 
-      const [year, month, day] = dateKey.split('-').map(Number);
-      const dateObj = new Date(year, month - 1, day);
+      const parts = dateKey.split('-').map(Number);
+      const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
       const formattedDateTitle = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
       let eventsDetailsHTML = '';
       dayEvents.forEach(ev => {
-        eventsDetailsHTML += `<p style="margin-top: 0; margin-bottom: 8px;"><strong>${ev.summary}</strong><br><strong>Time:</strong> ${ev.timeStr}<br><strong>Venue:</strong> ${ev.location}</p>`;
+        eventsDetailsHTML += '<p style="margin-top: 0; margin-bottom: 8px;"><strong>' + ev.summary + '</strong><br><strong>Time:</strong> ' + ev.timeStr + '<br><strong>Venue:</strong> ' + ev.location + '</p>';
       });
 
-      const nchUrl = `https://www.nch.ie/all-events-listing/?search=&from=${dateKey}`;
+      const nchUrl = 'https://www.nch.ie/all-events-listing/?search=&from=' + dateKey;
       const diffTime = dateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       let parkingHTML = '';
       if (diffDays <= 21 && diffDays >= 0) {
-        parkingHTML = `
-          <div class="parking-banner" style="border-left-color: #78909c;">
-            Parking: <a href="${nchUrl}" target="_blank" style="color: #455a64; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a>
-          </div>
-        `;
+        parkingHTML = '<div class="parking-banner" style="border-left-color: #78909c;">Parking: <a href="' + nchUrl + '" target="_blank" style="color: #455a64; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
       }
 
-      fullHTML += `
-        <div class="card card-event-secondary">
-          <h3>${formattedDateTitle}</h3>
-          <div class="card-inner">
-            ${eventsDetailsHTML}
-            ${parkingHTML}
-          </div>
-        </div>
-      `;
+      fullHTML += '<div class="card card-event-secondary"><h3>' + formattedDateTitle + '</h3><div class="card-inner">' + eventsDetailsHTML + parkingHTML + '</div></div>';
     }
 
     if (!showAllFuture && hasEventsBeyondLimit) {
-      fullHTML += `
-        <button class="load-more-btn" onclick="showAllEvents()">
-          Show All Future Events
-        </button>
-      `;
+      fullHTML += '<button class="load-more-btn" onclick="showAllEvents()">Show All Future Events</button>';
     } else if (showAllFuture) {
-      fullHTML += `
-        <button class="reduce-btn" onclick="reduceEvents()">
-          Reduce Number of Future Events Displayed
-        </button>
-      `;
+      fullHTML += '<button class="reduce-btn" onclick="reduceEvents()">Reduce Number of Future Events Displayed</button>';
     }
 
     document.getElementById('events-container').innerHTML = fullHTML;
@@ -891,42 +818,12 @@
   }
 
   function showFallbackNotice() {
-    let fallbackHTML = `
-      <div class="section-subheading">Next Event</div>
-      <div class="card card-event-1">
-        <h3>Schedule Notice</h3>
-        <div class="card-inner">
-          <p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p>
-        </div>
-      </div>
-
-      <div class="section-subheading">Current Notes</div>
-      <div class="card card-director">
-        <h3>Notes from Chorus Director</h3>
-        <div class="card-inner">
-          <p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
-          <div id="director-content">
-            <em>No notes currently available.</em>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="card card-manager">
-        <h3>Notes from Choir Manager</h3>
-        <div class="card-inner">
-          <p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
-          <div id="manager-content">
-            <em>No notes currently available.</em>
-          </div>
-          <div style="text-align: right; margin-top: 5px;">
-            <a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
-          </div>
-        </div>
-      </div>
-    `;
+    let fallbackHTML = 
+      '<div class="section-subheading">Next Event</div>' +
+      '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>' +
+      '<div class="section-subheading">Current Notes</div>' +
+      '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>' +
+      '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     document.getElementById('events-container').innerHTML = fallbackHTML;
     loadDirectorNotes();
@@ -949,7 +846,7 @@
           const formattedDate = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
           const timeEl = document.getElementById('director-timestamp');
-          if (timeEl) timeEl.innerText = `Last Updated: ${formattedTime} on ${formattedDate}`;
+          if (timeEl) timeEl.innerText = 'Last Updated: ' + formattedTime + ' on ' + formattedDate;
         }
       }
     } catch (e) {
@@ -973,7 +870,7 @@
           const formattedDate = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
           const timeEl = document.getElementById('manager-timestamp');
-          if (timeEl) timeEl.innerText = `Last Updated: ${formattedTime} on ${formattedDate}`;
+          if (timeEl) timeEl.innerText = 'Last Updated: ' + formattedTime + ' on ' + formattedDate;
         }
       }
     } catch (e) {
@@ -989,29 +886,28 @@
     const contentHTML = contentEl ? contentEl.innerHTML : '';
     const timestampText = timeEl ? timeEl.innerText : '';
 
-    const printPageHTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Notes from Chorus Director - Printable View</title>
-        <style>
-          body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }
-          h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }
-          .timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }
-          .print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }
-          @media print { .print-btn { display: none; } }
-        </style>
-      </head>
-      <body>
-        <button class="print-btn" onclick="window.print()">Print This Page</button>
-        <h2>Notes from Chorus Director</h2>
-        <div class="timestamp">${timestampText}</div>
-        <div style="font-size: 16px;">${contentHTML}</div>
-      </body>
-      </html>
-    `;
+    const printPageHTML = 
+      '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Notes from Chorus Director - Printable View</title>' +
+      '<style>' +
+      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
+      'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
+      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
+      '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
+      '@media print { .print-btn { display: none; } }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
+      '<h2>Notes from Chorus Director</h2>' +
+      '<div class="timestamp">' + timestampText + '</div>' +
+      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
+      '</body>' +
+      '</html>';
 
     const blob = new Blob([printPageHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
@@ -1024,29 +920,28 @@
     const contentHTML = contentEl ? contentEl.innerHTML : '';
     const timestampText = timeEl ? timeEl.innerText : '';
 
-    const printPageHTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Notes from Choir Manager - Printable View</title>
-        <style>
-          body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }
-          h2 { color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; }
-          .timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }
-          .print-btn { background: #1e3a8a; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }
-          @media print { .print-btn { display: none; } }
-        </style>
-      </head>
-      <body>
-        <button class="print-btn" onclick="window.print()">Print This Page</button>
-        <h2>Notes from Choir Manager</h2>
-        <div class="timestamp">${timestampText}</div>
-        <div style="font-size: 16px;">${contentHTML}</div>
-      </body>
-      </html>
-    `;
+    const printPageHTML = 
+      '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Notes from Choir Manager - Printable View</title>' +
+      '<style>' +
+      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
+      'h2 { color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; }' +
+      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
+      '.print-btn { background: #1e3a8a; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
+      '@media print { .print-btn { display: none; } }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
+      '<h2>Notes from Choir Manager</h2>' +
+      '<div class="timestamp">' + timestampText + '</div>' +
+      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
+      '</body>' +
+      '</html>';
 
     const blob = new Blob([printPageHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
@@ -1055,72 +950,54 @@
 
   function openQRCodePage() {
     const appUrl = window.location.href;
-    const qrPageHTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>NSCI Hub - QR Code</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>
-        <style>
-          body { font-family: Arial, sans-serif; padding: 30px; color: #222; text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-          h2 { color: #d97706; margin-top: 0; font-variant: small-caps; }
-          .qr-container { background: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-          #qrcode { display: flex; justify-content: center; margin: 10px 0; }
-          .btn { background: #37474f; color: white; border: none; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px 5px; font-family: Arial, sans-serif; }
-          .btn:hover { background: #263238; }
-          .url-text { font-family: monospace; background: #f1f3f4; padding: 8px; border-radius: 4px; font-size: 13px; word-break: break-all; margin: 15px 0; }
-          @media print { .no-print { display: none; } }
-        </style>
-      </head>
-      <body>
-        <div class="no-print" style="margin-bottom: 20px;">
-          <button class="btn" onclick="window.print()">Print This Page</button>
-          <button class="btn" onclick="downloadQRCode()">Save QR Code as PNG</button>
-        </div>
-
-        <h2>National Symphony Chorus Ireland</h2>
-        <p><strong>Member Information Hub - QR Code</strong></p>
-        <p style="font-size: 14px;">Point your phone's camera at the QR code below to open this app on another device:</p>
-
-        <div class="qr-container" id="qr-box">
-          <div id="qrcode"></div>
-          <div class="url-text">${appUrl}</div>
-        </div>
-
-        <script>
-          new QRCode(document.getElementById("qrcode"), {
-            text: "${appUrl}",
-            width: 220,
-            height: 220,
-            colorDark: "#000000",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-          });
-
-          function downloadQRCode() {
-            setTimeout(() => {
-              const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");
-              let imageUrl = "";
-              if (img.tagName === "CANVAS") {
-                imageUrl = img.toDataURL("image/png");
-              } else {
-                imageUrl = img.src;
-              }
-
-              const a = document.createElement("a");
-              a.href = imageUrl;
-              a.download = "NSCI_Hub_QR.png";
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-            }, 200);
-          }
-        </script>
-      </body>
-      </html>
-    `;
+    const qrPageHTML = 
+      '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>NSCI Hub - QR Code</title>' +
+      '<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>' +
+      '<style>' +
+      'body { font-family: Arial, sans-serif; padding: 30px; color: #222; text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.5; }' +
+      'h2 { color: #d97706; margin-top: 0; font-variant: small-caps; }' +
+      '.qr-container { background: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }' +
+      '#qrcode { display: flex; justify-content: center; margin: 10px 0; }' +
+      '.btn { background: #37474f; color: white; border: none; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px 5px; font-family: Arial, sans-serif; }' +
+      '.btn:hover { background: #263238; }' +
+      '.url-text { font-family: monospace; background: #f1f3f4; padding: 8px; border-radius: 4px; font-size: 13px; word-break: break-all; margin: 15px 0; }' +
+      '@media print { .no-print { display: none; } }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<div class="no-print" style="margin-bottom: 20px;">' +
+      '<button class="btn" onclick="window.print()">Print This Page</button>' +
+      '<button class="btn" onclick="downloadQRCode()">Save QR Code as PNG</button>' +
+      '</div>' +
+      '<h2>National Symphony Chorus Ireland</h2>' +
+      '<p><strong>Member Information Hub - QR Code</strong></p>' +
+      '<p style="font-size: 14px;">Point your phone\'s camera at the QR code below to open this app on another device:</p>' +
+      '<div class="qr-container" id="qr-box">' +
+      '<div id="qrcode"></div>' +
+      '<div class="url-text">' + appUrl + '</div>' +
+      '</div>' +
+      '<script>' +
+      'new QRCode(document.getElementById("qrcode"), { text: "' + appUrl + '", width: 220, height: 220, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });' +
+      'function downloadQRCode() {' +
+      '  setTimeout(() => {' +
+      '    const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");' +
+      '    let imageUrl = img.tagName === "CANVAS" ? img.toDataURL("image/png") : img.src;' +
+      '    const a = document.createElement("a");' +
+      '    a.href = imageUrl;' +
+      '    a.download = "NSCI_Hub_QR.png";' +
+      '    document.body.appendChild(a);' +
+      '    a.click();' +
+      '    document.body.removeChild(a);' +
+      '  }, 200);' +
+      '}' +
+      '<\/script>' +
+      '</body>' +
+      '</html>';
 
     const blob = new Blob([qrPageHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
@@ -1140,44 +1017,40 @@
       btn.innerText = originalText;
     }, 3000);
 
-    const instructionsHTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Apple & Outlook Calendar Setup Guide</title>
-        <style>
-          body { font-family: Arial, sans-serif; background: #f8f9fa; color: #333; padding: 20px; line-height: 1.6; }
-          .box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-top: 4px solid #37474f; }
-          h2 { color: #37474f; margin-top: 0; }
-          input { width: 100%; padding: 10px; font-size: 13px; box-sizing: border-box; background: #f1f3f4; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px; font-family: monospace; }
-          ul { padding-left: 20px; }
-          li { margin-bottom: 10px; }
-          .note { background: #fdf2f2; border-left: 4px solid #d9534f; padding: 10px; font-size: 13px; margin-top: 20px; border-radius: 4px; }
-        </style>
-      </head>
-      <body>
-        <div class="box">
-          <h2>Apple & Outlook Calendar Setup</h2>
-          <p>The subscription link has been copied to your clipboard. If you need to copy it manually again, use the box below:</p>
-          
-          <label for="urlbox"><strong>Calendar iCal Link:</strong></label>
-          <input type="text" id="urlbox" value="${icalUrl}" readonly onclick="this.select();">
-
-          <h3>Step-by-Step Instructions:</h3>
-          <ul>
-            <li><strong>iPhone / iPad (Apple Calendar):</strong> Open device <em>Settings &gt; Calendar &gt; Accounts &gt; Add Account &gt; Other &gt; Add Subscribed Calendar</em>, then paste the link into the Server field and save.</li>
-            <li><strong>Outlook (Desktop / Web):</strong> Open Outlook Calendar, click <em>Add calendar &gt; Subscribe from web</em>, paste the link, name the calendar, and save.</li>
-          </ul>
-
-          <div class="note">
-            <strong>Note:</strong> Calendar apps check for updates periodically. For urgent updates, check the main <a href="https://natsymphchoire.github.io/Member-Info-Hub/" target="_blank">Member Hub</a>.
-          </div>
-        </div>
-      </body>
-      </html>
-    `;
+    const instructionsHTML = 
+      '<!DOCTYPE html>' +
+      '<html lang="en">' +
+      '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<title>Apple & Outlook Calendar Setup Guide</title>' +
+      '<style>' +
+      'body { font-family: Arial, sans-serif; background: #f8f9fa; color: #333; padding: 20px; line-height: 1.6; }' +
+      '.box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-top: 4px solid #37474f; }' +
+      'h2 { color: #37474f; margin-top: 0; }' +
+      'input { width: 100%; padding: 10px; font-size: 13px; box-sizing: border-box; background: #f1f3f4; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px; font-family: monospace; }' +
+      'ul { padding-left: 20px; }' +
+      'li { margin-bottom: 10px; }' +
+      '.note { background: #fdf2f2; border-left: 4px solid #d9534f; padding: 10px; font-size: 13px; margin-top: 20px; border-radius: 4px; }' +
+      '</style>' +
+      '</head>' +
+      '<body>' +
+      '<div class="box">' +
+      '<h2>Apple & Outlook Calendar Setup</h2>' +
+      '<p>The subscription link has been copied to your clipboard. If you need to copy it manually again, use the box below:</p>' +
+      '<label for="urlbox"><strong>Calendar iCal Link:</strong></label>' +
+      '<input type="text" id="urlbox" value="' + icalUrl + '" readonly onclick="this.select();">' +
+      '<h3>Step-by-Step Instructions:</h3>' +
+      '<ul>' +
+      '<li><strong>iPhone / iPad (Apple Calendar):</strong> Open device <em>Settings &gt; Calendar &gt; Accounts &gt; Add Account &gt; Other &gt; Add Subscribed Calendar</em>, then paste the link into the Server field and save.</li>' +
+      '<li><strong>Outlook (Desktop / Web):</strong> Open Outlook Calendar, click <em>Add calendar &gt; Subscribe from web</em>, paste the link, name the calendar, and save.</li>' +
+      '</ul>' +
+      '<div class="note">' +
+      '<strong>Note:</strong> Calendar apps check for updates periodically. For urgent updates, check the main <a href="https://natsymphchoire.github.io/Member-Info-Hub/" target="_blank">Member Hub</a>.' +
+      '</div>' +
+      '</div>' +
+      '</body>' +
+      '</html>';
 
     const blob = new Blob([instructionsHTML], { type: 'text/html' });
     const blobUrl = URL.createObjectURL(blob);
