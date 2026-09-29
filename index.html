@@ -1151,7 +1151,7 @@
       'h2 { color: #d97706; margin-top: 0; font-variant: small-caps; }' +
       '.qr-container { background: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }' +
       '#qrcode { display: flex; justify-content: center; margin: 10px 0; }' +
-      '.btn { background: #37474f; color: white; border: none; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px 5px; font-family: Arial, sans-serif; }' +
+      '.btn { background: #37474f; color: white; border: none; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px 5px; font-family: Arial, sans-serif; text-decoration: none; display: inline-block; }' +
       '.btn:hover { background: #263238; }' +
       '.url-text { font-family: monospace; background: #f1f3f4; padding: 8px; border-radius: 4px; font-size: 13px; word-break: break-all; margin: 15px 0; }' +
       '@media print { .no-print { display: none; } }' +
@@ -1160,7 +1160,7 @@
       '<body>' +
       '<div class="no-print" style="margin-bottom: 20px;">' +
       '<button class="btn" onclick="window.print()">Print This Page</button>' +
-      '<button class="btn" onclick="downloadQRCode()">Save QR Code as PNG</button>' +
+      '<a id="download-btn" class="btn" onclick="prepareDownload(event)">Save QR Code to your Downloads Folder</a>' +
       '</div>' +
       '<h2>National Symphony Chorus Ireland</h2>' +
       '<p><strong>Member Information Hub - QR Code</strong></p>' +
@@ -1171,17 +1171,13 @@
       '</div>' +
       '<script>' +
       'new QRCode(document.getElementById("qrcode"), { text: "' + appUrl + '", width: 220, height: 220, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });' +
-      'function downloadQRCode() {' +
-      '  setTimeout(() => {' +
-      '    const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");' +
-      '    let imageUrl = img.tagName === "CANVAS" ? img.toDataURL("image/png") : img.src;' +
-      '    const a = document.createElement("a");' +
-      '    a.href = imageUrl;' +
-      '    a.download = "NSCI_Hub_QR.png";' +
-      '    document.body.appendChild(a);' +
-      '    a.click();' +
-      '    document.body.removeChild(a);' +
-      '  }, 200);' +
+      'function prepareDownload(e) {' +
+      '  const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");' +
+      '  if (!img) return;' +
+      '  let imageUrl = img.tagName === "CANVAS" ? img.toDataURL("image/png") : img.src;' +
+      '  const btn = document.getElementById("download-btn");' +
+      '  btn.href = imageUrl;' +
+      '  btn.download = "NSCI_Hub_QR.png";' +
       '}' +
       '<\/script>' +
       '</body>' +
