@@ -1160,7 +1160,7 @@
       '<body>' +
       '<div class="no-print" style="margin-bottom: 20px;">' +
       '<button class="btn" onclick="window.print()">Print This Page</button>' +
-      '<a id="download-btn" class="btn" onclick="prepareDownload(event)">Save QR Code to your Downloads Folder</a>' +
+      '<button class="btn" onclick="triggerAndroidDownload()">Save QR Code to your Downloads Folder</button>' +
       '</div>' +
       '<h2>National Symphony Chorus Ireland</h2>' +
       '<p><strong>Member Information Hub - QR Code</strong></p>' +
@@ -1171,13 +1171,30 @@
       '</div>' +
       '<script>' +
       'new QRCode(document.getElementById("qrcode"), { text: "' + appUrl + '", width: 220, height: 220, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });' +
-      'function prepareDownload(e) {' +
-      '  const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");' +
-      '  if (!img) return;' +
-      '  let imageUrl = img.tagName === "CANVAS" ? img.toDataURL("image/png") : img.src;' +
-      '  const btn = document.getElementById("download-btn");' +
-      '  btn.href = imageUrl;' +
-      '  btn.download = "NSCI_Hub_QR.png";' +
+      'function triggerAndroidDownload() {' +
+      '  setTimeout(() => {' +
+      '    const img = document.querySelector("#qrcode img") || document.querySelector("#qrcode canvas");' +
+      '    if (!img) return;' +
+      '    if (img.tagName === "CANVAS") {' +
+      '      img.toBlob(function(blob) {' +
+      '        const url = URL.createObjectURL(blob);' +
+      '        const a = document.createElement("a");' +
+      '        a.href = url;' +
+      '        a.download = "NSCI_Hub_QR.png";' +
+      '        document.body.appendChild(a);' +
+      '        a.click();' +
+      '        document.body.removeChild(a);' +
+      '        URL.revokeObjectURL(url);' +
+      '      }, "image/png");' +
+      '    } else {' +
+      '      const a = document.createElement("a");' +
+      '      a.href = img.src;' +
+      '      a.download = "NSCI_Hub_QR.png";' +
+      '      document.body.appendChild(a);' +
+      '      a.click();' +
+      '      document.body.removeChild(a);' +
+      '    }' +
+      '  }, 100);' +
       '}' +
       '<\/script>' +
       '</body>' +
@@ -1222,7 +1239,7 @@
       '<div class="box">' +
       '<h2>Apple & Outlook Calendar Setup</h2>' +
       '<p>The subscription link has been copied to your clipboard. If you need to copy it manually again, use the box below:</p>' +
-      '<label for="urlbox"><strong>Calendar iCal Link:</strong></label>' +
+      '<label for="urlbox"><strong>Calendar iCalLink:</strong></label>' +
       '<input type="text" id="urlbox" value="' + icalUrl + '" readonly onclick="this.select();">' +
       '<h3>Step-by-Step Instructions:</h3>' +
       '<ul>' +
