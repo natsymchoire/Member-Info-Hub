@@ -124,6 +124,9 @@
     .card-archive-detail { background-color: #fafaf9; border-color: #57534e; }
     .card-archive-detail h3 { color: #292524; }
 
+    .card-privacy { background-color: #fafaf9; border-color: #57534e; }
+    .card-privacy h3 { color: #292524; }
+
     /* Muted Fault Card (softened neutral-rose appearance) */
     .card-fault { background-color: #fcfbfb; border-color: #d8b4b4; }
     .card-fault h3 { color: #734040; }
@@ -179,20 +182,23 @@
     }
     .bottom-nav-btn:hover { background-color: #475569; }
 
-    .bottom-nav-full {
+    /* Dual Row for Performances and Privacy Buttons */
+    .bottom-dual-row {
+      display: flex;
+      gap: 10px;
       margin-bottom: 20px;
     }
-    .bottom-nav-full-btn {
-      width: 100%;
+    .bottom-dual-row-btn {
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       color: #fff;
       text-align: center;
-      padding: 14px 10px;
+      padding: 14px 8px;
       border-radius: 8px;
-      border: 1px solid #475569;
+      border: 1px solid #44403c;
       background-color: #57534e;
       cursor: pointer;
       font-weight: bold;
@@ -200,7 +206,7 @@
       box-shadow: 0 2px 4px rgba(87, 83, 78, 0.2);
       font-family: Arial, sans-serif;
     }
-    .bottom-nav-full-btn:hover { background-color: #44403c; }
+    .bottom-dual-row-btn:hover { background-color: #44403c; }
 
     /* Side-by-Side Bottom Action Buttons */
     .bottom-dual-nav {
@@ -379,50 +385,15 @@
     </button>
   </div>
 
-  <!-- Collapsible: Subscribe to Choir Calendar -->
-  <div id="subscribe-section" class="card card-subscribe" style="display: none;">
-    <h3>Subscribe to Choir Calendar</h3>
-    <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px; margin-bottom: 12px;">Add online choir calendar to your personal calendar app. Changes will sync automatically over time.</p>
-      
-      <a href="https://calendar.google.com/calendar/u/0?cid=natsymphchorus%40gmail.com" target="_blank" class="sub-btn">
-        Subscribe with Google Calendar
-      </a>
-      <button onclick="copyAndOpenInstructions(this)" class="sub-btn sub-btn-alt">
-        Copy Link for Apple / Outlook Calendar
-      </button>
-    </div>
-  </div>
-
-  <!-- Collapsible: Install Member Information Hub On Your Phone -->
-  <div id="install-section" class="card card-app-install" style="display: none;">
-    <h3>Install Member Information Hub On Your Phone</h3>
-    <div class="card-inner">
-      <p style="margin-top: 0; font-size: 14px; margin-bottom: 10px;">You can save this page directly to your home screen for quick, one-tap access:</p>
-      
-      <div style="font-size: 13px; background: #fafafa; padding: 10px; border-radius: 4px; border: 1px solid #ddd;">
-        <p style="margin: 0 0 6px 0;"><strong>Android (Chrome / Samsung Internet):</strong></p>
-        <ol style="margin: 0 0 12px 20px; padding: 0;">
-          <li>Tap the menu icon (three dots in top-right).</li>
-          <li>Select <strong>Install and create shortcut</strong> (or <em>Add to Home screen</em>).</li>
-          <li>Confirm by tapping <strong>Install</strong> or <strong>Add</strong>.</li>
-        </ol>
-
-        <p style="margin: 0 0 6px 0;"><strong>iPhone / iPad (Safari):</strong></p>
-        <ol style="margin: 0 0 0 20px; padding: 0;">
-          <li>Tap the <strong>Share</strong> button at the bottom of the screen.</li>
-          <li>Scroll down and tap <strong>Add to Home Screen</strong>.</li>
-          <li>Tap <strong>Add</strong> in the top-right corner.</li>
-        </ol>
-      </div>
-    </div>
-  </div>
-
-  <!-- Additional Bottom Full-Width Button: Previous Performances -->
-  <div class="bottom-nav-full">
-    <button onclick="toggleSection('performances-section')" class="bottom-nav-full-btn">
+  <!-- Side-by-Side Buttons: Performances & Privacy -->
+  <div class="bottom-dual-row">
+    <button onclick="toggleSection('performances-section')" class="bottom-dual-row-btn">
       <span class="btn-large">Previous NSCI Performances</span>
       <span class="btn-large">of Works in 2026/27 Season</span>
+    </button>
+    <button onclick="toggleSection('privacy-section')" class="bottom-dual-row-btn">
+      <span class="btn-large">Privacy /</span>
+      <span class="btn-large">Data Protection</span>
     </button>
   </div>
 
@@ -472,6 +443,20 @@
         <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: bold; color: #44403c;">Select performance date:</p>
         <button onclick="showPerformanceDetail('berlioz-2003')" class="sub-perf-btn">5 December 2003</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Collapsible: Privacy / Data Protection -->
+  <div id="privacy-section" class="card card-privacy" style="display: none;">
+    <h3>Privacy/Data Protection</h3>
+    <div class="card-inner" style="font-size: 14px; line-height: 1.6;">
+      <p style="margin-top: 0;">1. The online NSCI Member Information Hub (&ldquo;the NSCI Hub App&rdquo;) has been developed by Kevin O&rsquo;Connell, an individual member of the NSCI. To contact him please <a href="mailto:natsymphchorus@gmail.com" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">click here</a>.</p>
+      <p>2. An Ceoláras Náisiúnta (the National Concert Hall) has not been involved in the development of the NSCI Hub App. Neither is it involved in the control or monitoring of it.</p>
+      <p>3. The NSCI Hub App is not intended to be used for the gathering or dissemination of any personal data.</p>
+      <p>4. No personal data is gathered when other members of the NSCI choose to use the Hub App. Nor are any logs maintained regarding anyone&rsquo;s use of it.</p>
+      <p>5. Both the NSCI Chorus Director and NSCI Choir Manager have undertaken that no personal data will ever be uploaded to the &ldquo;Current Notes&rdquo; section of the Hub App.</p>
+      <p style="margin-bottom: 15px;">6. NSCI Members remain perfectly free not to download or use the Hub App. Information regarding the NSCI will continue to be communicated to choir members in exactly the same way as it has customarily been communicated.</p>
+      <button onclick="toggleSection('privacy-section')" class="sub-btn" style="background-color: #78716c; margin-top: 0;">Close Privacy Notice</button>
     </div>
   </div>
 
@@ -643,6 +628,7 @@
     const subscribeSection = document.getElementById('subscribe-section');
     const installSection = document.getElementById('install-section');
     const performancesSection = document.getElementById('performances-section');
+    const privacySection = document.getElementById('privacy-section');
     const faultSection = document.getElementById('fault-section');
 
     const isTargetAlreadyOpen = document.getElementById(sectionId).style.display === 'block';
@@ -650,6 +636,7 @@
     subscribeSection.style.display = 'none';
     installSection.style.display = 'none';
     performancesSection.style.display = 'none';
+    privacySection.style.display = 'none';
     faultSection.style.display = 'none';
 
     if (!isTargetAlreadyOpen) {
