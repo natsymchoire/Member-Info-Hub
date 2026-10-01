@@ -150,15 +150,15 @@
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       background-color: #37474f;
     }
-    .btn-large { font-size: 15px; font-weight: bold; }
+    .btn-large { font-size: 14px; font-weight: bold; }
 
-    /* Bottom Functional Toggle Buttons */
-    .bottom-nav {
+    /* Three-Column Functional Toggle Buttons */
+    .triple-nav {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       margin-bottom: 20px;
     }
-    .bottom-nav-btn {
+    .triple-nav-btn {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -166,7 +166,7 @@
       align-items: center;
       color: #ffffff;
       text-align: center;
-      padding: 12px 10px;
+      padding: 12px 6px;
       border-radius: 8px;
       border: 1px solid #64748b;
       background-color: #64748b;
@@ -176,9 +176,9 @@
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       font-family: Arial, sans-serif;
     }
-    .bottom-nav-btn:hover { background-color: #475569; }
+    .triple-nav-btn:hover { background-color: #475569; }
 
-    /* Dual Row for Performances, Privacy, and Archive Buttons */
+    /* Dual Row for Performances and Secondary Buttons */
     .bottom-dual-row {
       display: flex;
       gap: 10px;
@@ -216,31 +216,29 @@
       line-height: 1.2;
     }
 
-    /* Side-by-Side Bottom Action Buttons */
-    .bottom-dual-nav {
-      display: flex;
-      gap: 10px;
+    /* Full Width Bottom Action Button */
+    .bottom-full-nav {
       margin-bottom: 20px;
     }
-    .bottom-dual-btn {
-      flex: 1;
+    .bottom-full-btn {
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       color: #fff;
       text-align: center;
-      padding: 12px 8px;
+      padding: 14px 8px;
       border-radius: 8px;
-      border: 1px solid #263238;
-      background-color: #37474f;
+      border: 1px solid #5c3333;
+      background-color: #734040;
       cursor: pointer;
       font-weight: bold;
       line-height: 1.2;
       box-shadow: 0 2px 4px rgba(0,0,0,0.15);
       font-family: Arial, sans-serif;
     }
-    .bottom-dual-btn:hover { background-color: #263238; }
+    .bottom-full-btn:hover { background-color: #5c3333; }
 
     .load-more-btn, .reduce-btn {
       display: block;
@@ -396,19 +394,23 @@
     </div>
   </div>
 
-  <!-- Bottom Toggle Navigation Buttons -->
-  <div class="bottom-nav">
-    <button onclick="toggleSection('subscribe-section')" class="bottom-nav-btn">
+  <!-- Three-Column Toggle Navigation Buttons -->
+  <div class="triple-nav">
+    <button onclick="toggleSection('subscribe-section')" class="triple-nav-btn">
       <span class="btn-large">Subscribe to</span>
       <span class="btn-large">Choir Calendar</span>
     </button>
-    <button onclick="toggleSection('install-section')" class="bottom-nav-btn">
+    <button onclick="toggleSection('install-section')" class="triple-nav-btn">
       <span class="btn-large">Install Hub</span>
-      <span class="btn-large">On Your Phone</span>
+      <span class="btn-large">On Phone as App</span>
+    </button>
+    <button onclick="openQRCodePage()" class="triple-nav-btn">
+      <span class="btn-large">Generate QR Code</span>
+      <span class="btn-large">for Hub App</span>
     </button>
   </div>
 
-  <!-- Side-by-Side Buttons: Performances & Privacy -->
+  <!-- Side-by-Side Buttons: Performances & Privacy (Swapped Privacy and Archive) -->
   <div class="bottom-dual-row">
     <button onclick="toggleSection('performances-section')" class="bottom-dual-row-btn">
       <span class="btn-large">Previous NSCI Performances</span>
@@ -420,12 +422,19 @@
     </button>
   </div>
 
-  <!-- Bottom Dual Row: Performances Archive External Link & Quick Actions -->
+  <!-- Bottom Dual Row: Performances Archive External Link -->
   <div class="bottom-dual-row">
     <a href="https://sites.google.com/view/nsc-new-archive/home" target="_blank" class="bottom-dual-row-btn nav-btn-archive">
       <span class="btn-large">Performances Archive</span>
       <span class="btn-large">(External Google Site)</span>
     </a>
+  </div>
+
+  <!-- Full-Width Bottom Action Button: Report Faults/Glitches With App -->
+  <div class="bottom-full-nav">
+    <button onclick="toggleSection('fault-section')" class="bottom-full-btn">
+      <span class="btn-large">Report Faults/Glitches With App</span>
+    </button>
   </div>
 
   <!-- Collapsible: Subscribe to Choir Calendar -->
@@ -793,18 +802,6 @@
         <button type="button" onclick="toggleSection('fault-section')" class="sub-btn" style="background-color: #78716c; margin-top: 8px;">Cancel</button>
       </form>
     </div>
-  </div>
-
-  <!-- Bottom Dual Action Buttons (QR Code & Fault Reporting) -->
-  <div class="bottom-dual-nav">
-    <button onclick="openQRCodePage()" class="bottom-dual-btn">
-      <span class="btn-large">Generate QR Code</span>
-      <span class="btn-large">for this App</span>
-    </button>
-    <button onclick="toggleSection('fault-section')" class="bottom-dual-btn" style="background-color: #734040; border-color: #5c3333;">
-      <span class="btn-large">Report Faults or Glitches</span>
-      <span class="btn-large">With this App</span>
-    </button>
   </div>
 
 </div>
