@@ -131,29 +131,25 @@
     .card-fault { background-color: #fcfbfb; border-color: #d8b4b4; }
     .card-fault h3 { color: #734040; }
 
-    /* Top External Navigation Buttons */
+    /* Top Full-Width Navigation Button */
     .top-nav {
-      display: flex;
-      gap: 10px;
       margin-bottom: 20px;
     }
-    .nav-btn-calendar, .nav-btn-archive {
-      flex: 1;
+    .nav-btn-calendar {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       color: white;
       text-align: center;
-      padding: 10px;
+      padding: 12px 10px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       line-height: 1.2;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      background-color: #37474f;
     }
-    .nav-btn-calendar { background-color: #37474f; }
-    .nav-btn-archive { background-color: #455a64; }
     .btn-large { font-size: 15px; font-weight: bold; }
 
     /* Bottom Functional Toggle Buttons */
@@ -182,7 +178,7 @@
     }
     .bottom-nav-btn:hover { background-color: #475569; }
 
-    /* Dual Row for Performances and Privacy Buttons */
+    /* Dual Row for Performances, Privacy, and Archive Buttons */
     .bottom-dual-row {
       display: flex;
       gap: 10px;
@@ -207,6 +203,18 @@
       font-family: Arial, sans-serif;
     }
     .bottom-dual-row-btn:hover { background-color: #44403c; }
+
+    .nav-btn-archive {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      line-height: 1.2;
+    }
 
     /* Side-by-Side Bottom Action Buttons */
     .bottom-dual-nav {
@@ -370,15 +378,11 @@
     <div class="app-title-line2">Member Information Hub</div>
   </div>
 
-  <!-- Secondary Navigation Buttons -->
+  <!-- Top Full-Width Choir Calendar Navigation Button -->
   <div class="top-nav">
     <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" class="nav-btn-calendar">
-      <span class="btn-large">Choir</span>
-      <span class="btn-large">Calendar</span>
-    </a>
-    <a href="https://sites.google.com/view/nsc-new-archive/home" target="_blank" class="nav-btn-archive">
-      <span class="btn-large">Performances</span>
-      <span class="btn-large">Archive</span>
+      <span class="btn-large">Open Choir Calendar</span>
+      <span class="btn-large">in Web Browser</span>
     </a>
   </div>
 
@@ -414,6 +418,14 @@
       <span class="btn-large">Privacy /</span>
       <span class="btn-large">Data Protection</span>
     </button>
+  </div>
+
+  <!-- Bottom Dual Row: Performances Archive External Link & Quick Actions -->
+  <div class="bottom-dual-row">
+    <a href="https://sites.google.com/view/nsc-new-archive/home" target="_blank" class="bottom-dual-row-btn nav-btn-archive">
+      <span class="btn-large">Performances Archive</span>
+      <span class="btn-large">(External Google Site)</span>
+    </a>
   </div>
 
   <!-- Collapsible: Subscribe to Choir Calendar -->
@@ -983,29 +995,13 @@
   function renderEvents() {
     const now = new Date();
     const todayStr = now.toISOString().split('T')[0];
-    const initialLimitDate = new Date(now.getFullYear(), now.getMonth() + 2, 0);
-
-    let hasEventsBeyondLimit = false;
-
-    cachedEvents.forEach(ev => {
-      const parts = ev.startDateStr.split('-').map(Number);
-      const evDate = new Date(parts[0], parts[1] - 1, parts[2]);
-      if (evDate > initialLimitDate) {
-        hasEventsBeyondLimit = true;
-      }
-    });
 
     const dateMap = new Map();
     cachedEvents.forEach(ev => {
-      const parts = ev.startDateStr.split('-').map(Number);
-      const evDate = new Date(parts[0], parts[1] - 1, parts[2]);
-      
-      if (showAllFuture || evDate <= initialLimitDate) {
-        if (!dateMap.has(ev.startDateStr)) {
-          dateMap.set(ev.startDateStr, []);
-        }
-        dateMap.get(ev.startDateStr).push(ev);
+      if (!dateMap.has(ev.startDateStr)) {
+        dateMap.set(ev.startDateStr, []);
       }
+      dateMap.get(ev.startDateStr).push(ev);
     });
 
     const targetDates = Array.from(dateMap.keys()).sort();
@@ -1054,8 +1050,11 @@
 
     fullHTML += '<div class="section-subheading">Future Events</div>';
 
-    for (let i = 1; i < targetDates.length; i++) {
-      const dateKey = targetDates[i];
+    const futureDates = targetDates.slice(1);
+    const displayDates = showAllFuture ? futureDates : futureDates.slice(0, 4);
+    const hasMoreFutureEvents = futureDates.length > 4;
+
+    displayDates.forEach(dateKey => {
       const dayEvents = dateMap.get(dateKey);
 
       const parts = dateKey.split('-').map(Number);
@@ -1076,12 +1075,12 @@
       }
 
       fullHTML += '<div class="card card-event-secondary"><h3>' + formattedDateTitle + '</h3><div class="card-inner">' + eventsDetailsHTML + parkingHTML + '</div></div>';
-    }
+    });
 
-    if (!showAllFuture && hasEventsBeyondLimit) {
+    if (!showAllFuture && hasMoreFutureEvents) {
       fullHTML += '<button class="load-more-btn" onclick="showAllEvents()">Show All Future Events</button>';
-    } else if (showAllFuture) {
-      fullHTML += '<button class="reduce-btn" onclick="reduceEvents()">Reduce Number of Future Events Displayed</button>';
+    } else if (showAllFuture && hasMoreFutureEvents) {
+      fullHTML += '<button class="reduce-btn" onclick="reduceEvents()">Show Fewer Future Events</button>';
     }
 
     document.getElementById('events-container').innerHTML = fullHTML;
