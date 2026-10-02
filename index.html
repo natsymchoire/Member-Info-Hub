@@ -818,7 +818,7 @@
 <script>
   const WORKER_URL = 'https://nsc-calendar-proxy.natsymphchorus.workers.dev/';
   const DIRECTOR_NOTES_WORKER = 'https://nsc-choral-director-notes.natsymphchorus.workers.dev';
-  const DIRECTOR_B_NOTES_WORKER = 'https://nsc-choral-director-notes.natsymphchorus.workers.dev'; // Temporary same worker for testing
+  const DIRECTOR_B_WORKER = 'https://nsci-project01-plan-populator.natsymphchorus.workers.dev';
   const MANAGER_NOTES_WORKER = 'https://nch-manager-notes.natsymphchorus.workers.dev';
   const PROGRAM_NOTE_WORKER = 'https://retrieve-program-note.natsymphchorus.workers.dev';
 
@@ -1160,7 +1160,7 @@
 
   async function loadDirectorBNotes() {
     try {
-      const response = await fetch(DIRECTOR_B_NOTES_WORKER);
+      const response = await fetch(DIRECTOR_B_WORKER);
       if (response.ok) {
         const data = await response.json();
         if (data.content) {
