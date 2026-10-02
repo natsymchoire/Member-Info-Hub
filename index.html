@@ -392,6 +392,16 @@
       padding: 12px; 
       border-radius: 4px;
       line-height: 1.6;
+      word-break: break-word;
+    }
+
+    /* Neutralize Google Docs conflicting inline widths or table sizing inside tabs */
+    #director-content table, #projectplan-content table, #manager-content table {
+      max-width: 100% !important;
+      width: 100% !important;
+    }
+    #director-content p, #projectplan-content p, #manager-content p {
+      max-width: 100% !important;
     }
 
     /* Privacy Numbered List Grid Styling */
@@ -1317,7 +1327,7 @@
       '<meta name="viewport" content="width=device-width, initial-scale=1">' +
       '<title>Notes for Next Rehearsal - Printable View</title>' +
       '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
+      'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fff; }' +
       'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
       '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
       '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
@@ -1328,7 +1338,7 @@
       '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
       '<h2>Notes for Next Rehearsal</h2>' +
       '<div class="timestamp">' + timestampText + '</div>' +
-      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
+      '<div>' + contentHTML + '</div>' +
       '</body>' +
       '</html>';
 
@@ -1351,7 +1361,7 @@
       '<meta name="viewport" content="width=device-width, initial-scale=1">' +
       '<title>Project Plan & Useful Weblinks - Printable View</title>' +
       '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
+      'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fff; }' +
       'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
       '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
       '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
@@ -1362,7 +1372,7 @@
       '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
       '<h2>Project Plan, Useful Weblinks, etc</h2>' +
       '<div class="timestamp">' + timestampText + '</div>' +
-      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
+      '<div>' + contentHTML + '</div>' +
       '</body>' +
       '</html>';
 
