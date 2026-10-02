@@ -460,8 +460,9 @@
     </a>
   </div>
 
-  <!-- Dynamic Content Container -->
-  <div id="events-container">
+  <!-- STATIC PERMANENT STRUCTURE: Ensures notes and tabs load instantly regardless of calendar worker status -->
+  <div class="section-subheading" id="next-event-heading">Next Event</div>
+  <div id="calendar-event-slot">
     <div class="card card-event-1">
       <h3>Loading Upcoming Events...</h3>
       <div class="card-inner">
@@ -469,6 +470,48 @@
       </div>
     </div>
   </div>
+
+  <div class="section-subheading">Current Notes</div>
+
+  <!-- Two-Tab Structure for Chorus Director Notes / Project Plan -->
+  <div class="card card-director">
+    <h3>Notes from Chorus Director</h3>
+    <div class="card-inner">
+      <div class="director-tabs-container">
+        <button id="tab-btn-rehearsal" onclick="switchDirectorTab('rehearsal')" class="director-tab-btn active">
+          <span id="director-timestamp">Notes For Next Rehearsal<br><small>Loading...</small></span>
+        </button>
+        <button id="tab-btn-project" onclick="switchDirectorTab('project')" class="director-tab-btn">
+          <span id="projectplan-timestamp">Project Plan, Useful Weblinks, etc<br><small>Loading...</small></span>
+        </button>
+      </div>
+      <div id="tab-content-rehearsal" class="director-tab-content active">
+        <div id="director-content"><em>No notes currently available.</em></div>
+        <div style="text-align: right; margin-top: 5px;">
+          <a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
+        </div>
+      </div>
+      <div id="tab-content-project" class="director-tab-content">
+        <div id="projectplan-content"><em>No project plan content currently available.</em></div>
+        <div style="text-align: right; margin-top: 5px;">
+          <a href="javascript:void(0);" onclick="openProjectPlanPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-manager">
+    <h3>Notes from Choir Manager</h3>
+    <div class="card-inner">
+      <p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p>
+      <div id="manager-content"><em>No notes currently available.</em></div>
+      <div style="text-align: right; margin-top: 5px;">
+        <a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="future-events-slot"></div>
 
   <!-- Three-Column Toggle Navigation Buttons -->
   <div class="triple-nav">
@@ -1063,26 +1106,29 @@
     }
   }
 
+  // Load calendar events asynchronously while notes load independently
   async function loadDynamicEvents() {
+    loadDirectorNotes();
+    loadProjectPlanNotes();
+    loadManagerNotes();
+
     try {
       const response = await fetch(WORKER_URL);
       if (!response.ok) throw new Error('Server returned status ' + response.status);
       
       cachedEvents = await response.json();
 
-      if (!Array.isArray(cachedEvents) || cachedEvents.length === 0) {
-        showFallbackNotice();
-        return;
+      if (Array.isArray(cachedEvents) && cachedEvents.length > 0) {
+        renderEvents();
+      } else {
+        document.getElementById('calendar-event-slot').innerHTML = '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>';
       }
-
-      renderEvents();
-      loadDirectorNotes();
-      loadProjectPlanNotes();
-      loadManagerNotes();
-
     } catch (err) {
       console.error('Error loading calendar events:', err);
-      showFallbackNotice();
+      const slot = document.getElementById('calendar-event-slot');
+      if (slot) {
+        slot.innerHTML = '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>';
+      }
     }
   }
 
@@ -1099,144 +1145,80 @@
     });
 
     const targetDates = Array.from(dateMap.keys()).sort();
-
-    if (targetDates.length === 0) {
-      showFallbackNotice();
-      return;
-    }
-
-    let fullHTML = '';
+    if (targetDates.length === 0) return;
 
     let firstDateKey = targetDates[0];
     let subheadingText = (firstDateKey === todayStr) ? "Today's Event" : "Next Event";
 
-    fullHTML += '<div class="section-subheading">' + subheadingText + '</div>';
+    document.getElementById('next-event-heading').innerText = subheadingText;
 
-    if (targetDates.length > 0) {
-      const dateKey = firstDateKey;
-      const dayEvents = dateMap.get(dateKey);
-      const parts = dateKey.split('-').map(Number);
-      const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
-      const formattedDateTitle = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    const dayEvents = dateMap.get(firstDateKey);
+    const parts = firstDateKey.split('-').map(Number);
+    const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
+    const formattedDateTitle = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
-      let eventsDetailsHTML = '';
-      dayEvents.forEach(ev => {
-        eventsDetailsHTML += '<p style="margin-top: 0; margin-bottom: 8px;"><strong>' + ev.summary + '</strong><br><strong>Time:</strong> ' + ev.timeStr + '<br><strong>Venue:</strong> ' + ev.location + '</p>';
-      });
+    let eventsDetailsHTML = '';
+    dayEvents.forEach(ev => {
+      eventsDetailsHTML += '<p style="margin-top: 0; margin-bottom: 8px;"><strong>' + ev.summary + '</strong><br><strong>Time:</strong> ' + ev.timeStr + '<br><strong>Venue:</strong> ' + ev.location + '</p>';
+    });
 
-      const nchUrl = 'https://www.nch.ie/all-events-listing/?search=&from=' + dateKey;
-      
-      const diffTime = dateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      let parkingHTML = '';
-      if (diffDays <= 14 && diffDays >= 0) {
-        parkingHTML = '<div class="parking-banner" style="border-left-color: #1d4ed8;">Parking: <a href="' + nchUrl + '" target="_blank" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
-      }
-
-      fullHTML += '<div class="card card-event-1"><h3>' + formattedDateTitle + '</h3><div class="card-inner">' + eventsDetailsHTML + parkingHTML + '</div></div>';
+    const nchUrl = 'https://www.nch.ie/all-events-listing/?search=&from=' + firstDateKey;
+    const diffTime = dateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    let parkingHTML = '';
+    if (diffDays <= 14 && diffDays >= 0) {
+      parkingHTML = '<div class="parking-banner" style="border-left-color: #1d4ed8;">Parking: <a href="' + nchUrl + '" target="_blank" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
     }
 
-    fullHTML += '<div class="section-subheading">Current Notes</div>';
+    document.getElementById('calendar-event-slot').innerHTML = '<div class="card card-event-1"><h3>' + formattedDateTitle + '</h3><div class="card-inner">' + eventsDetailsHTML + parkingHTML + '</div></div>';
 
-    // Two-Tab Structure for Chorus Director Notes / Project Plan
-    fullHTML += '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner">' +
-      '<div class="director-tabs-container">' +
-        '<button id="tab-btn-rehearsal" onclick="switchDirectorTab(\'rehearsal\')" class="director-tab-btn active"><span id="director-timestamp">Notes For Next Rehearsal<br><small>Loading...</small></span></button>' +
-        '<button id="tab-btn-project" onclick="switchDirectorTab(\'project\')" class="director-tab-btn"><span id="projectplan-timestamp">Project Plan, Useful Weblinks, etc<br><small>Loading...</small></span></button>' +
-      '</div>' +
-      '<div id="tab-content-rehearsal" class="director-tab-content active">' +
-        '<div id="director-content"><em>No notes currently available.</em></div>' +
-        '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-      '</div>' +
-      '<div id="tab-content-project" class="director-tab-content">' +
-        '<div id="projectplan-content"><em>No project plan content currently available.</em></div>' +
-        '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openProjectPlanPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-      '</div>' +
-    '</div></div>';
-
-    fullHTML += '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
-
-    fullHTML += '<div class="section-subheading">Future Events</div>';
-
+    // Future Events
+    let futureHTML = '<div class="section-subheading">Future Events</div>';
     const futureDates = targetDates.slice(1);
     const displayDates = showAllFuture ? futureDates : futureDates.slice(0, 4);
     const hasMoreFutureEvents = futureDates.length > 4;
 
     displayDates.forEach(dateKey => {
-      const dayEvents = dateMap.get(dateKey);
+      const fEvents = dateMap.get(dateKey);
+      const fParts = dateKey.split('-').map(Number);
+      const fDateObj = new Date(fParts[0], fParts[1] - 1, fParts[2]);
+      const fTitle = fDateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 
-      const parts = dateKey.split('-').map(Number);
-      const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
-      const formattedDateTitle = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
-
-      let eventsDetailsHTML = '';
-      dayEvents.forEach(ev => {
-        eventsDetailsHTML += '<p style="margin-top: 0; margin-bottom: 8px;"><strong>' + ev.summary + '</strong><br><strong>Time:</strong> ' + ev.timeStr + '<br><strong>Venue:</strong> ' + ev.location + '</p>';
+      let fDetails = '';
+      fEvents.forEach(ev => {
+        fDetails += '<p style="margin-top: 0; margin-bottom: 8px;"><strong>' + ev.summary + '</strong><br><strong>Time:</strong> ' + ev.timeStr + '<br><strong>Venue:</strong> ' + ev.location + '</p>';
       });
 
-      const nchUrl = 'https://www.nch.ie/all-events-listing/?search=&from=' + dateKey;
-      const diffTime = dateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      let parkingHTML = '';
-      if (diffDays <= 14 && diffDays >= 0) {
-        parkingHTML = '<div class="parking-banner" style="border-left-color: #78909c;">Parking: <a href="' + nchUrl + '" target="_blank" style="color: #455a64; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
+      const fNchUrl = 'https://www.nch.ie/all-events-listing/?search=&from=' + dateKey;
+      const fDiffTime = fDateObj - new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const fDiffDays = Math.ceil(fDiffTime / (1000 * 60 * 60 * 24));
+      let fParkingHTML = '';
+      if (fDiffDays <= 14 && fDiffDays >= 0) {
+        fParkingHTML = '<div class="parking-banner" style="border-left-color: #78909c;">Parking: <a href="' + fNchUrl + '" target="_blank" style="color: #455a64; font-weight: bold; text-decoration: underline;">Check NCH Calendar for any other events today</a></div>';
       }
 
-      fullHTML += '<div class="card card-event-secondary"><h3>' + formattedDateTitle + '</h3><div class="card-inner">' + eventsDetailsHTML + parkingHTML + '</div></div>';
+      futureHTML += '<div class="card card-event-secondary"><h3>' + fTitle + '</h3><div class="card-inner">' + fDetails + fParkingHTML + '</div></div>';
     });
 
     if (!showAllFuture && hasMoreFutureEvents) {
-      fullHTML += '<button class="load-more-btn" onclick="showAllEvents()">Show All Future Events</button>';
+      futureHTML += '<button class="load-more-btn" onclick="showAllEvents()">Show All Future Events</button>';
     } else if (showAllFuture && hasMoreFutureEvents) {
-      fullHTML += '<button class="reduce-btn" onclick="reduceEvents()">Show Fewer Future Events</button>';
+      futureHTML += '<button class="reduce-btn" onclick="reduceEvents()">Show Fewer Future Events</button>';
     }
 
-    document.getElementById('events-container').innerHTML = fullHTML;
+    document.getElementById('future-events-slot').innerHTML = futureHTML;
   }
 
   function showAllEvents() {
     showAllFuture = true;
     renderEvents();
-    loadDirectorNotes();
-    loadProjectPlanNotes();
-    loadManagerNotes();
     window.scrollBy({ top: 300, behavior: 'smooth' });
   }
 
   function reduceEvents() {
     showAllFuture = false;
     renderEvents();
-    loadDirectorNotes();
-    loadProjectPlanNotes();
-    loadManagerNotes();
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function showFallbackNotice() {
-    let fallbackHTML = 
-      '<div class="section-subheading">Next Event</div>' +
-      '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>' +
-      '<div class="section-subheading">Current Notes</div>' +
-      '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner">' +
-        '<div class="director-tabs-container">' +
-          '<button id="tab-btn-rehearsal" onclick="switchDirectorTab(\'rehearsal\')" class="director-tab-btn active"><span id="director-timestamp">Notes For Next Rehearsal<br><small>Loading...</small></span></button>' +
-          '<button id="tab-btn-project" onclick="switchDirectorTab(\'project\')" class="director-tab-btn"><span id="projectplan-timestamp">Project Plan, Useful Weblinks, etc<br><small>Loading...</small></span></button>' +
-        '</div>' +
-        '<div id="tab-content-rehearsal" class="director-tab-content active">' +
-          '<div id="director-content"><em>No notes currently available.</em></div>' +
-          '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-        '</div>' +
-        '<div id="tab-content-project" class="director-tab-content">' +
-          '<div id="projectplan-content"><em>No project plan content currently available.</em></div>' +
-          '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openProjectPlanPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-        '</div>' +
-      '</div></div>' +
-      '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
-
-    document.getElementById('events-container').innerHTML = fallbackHTML;
-    loadDirectorNotes();
-    loadProjectPlanNotes();
-    loadManagerNotes();
   }
 
   loadDynamicEvents();
@@ -1256,15 +1238,9 @@
           const formattedDate = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' });
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
           timeEl.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: ' + formattedTime + ' on ' + formattedDate + '</small>';
-        } else if (timeEl) {
-          timeEl.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: Unavailable</small>';
         }
       }
-    } catch (e) {
-      console.error('Failed to load director notes', e);
-      const el = document.getElementById('director-timestamp');
-      if (el) el.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: Unavailable</small>';
-    }
+    } catch (e) { console.error('Failed to load director notes', e); }
   }
 
   async function loadProjectPlanNotes() {
@@ -1281,27 +1257,11 @@
           const modDate = new Date(data.modifiedTime);
           const now = new Date();
           const diffHours = (now - modDate) / (1000 * 60 * 60);
-          const diffDays = diffHours / 24;
-
-          let relativeText = '';
-          if (diffHours <= 24) {
-            relativeText = 'Updated within last 24 hours';
-          } else if (diffDays <= 7) {
-            relativeText = 'Updated within last week';
-          } else {
-            relativeText = 'Updated > 1 week ago';
-          }
-
+          let relativeText = diffHours <= 24 ? 'Updated within last 24 hours' : (diffHours <= 168 ? 'Updated within last week' : 'Updated > 1 week ago');
           timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>' + relativeText + '</small>';
-        } else if (timeEl) {
-          timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>Updated: Unavailable</small>';
         }
       }
-    } catch (e) {
-      console.error('Failed to load project plan notes', e);
-      const el = document.getElementById('projectplan-timestamp');
-      if (el) el.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>Updated: Unavailable</small>';
-    }
+    } catch (e) { console.error('Failed to load project plan notes', e); }
   }
 
   async function loadManagerNotes() {
@@ -1319,16 +1279,9 @@
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
           const timeEl = document.getElementById('manager-timestamp');
           if (timeEl) timeEl.innerText = 'Last Updated: ' + formattedTime + ' on ' + formattedDate;
-        } else {
-          const timeEl = document.getElementById('manager-timestamp');
-          if (timeEl) timeEl.innerText = 'Last Updated: Unavailable';
         }
       }
-    } catch (e) {
-      console.error('Failed to load manager notes', e);
-      const el = document.getElementById('manager-timestamp');
-      if (el) el.innerText = 'Last Updated: Unavailable';
-    }
+    } catch (e) { console.error('Failed to load manager notes', e); }
   }
 
   function openDirectorPrintView() {
@@ -1337,32 +1290,9 @@
     const contentHTML = contentEl ? contentEl.innerHTML : '';
     const timestampText = timeEl ? timeEl.innerText : '';
 
-    const printPageHTML = 
-      '<!DOCTYPE html>' +
-      '<html lang="en">' +
-      '<head>' +
-      '<meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Notes for Next Rehearsal - Printable View</title>' +
-      '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fff; }' +
-      'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
-      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-      '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-      '@media print { .print-btn { display: none; } }' +
-      '</style>' +
-      '</head>' +
-      '<body>' +
-      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
-      '<h2>Notes for Next Rehearsal</h2>' +
-      '<div class="timestamp">' + timestampText + '</div>' +
-      '<div>' + contentHTML + '</div>' +
-      '</body>' +
-      '</html>';
-
+    const printPageHTML = '<!DOCTYPE html><html><head><title>Printable Rehearsal Notes</title></head><body style="font-family:Arial;padding:25px;"><h2>Notes for Next Rehearsal</h2><div style="color:#d32f2f;font-weight:bold;margin-bottom:20px;">' + timestampText + '</div><div>' + contentHTML + '</div></body></html>';
     const blob = new Blob([printPageHTML], { type: 'text/html' });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
+    window.open(URL.createObjectURL(blob), '_blank');
   }
 
   function openProjectPlanPrintView() {
@@ -1371,32 +1301,9 @@
     const contentHTML = contentEl ? contentEl.innerHTML : '';
     const timestampText = timeEl ? timeEl.innerText : '';
 
-    const printPageHTML = 
-      '<!DOCTYPE html>' +
-      '<html lang="en">' +
-      '<head>' +
-      '<meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Project Plan & Useful Weblinks - Printable View</title>' +
-      '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fff; }' +
-      'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
-      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-      '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-      '@media print { .print-btn { display: none; } }' +
-      '</style>' +
-      '</head>' +
-      '<body>' +
-      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
-      '<h2>Project Plan, Useful Weblinks, etc</h2>' +
-      '<div class="timestamp">' + timestampText + '</div>' +
-      '<div>' + contentHTML + '</div>' +
-      '</body>' +
-      '</html>';
-
+    const printPageHTML = '<!DOCTYPE html><html><head><title>Printable Project Plan</title></head><body style="font-family:Arial;padding:25px;"><h2>Project Plan & Useful Weblinks</h2><div style="color:#d32f2f;font-weight:bold;margin-bottom:20px;">' + timestampText + '</div><div>' + contentHTML + '</div></body></html>';
     const blob = new Blob([printPageHTML], { type: 'text/html' });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
+    window.open(URL.createObjectURL(blob), '_blank');
   }
 
   function openManagerPrintView() {
@@ -1405,130 +1312,23 @@
     const contentHTML = contentEl ? contentEl.innerHTML : '';
     const timestampText = timeEl ? timeEl.innerText : '';
 
-    const printPageHTML = 
-      '<!DOCTYPE html>' +
-      '<html lang="en">' +
-      '<head>' +
-      '<meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Notes from Choir Manager - Printable View</title>' +
-      '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
-      'h2 { color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; }' +
-      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-      '.print-btn { background: #1e3a8a; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-      '@media print { .print-btn { display: none; } }' +
-      '</style>' +
-      '</head>' +
-      '<body>' +
-      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
-      '<h2>Notes from Choir Manager</h2>' +
-      '<div class="timestamp">' + timestampText + '</div>' +
-      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
-      '</body>' +
-      '</html>';
-
+    const printPageHTML = '<!DOCTYPE html><html><head><title>Printable Manager Notes</title></head><body style="font-family:Arial;padding:25px;"><h2>Notes from Choir Manager</h2><div style="color:#d32f2f;font-weight:bold;margin-bottom:20px;">' + timestampText + '</div><div>' + contentHTML + '</div></body></html>';
     const blob = new Blob([printPageHTML], { type: 'text/html' });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
+    window.open(URL.createObjectURL(blob), '_blank');
   }
 
   function openQRCodePage() {
     const appUrl = window.location.href;
-    const qrPageHTML = 
-      '<!DOCTYPE html>' +
-      '<html lang="en">' +
-      '<head>' +
-      '<meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>NSCI Hub - QR Code</title>' +
-      '<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>' +
-      '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 30px; color: #222; text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.5; }' +
-      'h2 { color: #d97706; margin-top: 0; font-variant: small-caps; }' +
-      '.qr-container { background: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; display: inline-block; margin: 20px 0; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }' +
-      '#qrcode { display: flex; justify-content: center; margin: 10px 0; }' +
-      '.btn { background: #37474f; color: white; border: none; padding: 12px 20px; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; margin: 10px 5px; font-family: Arial, sans-serif; }' +
-      '.btn:hover { background: #263238; }' +
-      '.instruction-box { background: #f8f9fa; border: 1px solid #cbd5e1; padding: 12px; border-radius: 6px; font-size: 13px; color: #334155; margin: 15px auto; max-width: 400px; }' +
-      '.url-text { font-family: monospace; background: #f1f3f4; padding: 8px; border-radius: 4px; font-size: 13px; word-break: break-all; margin: 15px 0; }' +
-      '@media print { .no-print { display: none; } }' +
-      '</style>' +
-      '</head>' +
-      '<body>' +
-      '<div class="no-print" style="margin-bottom: 20px;">' +
-      '<button class="btn" onclick="window.print()">Print This Page</button>' +
-      '</div>' +
-      '<h2>National Symphony Chorus Ireland</h2>' +
-      '<p><strong>Member Information Hub - QR Code</strong></p>' +
-      '<p style="font-size: 14px;">Point another device&apos;s camera at the QR code below to open this app:</p>' +
-      '<div class="qr-container" id="qr-box">' +
-      '<div id="qrcode"></div>' +
-      '<div class="instruction-box"><strong>To save to your phone:</strong> Touch and hold the QR code above, then select <em>Download image</em> (Android) or <em>Add to Photos / Save Image</em> (iPhone).</div>' +
-      '<div class="url-text">' + appUrl + '</div>' +
-      '</div>' +
-      '<script>' +
-      'new QRCode(document.getElementById("qrcode"), { text: "' + appUrl + '", width: 220, height: 220, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });' +
-      '<\/script>' +
-      '</body>' +
-      '</html>';
-
+    const qrPageHTML = '<!DOCTYPE html><html><head><title>QR Code</title></head><body style="font-family:Arial;text-align:center;padding:40px;"><h2>Member Hub QR Code</h2><div id="qrcode" style="display:inline-block;margin:20px 0;"></div><p style="font-size:13px;color:#555;">' + appUrl + '</p><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script><script>new QRCode(document.getElementById("qrcode"), {text: "' + appUrl + '", width: 220, height: 220});<\/script></body></html>';
     const blob = new Blob([qrPageHTML], { type: 'text/html' });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
+    window.open(URL.createObjectURL(blob), '_blank');
   }
 
   function copyAndOpenInstructions(btn) {
     const icalUrl = "https://calendar.google.com/calendar/ical/natsymphchorus%40gmail.com/public/basic.ics";
-    
-    navigator.clipboard.writeText(icalUrl).catch(err => {
-      console.error("Clipboard write failed", err);
-    });
-
-    const originalText = btn.innerText;
-    btn.innerText = "Link Copied! Opening Guide...";
-    setTimeout(() => {
-      btn.innerText = originalText;
-    }, 3000);
-
-    const instructionsHTML = 
-      '<!DOCTYPE html>' +
-      '<html lang="en">' +
-      '<head>' +
-      '<meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Apple & Outlook Calendar Setup Guide</title>' +
-      '<style>' +
-      'body { font-family: Arial, sans-serif; background: #f8f9fa; color: #333; padding: 20px; line-height: 1.6; }' +
-      '.box { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-top: 4px solid #37474f; }' +
-      'h2 { color: #37474f; margin-top: 0; }' +
-      'input { width: 100%; padding: 10px; font-size: 13px; box-sizing: border-box; background: #f1f3f4; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 15px; font-family: monospace; }' +
-      'ul { padding-left: 20px; }' +
-      'li { margin-bottom: 10px; }' +
-      '.note { background: #fdf2f2; border-left: 4px solid #d9534f; padding: 10px; font-size: 13px; margin-top: 20px; border-radius: 4px; }' +
-      '</style>' +
-      '</head>' +
-      '<body>' +
-      '<div class="box">' +
-      '<h2>Apple & Outlook Calendar Setup</h2>' +
-      '<p>The subscription link has been copied to your clipboard. If you need to copy it manually again, use the box below:</p>' +
-      '<label for="urlbox"><strong>Calendar iCal Link:</strong></label>' +
-      '<input type="text" id="urlbox" value="' + icalUrl + '" readonly onclick="this.select();">' +
-      '<h3>Step-by-Step Instructions:</h3>' +
-      '<ul>' +
-      '<li><strong>iPhone / iPad (Apple Calendar):</strong> Open device <em>Settings &gt; Calendar &gt; Accounts &gt; Add Account &gt; Other &gt; Add Subscribed Calendar</em>, then paste the link into the Server field and save.</li>' +
-      '<li><strong>Outlook (Desktop / Web):</strong> Open Outlook Calendar, click <em>Add calendar &gt; Subscribe from web</em>, paste the link, name the calendar, and save.</li>' +
-      '</ul>' +
-      '<div class="note">' +
-      '<strong>Note:</strong> Calendar apps check for updates periodically. For urgent updates, check the main <a href="https://natsymphchoire.github.io/Member-Info-Hub/" target="_blank">Member Hub</a>.' +
-      '</div>' +
-      '</div>' +
-      '</body>' +
-      '</html>';
-
-    const blob = new Blob([instructionsHTML], { type: 'text/html' });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
+    navigator.clipboard.writeText(icalUrl).catch(err => console.error(err));
+    btn.innerText = "Link Copied!";
+    setTimeout(() => { btn.innerText = "Copy Link for Apple / Outlook Calendar"; }, 3000);
   }
 </script>
 
