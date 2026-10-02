@@ -1094,8 +1094,8 @@
 
     fullHTML += '<div class="card card-director"><h3>Chorus Director\'s Notes for Next Rehearsal</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
-    /* Redesigned Card B without inline preview container */
-    fullHTML += '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><div><span id="director-b-timestamp" class="update-flag-banner" style="display: none;"></span></div><button onclick="openDirectorBPrintView()" class="btn-printable-action">Open as separate printable file</button></div></div>';
+    /* Card B updated button text: "Open in new window" */
+    fullHTML += '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><div><span id="director-b-timestamp" class="update-flag-banner" style="display: none;"></span></div><button onclick="openDirectorBPrintView()" class="btn-printable-action">Open in new window</button></div></div>';
 
     fullHTML += '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #6b1d54; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
@@ -1161,8 +1161,8 @@
       '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>' +
       '<div class="section-subheading">Current Notes</div>' +
       '<div class="card card-director"><h3>Chorus Director\'s Notes for Next Rehearsal</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>' +
-      /* Redesigned Card B fallback without inline preview container */
-      '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><div><span id="director-b-timestamp" class="update-flag-banner" style="display: none;"></span></div><button onclick="openDirectorBPrintView()" class="btn-printable-action">Open as separate printable file</button></div></div>' +
+      /* Card B fallback button text: "Open in new window" */
+      '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><div><span id="director-b-timestamp" class="update-flag-banner" style="display: none;"></span></div><button onclick="openDirectorBPrintView()" class="btn-printable-action">Open in new window</button></div></div>' +
       '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #6b1d54; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     document.getElementById('events-container').innerHTML = fallbackHTML;
@@ -1306,7 +1306,7 @@
         '<head>' +
         '<meta charset="utf-8">' +
         '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-        '<title>Chorus Director\'s Project Plan - Printable View</title>' +
+        '<title>Chorus Director\'s Project Plan - New Window</title>' +
         '<style>' +
         'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
         'h2 { color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; }' +
@@ -1355,7 +1355,7 @@
         }
       }
     } catch (err) {
-      console.error('Failed to load director B content for print view:', err);
+      console.error('Failed to load director B content for new window view:', err);
       if (win && !win.closed) {
         const contentDiv = win.document.getElementById('print-content');
         if (contentDiv) {
