@@ -127,7 +127,7 @@
     .card-privacy { background-color: #fafaf9; border-color: #57534e; }
     .card-privacy h3 { color: #292524; text-align: center; }
 
-    /* Muted Fault Card */
+    /* Muted Fault Card (softened neutral-rose appearance) */
     .card-fault { background-color: #fcfbfb; border-color: #d8b4b4; }
     .card-fault h3 { color: #734040; }
 
@@ -334,52 +334,7 @@
       border-left-width: 4px;
     }
 
-    /* Director Card Tabs Styles */
-    .director-tabs-container {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 12px;
-    }
-    .director-tab-btn {
-      flex: 1;
-      background-color: #f1f5f9;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-      padding: 10px 8px;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 13px;
-      cursor: pointer;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      line-height: 1.3;
-      transition: all 0.2s ease;
-    }
-    .director-tab-btn:hover {
-      background-color: #e2e8f0;
-    }
-    .director-tab-btn.active {
-      background-color: #15803d;
-      color: #ffffff;
-      border-color: #15803d;
-    }
-    .director-tab-btn small {
-      color: #475569;
-      font-weight: normal;
-      font-size: 12px;
-    }
-    .director-tab-btn.active small {
-      color: #e2e8f0;
-    }
-
-    .director-tab-content {
-      display: none;
-    }
-    .director-tab-content.active {
-      display: block;
-    }
-
-    #director-content, #projectplan-content, #manager-content {
+    #director-content, #manager-content {
       font-size: 16px; 
       margin-bottom: 12px; 
       max-height: 440px; 
@@ -389,17 +344,6 @@
       padding: 12px; 
       border-radius: 4px;
       line-height: 1.6;
-    }
-
-    /* Neutralize Google Docs list indentation */
-    #director-content ul, #projectplan-content ul, #manager-content ul,
-    #director-content ol, #projectplan-content ol, #manager-content ol {
-      padding-left: 20px !important;
-      margin-left: 0 !important;
-    }
-    #director-content li, #projectplan-content li, #manager-content li {
-      margin-left: 0 !important;
-      padding-left: 0 !important;
     }
 
     /* Privacy Numbered List Grid Styling */
@@ -478,7 +422,7 @@
     </button>
   </div>
 
-  <!-- Bottom Dual Row: Performances Archive External Link -->
+  <!-- Bottom Dual Row: Performances Archive External Link (Renamed) -->
   <div class="bottom-dual-row">
     <a href="https://sites.google.com/view/nsc-new-archive/home" target="_blank" class="bottom-dual-row-btn nav-btn-archive">
       <span class="btn-large">NSCI Performances Archive</span>
@@ -601,26 +545,32 @@
   <div id="privacy-section" class="card card-privacy" style="display: none;">
     <h3>Privacy/Data Protection</h3>
     <div class="card-inner" style="font-size: 14px; line-height: 1.6;">
+      
       <div class="privacy-item" style="margin-top: 0;">
         <div class="privacy-num">1.</div>
         <div class="privacy-text">This online NSCI Member Information Hub (&ldquo;the App&rdquo;) has been developed, on his own initiative, by Kevin O&rsquo;Connell: an individual member of the NSCI. To contact him please <a href="mailto:natsymphchorus@gmail.com" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">click here</a>.</div>
       </div>
+
       <div class="privacy-item">
         <div class="privacy-num">2.</div>
         <div class="privacy-text">An Ceoláras Náisiúnta (the National Concert Hall) has not been involved in the development of the App. Neither is it involved in any control, maintenance or monitoring of it.</div>
       </div>
+
       <div class="privacy-item">
         <div class="privacy-num">3.</div>
         <div class="privacy-text">The App is not intended to be used for gathering or disseminating anyone's personal data. No such data is collected when NSCI members choose whether or not to use the App. Similarly, no logs are maintained regarding anyone&rsquo;s use of it.</div>
       </div>
+
       <div class="privacy-item">
         <div class="privacy-num">4.</div>
         <div class="privacy-text">The NSCI Chorus Director and Choir Manager have both undertaken that no personal data will be uploaded by them to the &ldquo;Current Notes&rdquo; section of the App.</div>
       </div>
+
       <div class="privacy-item" style="margin-bottom: 15px;">
         <div class="privacy-num">5.</div>
         <div class="privacy-text">NSCI Members remain perfectly free to choose not to download or use the App. Information regarding the NSCI's rehearsal &amp; performance will continue to be communicated to choir members in exactly the same way as it was prior to the development of the App.</div>
       </div>
+
       <button onclick="toggleSection('privacy-section')" class="sub-btn" style="background-color: #78716c; margin-top: 0;">Close Privacy Notice</button>
     </div>
   </div>
@@ -860,7 +810,6 @@
 <script>
   const WORKER_URL = 'https://nsc-calendar-proxy.natsymphchorus.workers.dev/';
   const DIRECTOR_NOTES_WORKER = 'https://nsc-choral-director-notes.natsymphchorus.workers.dev';
-  const PROJECT_PLAN_WORKER = 'https://nsci-project1-plan-populator.natsymphchorus.workers.dev';
   const MANAGER_NOTES_WORKER = 'https://nch-manager-notes.natsymphchorus.workers.dev';
   const PROGRAM_NOTE_WORKER = 'https://retrieve-program-note.natsymphchorus.workers.dev';
 
@@ -898,25 +847,6 @@
     }
   }
 
-  function switchDirectorTab(tabName) {
-    const btnRehearsal = document.getElementById('tab-btn-rehearsal');
-    const btnProject = document.getElementById('tab-btn-project');
-    const contentRehearsal = document.getElementById('tab-content-rehearsal');
-    const contentProject = document.getElementById('tab-content-project');
-
-    if (tabName === 'rehearsal') {
-      btnRehearsal.classList.add('active');
-      btnProject.classList.remove('active');
-      contentRehearsal.classList.add('active');
-      contentProject.classList.remove('active');
-    } else {
-      btnProject.classList.add('active');
-      btnRehearsal.classList.remove('active');
-      contentProject.classList.add('active');
-      contentRehearsal.classList.remove('active');
-    }
-  }
-
   function submitFaultReport(event) {
     event.preventDefault();
 
@@ -926,6 +856,7 @@
     const emailContact = document.getElementById('fault-email').value.trim();
     const phoneContact = document.getElementById('fault-phone').value.trim();
 
+    // Get exact Irish time timestamp
     const now = new Date();
     const irishTimeString = now.toLocaleString('en-GB', { 
       timeZone: 'Europe/Dublin', 
@@ -1051,7 +982,6 @@
 
       renderEvents();
       loadDirectorNotes();
-      loadProjectPlanNotes();
       loadManagerNotes();
 
     } catch (err) {
@@ -1112,21 +1042,7 @@
 
     fullHTML += '<div class="section-subheading">Current Notes</div>';
 
-    // Two-Tab Structure for Chorus Director Notes / Project Plan
-    fullHTML += '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner">' +
-      '<div class="director-tabs-container">' +
-        '<button id="tab-btn-rehearsal" onclick="switchDirectorTab(\'rehearsal\')" class="director-tab-btn active"><span id="director-timestamp">Notes For Next Rehearsal<br><small>Loading...</small></span></button>' +
-        '<button id="tab-btn-project" onclick="switchDirectorTab(\'project\')" class="director-tab-btn"><span id="projectplan-timestamp">Project Plan, Useful Weblinks, etc<br><small>Loading...</small></span></button>' +
-      '</div>' +
-      '<div id="tab-content-rehearsal" class="director-tab-content active">' +
-        '<div id="director-content"><em>No notes currently available.</em></div>' +
-        '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-      '</div>' +
-      '<div id="tab-content-project" class="director-tab-content">' +
-        '<div id="projectplan-content"><em>No project plan content currently available.</em></div>' +
-        '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openProjectPlanPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-      '</div>' +
-    '</div></div>';
+    fullHTML += '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     fullHTML += '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
@@ -1172,7 +1088,6 @@
     showAllFuture = true;
     renderEvents();
     loadDirectorNotes();
-    loadProjectPlanNotes();
     loadManagerNotes();
     window.scrollBy({ top: 300, behavior: 'smooth' });
   }
@@ -1181,7 +1096,6 @@
     showAllFuture = false;
     renderEvents();
     loadDirectorNotes();
-    loadProjectPlanNotes();
     loadManagerNotes();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -1191,25 +1105,11 @@
       '<div class="section-subheading">Next Event</div>' +
       '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>' +
       '<div class="section-subheading">Current Notes</div>' +
-      '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner">' +
-        '<div class="director-tabs-container">' +
-          '<button id="tab-btn-rehearsal" onclick="switchDirectorTab(\'rehearsal\')" class="director-tab-btn active"><span id="director-timestamp">Notes For Next Rehearsal<br><small>Loading...</small></span></button>' +
-          '<button id="tab-btn-project" onclick="switchDirectorTab(\'project\')" class="director-tab-btn"><span id="projectplan-timestamp">Project Plan, Useful Weblinks, etc<br><small>Loading...</small></span></button>' +
-        '</div>' +
-        '<div id="tab-content-rehearsal" class="director-tab-content active">' +
-          '<div id="director-content"><em>No notes currently available.</em></div>' +
-          '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-        '</div>' +
-        '<div id="tab-content-project" class="director-tab-content">' +
-          '<div id="projectplan-content"><em>No project plan content currently available.</em></div>' +
-          '<div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openProjectPlanPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div>' +
-        '</div>' +
-      '</div></div>' +
-      '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
+      '<div class="card card-director"><h3>Notes from Chorus Director</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>' +
+      '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     document.getElementById('events-container').innerHTML = fallbackHTML;
     loadDirectorNotes();
-    loadProjectPlanNotes();
     loadManagerNotes();
   }
 
@@ -1224,57 +1124,21 @@
           const contentEl = document.getElementById('director-content');
           if (contentEl) contentEl.innerHTML = data.content;
         }
-        const timeEl = document.getElementById('director-timestamp');
-        if (data.modifiedTime && timeEl) {
+        if (data.modifiedTime) {
           const dateObj = new Date(data.modifiedTime);
-          const formattedDate = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' });
+          const formattedDate = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-          timeEl.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: ' + formattedTime + ' on ' + formattedDate + '</small>';
-        } else if (timeEl) {
-          timeEl.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: Unavailable</small>';
+          const timeEl = document.getElementById('director-timestamp');
+          if (timeEl) timeEl.innerText = 'Last Updated: ' + formattedTime + ' on ' + formattedDate;
+        } else {
+          const timeEl = document.getElementById('director-timestamp');
+          if (timeEl) timeEl.innerText = 'Last Updated: Unavailable';
         }
       }
     } catch (e) {
       console.error('Failed to load director notes', e);
       const el = document.getElementById('director-timestamp');
-      if (el) el.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: Unavailable</small>';
-    }
-  }
-
-  async function loadProjectPlanNotes() {
-    try {
-      const response = await fetch(PROJECT_PLAN_WORKER);
-      if (response.ok) {
-        const data = await response.json();
-        if (data.content) {
-          const contentEl = document.getElementById('projectplan-content');
-          if (contentEl) contentEl.innerHTML = data.content;
-        }
-        const timeEl = document.getElementById('projectplan-timestamp');
-        if (data.modifiedTime && timeEl) {
-          const modDate = new Date(data.modifiedTime);
-          const now = new Date();
-          const diffHours = (now - modDate) / (1000 * 60 * 60);
-          const diffDays = diffHours / 24;
-
-          let relativeText = '';
-          if (diffHours <= 24) {
-            relativeText = 'Updated within last 24 hours';
-          } else if (diffDays <= 7) {
-            relativeText = 'Updated within last week';
-          } else {
-            relativeText = 'Updated > 1 week ago';
-          }
-
-          timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>' + relativeText + '</small>';
-        } else if (timeEl) {
-          timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>Updated: Unavailable</small>';
-        }
-      }
-    } catch (e) {
-      console.error('Failed to load project plan notes', e);
-      const el = document.getElementById('projectplan-timestamp');
-      if (el) el.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>Updated: Unavailable</small>';
+      if (el) el.innerText = 'Last Updated: Unavailable';
     }
   }
 
@@ -1317,9 +1181,9 @@
       '<head>' +
       '<meta charset="utf-8">' +
       '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Notes for Next Rehearsal - Printable View</title>' +
+      '<title>Notes from Chorus Director - Printable View</title>' +
       '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fff; }' +
+      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
       'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
       '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
       '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
@@ -1328,43 +1192,9 @@
       '</head>' +
       '<body>' +
       '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
-      '<h2>Notes for Next Rehearsal</h2>' +
+      '<h2>Notes from Chorus Director</h2>' +
       '<div class="timestamp">' + timestampText + '</div>' +
-      '<div>' + contentHTML + '</div>' +
-      '</body>' +
-      '</html>';
-
-    const blob = new Blob([printPageHTML], { type: 'text/html' });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
-  }
-
-  function openProjectPlanPrintView() {
-    const contentEl = document.getElementById('projectplan-content');
-    const timeEl = document.getElementById('projectplan-timestamp');
-    const contentHTML = contentEl ? contentEl.innerHTML : '';
-    const timestampText = timeEl ? timeEl.innerText : '';
-
-    const printPageHTML = 
-      '<!DOCTYPE html>' +
-      '<html lang="en">' +
-      '<head>' +
-      '<meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Project Plan & Useful Weblinks - Printable View</title>' +
-      '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fff; }' +
-      'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
-      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-      '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-      '@media print { .print-btn { display: none; } }' +
-      '</style>' +
-      '</head>' +
-      '<body>' +
-      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
-      '<h2>Project Plan, Useful Weblinks, etc</h2>' +
-      '<div class="timestamp">' + timestampText + '</div>' +
-      '<div>' + contentHTML + '</div>' +
+      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
       '</body>' +
       '</html>';
 
