@@ -385,17 +385,15 @@
       margin-bottom: 12px; 
       max-height: 440px; 
       overflow-y: auto; 
-      overflow-x: auto;
       border: 1px solid #ccc; 
       background: #fff; 
       padding: 12px; 
       border-radius: 4px;
       line-height: 1.6;
       word-break: break-word;
-      -webkit-overflow-scrolling: touch;
     }
 
-    /* Neutralize Google Docs formatting constraints and tab stops */
+    /* Neutralize Google Docs fixed page widths, wide margins, and deep list indents */
     #director-content div, #projectplan-content div, #manager-content div {
       max-width: 100% !important;
       margin-left: 0 !important;
@@ -412,6 +410,8 @@
       margin-left: 0 !important;
       margin-right: 0 !important;
     }
+    
+    /* Normalized nested list indents for Google Docs content */
     #director-content ul, #projectplan-content ul, #manager-content ul,
     #director-content ol, #projectplan-content ol, #manager-content ol {
       padding-left: 20px !important;
@@ -621,26 +621,32 @@
   <div id="privacy-section" class="card card-privacy" style="display: none;">
     <h3>Privacy/Data Protection</h3>
     <div class="card-inner" style="font-size: 14px; line-height: 1.6;">
+      
       <div class="privacy-item" style="margin-top: 0;">
         <div class="privacy-num">1.</div>
         <div class="privacy-text">This online NSCI Member Information Hub (&ldquo;the App&rdquo;) has been developed, on his own initiative, by Kevin O&rsquo;Connell: an individual member of the NSCI. To contact him please <a href="mailto:natsymphchorus@gmail.com" style="color: #1e3a8a; font-weight: bold; text-decoration: underline;">click here</a>.</div>
       </div>
+
       <div class="privacy-item">
         <div class="privacy-num">2.</div>
         <div class="privacy-text">An Ceoláras Náisiúnta (the National Concert Hall) has not been involved in the development of the App. Neither is it involved in any control, maintenance or monitoring of it.</div>
       </div>
+
       <div class="privacy-item">
         <div class="privacy-num">3.</div>
         <div class="privacy-text">The App is not intended to be used for gathering or disseminating anyone's personal data. No such data is collected when NSCI members choose whether or not to use the App. Similarly, no logs are maintained regarding anyone&rsquo;s use of it.</div>
       </div>
+
       <div class="privacy-item">
         <div class="privacy-num">4.</div>
         <div class="privacy-text">The NSCI Chorus Director and Choir Manager have both undertaken that no personal data will be uploaded by them to the &ldquo;Current Notes&rdquo; section of the App.</div>
       </div>
+
       <div class="privacy-item" style="margin-bottom: 15px;">
         <div class="privacy-num">5.</div>
         <div class="privacy-text">NSCI Members remain perfectly free to choose not to download or use the App. Information regarding the NSCI's rehearsal &amp; performance will continue to be communicated to choir members in exactly the same way as it was prior to the development of the App.</div>
       </div>
+
       <button onclick="toggleSection('privacy-section')" class="sub-btn" style="background-color: #78716c; margin-top: 0;">Close Privacy Notice</button>
     </div>
   </div>
