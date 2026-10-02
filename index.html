@@ -973,14 +973,20 @@
         '<style>' +
         'body { font-family: Arial, sans-serif; padding: 25px; color: #222; line-height: 1.6; max-width: 750px; margin: 0 auto; background: #fdfdfd; }' +
         'h2 { color: #292524; border-bottom: 2px solid #78716c; padding-bottom: 8px; margin-top: 0; }' +
-        '.print-btn { background: #57534e; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 25px; }' +
+        '.btn-container { margin-bottom: 25px; display: flex; gap: 10px; }' +
+        '.print-btn { background: #57534e; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
         '.print-btn:hover { background: #44403c; }' +
+        '.close-btn { background: #78716c; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
+        '.close-btn:hover { background: #57534e; }' +
         'p { text-align: justify; text-justify: inter-word; }' +
-        '@media print { .print-btn { display: none; } }' +
+        '@media print { .btn-container { display: none; } }' +
         '</style>' +
         '</head>' +
         '<body>' +
+        '<div class="btn-container">' +
         '<button class="print-btn" onclick="window.print()">Print Program Note</button>' +
+        '<button class="close-btn" onclick="window.close()">Close Page</button>' +
+        '</div>' +
         '<h2>' + noteTitle + '</h2>' +
         '<div id="content" style="font-size: 16px;"><em>Loading program note...</em></div>' +
         '</body>' +
@@ -1266,12 +1272,19 @@
       'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
       'h2 { color: #15803d; border-bottom: 2px solid #15803d; padding-bottom: 8px; margin-top: 0; }' +
       '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-      '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-      '@media print { .print-btn { display: none; } }' +
+      '.btn-container { margin-bottom: 30px; display: flex; gap: 10px; }' +
+      '.print-btn { background: #15803d; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
+      '.print-btn:hover { background: #166534; }' +
+      '.close-btn { background: #78716c; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
+      '.close-btn:hover { background: #57534e; }' +
+      '@media print { .btn-container { display: none; } }' +
       '</style>' +
       '</head>' +
       '<body>' +
+      '<div class="btn-container">' +
       '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
+      '<button class="close-btn" onclick="window.close()">Close Page</button>' +
+      '</div>' +
       '<h2>Chorus Director\'s Notes for Next Rehearsal</h2>' +
       '<div class="timestamp">' + timestampText + '</div>' +
       '<div style="font-size: 16px;">' + contentHTML + '</div>' +
@@ -1297,12 +1310,19 @@
         'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
         'h2 { color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; }' +
         '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-        '.print-btn { background: #1e3a8a; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-        '@media print { .print-btn { display: none; } }' +
+        '.btn-container { margin-bottom: 30px; display: flex; gap: 10px; }' +
+        '.print-btn { background: #1e3a8a; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
+        '.print-btn:hover { background: #1d4ed8; }' +
+        '.close-btn { background: #78716c; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
+        '.close-btn:hover { background: #57534e; }' +
+        '@media print { .btn-container { display: none; } }' +
         '</style>' +
         '</head>' +
         '<body>' +
+        '<div class="btn-container">' +
         '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
+        '<button class="close-btn" onclick="window.close()">Close Page</button>' +
+        '</div>' +
         '<h2>Chorus Director\'s Project Plan, Useful Weblinks etc</h2>' +
         '<div id="print-timestamp" class="timestamp" style="display: none;"></div>' +
         '<div id="print-content" style="font-size: 16px;"><em>Loading project plan...</em></div>' +
@@ -1361,12 +1381,19 @@
       'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
       'h2 { color: #6b1d54; border-bottom: 2px solid #6b1d54; padding-bottom: 8px; margin-top: 0; }' +
       '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-      '.print-btn { background: #6b1d54; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-      '@media print { .print-btn { display: none; } }' +
+      '.btn-container { margin-bottom: 30px; display: flex; gap: 10px; }' +
+      '.print-btn { background: #6b1d54; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
+      '.print-btn:hover { background: #531441; }' +
+      '.close-btn { background: #78716c; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; }' +
+      '.close-btn:hover { background: #57534e; }' +
+      '@media print { .btn-container { display: none; } }' +
       '</style>' +
       '</head>' +
       '<body>' +
+      '<div class="btn-container">' +
       '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
+      '<button class="close-btn" onclick="window.close()">Close Page</button>' +
+      '</div>' +
       '<h2>Notes from Choir Manager</h2>' +
       '<div class="timestamp">' + timestampText + '</div>' +
       '<div style="font-size: 16px;">' + contentHTML + '</div>' +
@@ -1403,6 +1430,7 @@
       '<body>' +
       '<div class="no-print" style="margin-bottom: 20px;">' +
       '<button class="btn" onclick="window.print()">Print This Page</button>' +
+      '<button class="btn" onclick="window.close()" style="background: #78716c;">Close Page</button>' +
       '</div>' +
       '<h2>National Symphony Chorus Ireland</h2>' +
       '<p><strong>Member Information Hub - QR Code</strong></p>' +
@@ -1462,7 +1490,7 @@
       '<h3>Step-by-Step Instructions:</h3>' +
       '<ul>' +
       '<li><strong>iPhone / iPad (Apple Calendar):</strong> Open device <em>Settings &gt; Calendar &gt; Accounts &gt; Add Account &gt; Other &gt; Add Subscribed Calendar</em>, then paste the link into the Server field and save.</li>' +
-      '<li><strong>Outlook (Desktop / Web):</strong> Open Outlook Calendar, click <em>Add calendar &gt; Subscribe from web</em>, paste the link, name the calendar, and save.</li>' +
+      '<li><strong>Outlook (Desktop / Web):** Open Outlook Calendar, click `Add calendar &gt; Subscribe from web`, paste the link, name the calendar, and save.</li>' +
       '</ul>' +
       '<div class="note">' +
       '<strong>Note:</strong> Calendar apps check for updates periodically. For urgent updates, check the main <a href="https://natsymphchoire.github.io/Member-Info-Hub/" target="_blank">Member Hub</a>.' +
