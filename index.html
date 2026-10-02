@@ -395,7 +395,7 @@
       word-break: break-word;
     }
 
-    /* Neutralize Google Docs fixed page widths and wide margins inside tabs */
+    /* Neutralize Google Docs fixed page widths, wide margins, and deep list indents */
     #director-content div, #projectplan-content div, #manager-content div {
       max-width: 100% !important;
       margin-left: 0 !important;
@@ -411,6 +411,15 @@
       max-width: 100% !important;
       margin-left: 0 !important;
       margin-right: 0 !important;
+    }
+    #director-content ul, #projectplan-content ul, #manager-content ul,
+    #director-content ol, #projectplan-content ol, #manager-content ol {
+      padding-left: 20px !important;
+      margin-left: 0 !important;
+    }
+    #director-content li, #projectplan-content li, #manager-content li {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
     }
 
     /* Privacy Numbered List Grid Styling */
