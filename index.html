@@ -341,7 +341,7 @@
       border-left-width: 4px;
     }
 
-    #director-content, #director-b-content, #manager-content {
+    #director-content, #manager-content {
       font-size: 16px; 
       margin-bottom: 12px; 
       max-height: 440px; 
@@ -351,6 +351,40 @@
       padding: 12px; 
       border-radius: 4px;
       line-height: 1.6;
+    }
+
+    /* Redesigned Card B Styles */
+    .update-flag-banner {
+      display: inline-block;
+      background-color: #fff5f5;
+      color: #c53030;
+      border: 1px solid #feb2b2;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .btn-printable-action {
+      display: block;
+      width: 100%;
+      background-color: #2b6cb0;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 12px 16px;
+      border-radius: 8px;
+      box-sizing: border-box;
+      border: none;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 2px 4px rgba(43, 108, 176, 0.2);
+      transition: background-color 0.2s ease;
+    }
+    .btn-printable-action:hover {
+      background-color: #2c5282;
     }
 
     /* Privacy Numbered List Grid Styling */
@@ -865,7 +899,6 @@
     const emailContact = document.getElementById('fault-email').value.trim();
     const phoneContact = document.getElementById('fault-phone').value.trim();
 
-    // Get exact Irish time timestamp
     const now = new Date();
     const irishTimeString = now.toLocaleString('en-GB', { 
       timeZone: 'Europe/Dublin', 
@@ -1054,7 +1087,8 @@
 
     fullHTML += '<div class="card card-director"><h3>Chorus Director\'s Notes for Next Rehearsal</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
-    fullHTML += '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><p id="director-b-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold; display: none;"></p><div id="director-b-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorBPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
+    /* Redesigned Card B without inline preview container */
+    fullHTML += '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><div><span id="director-b-timestamp" class="update-flag-banner" style="display: none;"></span></div><button onclick="openDirectorBPrintView()" class="btn-printable-action">Open as separate printable file</button></div></div>';
 
     fullHTML += '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #6b1d54; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
@@ -1120,7 +1154,8 @@
       '<div class="card card-event-1"><h3>Schedule Notice</h3><div class="card-inner"><p style="margin-top: 0;">Unable to load live calendar feed automatically. Please view the <a href="https://calendar.google.com/calendar/embed?src=natsymphchorus%40gmail.com&ctz=Europe%2FDublin" target="_blank" style="color: #1e3a8a; font-weight: bold;">Choir Calendar</a> directly.</p></div></div>' +
       '<div class="section-subheading">Current Notes</div>' +
       '<div class="card card-director"><h3>Chorus Director\'s Notes for Next Rehearsal</h3><div class="card-inner"><p id="director-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="director-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorPrintView()" style="color: #15803d; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>' +
-      '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><p id="director-b-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold; display: none;"></p><div id="director-b-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openDirectorBPrintView()" style="color: #1e3a8a; font-weight: bold; font-size: 14px; text-decoration: none;">Open as separate printable file</a></div></div></div>' +
+      /* Redesigned Card B fallback without inline preview container */
+      '<div class="card card-director-b"><h3>Chorus Director\'s Project Plan, Useful Weblinks etc</h3><div class="card-inner"><div><span id="director-b-timestamp" class="update-flag-banner" style="display: none;"></span></div><button onclick="openDirectorBPrintView()" class="btn-printable-action">Open as separate printable file</button></div></div>' +
       '<div class="card card-manager"><h3>Notes from Choir Manager</h3><div class="card-inner"><p id="manager-timestamp" style="font-size: 13px; color: #d32f2f; margin-top: 0; margin-bottom: 8px; font-weight: bold;">Last Updated: Loading...</p><div id="manager-content"><em>No notes currently available.</em></div><div style="text-align: right; margin-top: 5px;"><a href="javascript:void(0);" onclick="openManagerPrintView()" style="color: #6b1d54; font-weight: bold; font-size: 13px; text-decoration: none;">Open as separate printable file</a></div></div></div>';
 
     document.getElementById('events-container').innerHTML = fallbackHTML;
@@ -1163,10 +1198,6 @@
       const response = await fetch(DIRECTOR_B_WORKER);
       if (response.ok) {
         const data = await response.json();
-        if (data.content) {
-          const contentEl = document.getElementById('director-b-content');
-          if (contentEl) contentEl.innerHTML = data.content;
-        }
         if (data.modifiedTime) {
           const docDate = new Date(data.modifiedTime);
           const now = new Date();
@@ -1176,8 +1207,8 @@
           const timeEl = document.getElementById('director-b-timestamp');
           if (timeEl) {
             if (diffDays >= 0 && diffDays <= 7) {
-              timeEl.innerText = 'Updated within the last week';
-              timeEl.style.display = 'block';
+              timeEl.innerText = '⚠️ Updated within the last week';
+              timeEl.style.display = 'inline-block';
             } else {
               timeEl.style.display = 'none';
             }
@@ -1185,7 +1216,7 @@
         }
       }
     } catch (e) {
-      console.error('Failed to load director B notes', e);
+      console.error('Failed to load director B notes timestamp', e);
       const timeEl = document.getElementById('director-b-timestamp');
       if (timeEl) timeEl.style.display = 'none';
     }
@@ -1252,38 +1283,65 @@
     window.open(blobUrl, '_blank');
   }
 
-  function openDirectorBPrintView() {
-    const contentEl = document.getElementById('director-b-content');
-    const timeEl = document.getElementById('director-b-timestamp');
-    const contentHTML = contentEl ? contentEl.innerHTML : '';
-    const timestampText = (timeEl && timeEl.style.display !== 'none') ? timeEl.innerText : '';
+  async function openDirectorBPrintView() {
+    const win = window.open('', '_blank');
+    if (win) {
+      win.document.write(
+        '<!DOCTYPE html>' +
+        '<html lang="en">' +
+        '<head>' +
+        '<meta charset="utf-8">' +
+        '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+        '<title>Chorus Director\'s Project Plan - Printable View</title>' +
+        '<style>' +
+        'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
+        'h2 { color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; }' +
+        '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
+        '.print-btn { background: #1e3a8a; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
+        '@media print { .print-btn { display: none; } }' +
+        '</style>' +
+        '</head>' +
+        '<body>' +
+        '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
+        '<h2>Chorus Director\'s Project Plan, Useful Weblinks etc</h2>' +
+        '<div id="print-timestamp" class="timestamp" style="display: none;"></div>' +
+        '<div id="print-content" style="font-size: 16px;"><em>Loading project plan...</em></div>' +
+        '</body>' +
+        '</html>'
+      );
+    }
 
-    const printPageHTML = 
-      '<!DOCTYPE html>' +
-      '<html lang="en">' +
-      '<head>' +
-      '<meta charset="utf-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Chorus Director\'s Project Plan, Useful Weblinks etc - Printable View</title>' +
-      '<style>' +
-      'body { font-family: Arial, sans-serif; padding: 20px; color: #222; line-height: 1.6; max-width: 700px; margin: 0 auto; }' +
-      'h2 { color: #1e3a8a; border-bottom: 2px solid #1e3a8a; padding-bottom: 8px; margin-top: 0; }' +
-      '.timestamp { font-size: 14px; color: #d32f2f; margin-bottom: 20px; font-style: italic; font-weight: bold; }' +
-      '.print-btn { background: #1e3a8a; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; margin-bottom: 30px; }' +
-      '@media print { .print-btn { display: none; } }' +
-      '</style>' +
-      '</head>' +
-      '<body>' +
-      '<button class="print-btn" onclick="window.print()">Print This Page</button>' +
-      '<h2>Chorus Director\'s Project Plan, Useful Weblinks etc</h2>' +
-      (timestampText ? '<div class="timestamp">' + timestampText + '</div>' : '') +
-      '<div style="font-size: 16px;">' + contentHTML + '</div>' +
-      '</body>' +
-      '</html>';
+    try {
+      const response = await fetch(DIRECTOR_B_WORKER);
+      if (!response.ok) throw new Error('Server returned status ' + response.status);
+      
+      const data = await response.json();
+      if (win && !win.closed) {
+        const contentDiv = win.document.getElementById('print-content');
+        if (contentDiv) {
+          contentDiv.innerHTML = data.content || '<em>No content available.</em>';
+        }
 
-    const blob = new Blob([printPageHTML], { type: 'text/html' });
-    const blobUrl = URL.createObjectURL(blob);
-    window.open(blobUrl, '_blank');
+        if (data.modifiedTime) {
+          const docDate = new Date(data.modifiedTime);
+          const now = new Date();
+          const diffDays = (now - docDate) / (1000 * 60 * 60 * 24);
+          const timeEl = win.document.getElementById('print-timestamp');
+          if (timeEl && diffDays >= 0 && diffDays <= 7) {
+            timeEl.innerText = '⚠️ Updated within the last week';
+            timeEl.style.display = 'block';
+          }
+        }
+      }
+    } catch (err) {
+      console.error('Failed to load director B content for print view:', err);
+      if (win && !win.closed) {
+        const contentDiv = win.document.getElementById('print-content');
+        if (contentDiv) {
+          contentDiv.innerHTML = '<span style="color: #d32f2f;"><em>Failed to load content. Please check your connection.</em></span>';
+        }
+      }
+    }
   }
 
   function openManagerPrintView() {
