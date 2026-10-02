@@ -363,6 +363,16 @@
       color: #ffffff;
       border-color: #15803d;
     }
+    
+    /* Legible timestamp styling inside tabs */
+    .director-tab-btn small {
+      color: #475569;
+      font-weight: normal;
+    }
+    .director-tab-btn.active small {
+      color: #e2e8f0;
+    }
+
     .director-tab-content {
       display: none;
     }
@@ -380,6 +390,11 @@
       padding: 12px; 
       border-radius: 4px;
       line-height: 1.6;
+    }
+
+    /* Prevent Google Docs exported inline colors from making text invisible */
+    #director-content *, #projectplan-content *, #manager-content * {
+      color: inherit;
     }
 
     /* Privacy Numbered List Grid Styling */
@@ -1213,17 +1228,17 @@
         const timeEl = document.getElementById('director-timestamp');
         if (data.modifiedTime && timeEl) {
           const dateObj = new Date(data.modifiedTime);
-          const formattedDate = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+          const formattedDate = dateObj.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' });
           const formattedTime = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-          timeEl.innerHTML = 'Notes For Next Rehearsal<br><small style="color: #d32f2f; font-weight: normal;">Updated: ' + formattedTime + ', ' + formattedDate + '</small>';
+          timeEl.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: ' + formattedTime + ' on ' + formattedDate + '</small>';
         } else if (timeEl) {
-          timeEl.innerHTML = 'Notes For Next Rehearsal<br><small style="color: #d32f2f; font-weight: normal;">Updated: Unavailable</small>';
+          timeEl.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: Unavailable</small>';
         }
       }
     } catch (e) {
       console.error('Failed to load director notes', e);
       const el = document.getElementById('director-timestamp');
-      if (el) el.innerHTML = 'Notes For Next Rehearsal<br><small style="color: #d32f2f; font-weight: normal;">Updated: Unavailable</small>';
+      if (el) el.innerHTML = 'Notes For Next Rehearsal<br><small>Updated: Unavailable</small>';
     }
   }
 
@@ -1252,15 +1267,15 @@
             relativeText = 'Updated > 1 week ago';
           }
 
-          timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small style="color: #d32f2f; font-weight: normal;">' + relativeText + '</small>';
+          timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>' + relativeText + '</small>';
         } else if (timeEl) {
-          timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small style="color: #d32f2f; font-weight: normal;">Updated: Unavailable</small>';
+          timeEl.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>Updated: Unavailable</small>';
         }
       }
     } catch (e) {
       console.error('Failed to load project plan notes', e);
       const el = document.getElementById('projectplan-timestamp');
-      if (el) el.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small style="color: #d32f2f; font-weight: normal;">Updated: Unavailable</small>';
+      if (el) el.innerHTML = 'Project Plan, Useful Weblinks, etc<br><small>Updated: Unavailable</small>';
     }
   }
 
