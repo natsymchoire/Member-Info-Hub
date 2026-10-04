@@ -189,12 +189,12 @@
       background-color: #e5e5e5;
     }
 
-    /* Specific Typography Styles Requested */
+    /* Specific Typography Styles */
     .perf-date {
       font-family: 'Roboto', Arial, sans-serif;
       font-weight: bold;
       font-size: 12px;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
       color: #111;
     }
     .perf-work {
@@ -202,7 +202,7 @@
       font-size: 14px;
       font-weight: bold;
       color: #000;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .perf-work em {
       font-style: italic;
@@ -330,9 +330,13 @@
     const composers = new Set();
 
     allPerformances.forEach(p => {
-      if (p.surname) {
-        const fullName = p.firstName ? `${p.surname}, ${p.firstName}` : p.surname;
-        composers.add(fullName);
+      if (p.works && Array.isArray(p.works)) {
+        p.works.forEach(w => {
+          if (w.surname) {
+            const fullName = w.firstName ? `${w.surname}, ${w.firstName}` : w.surname;
+            composers.add(fullName);
+          }
+        });
       }
     });
 
@@ -352,15 +356,21 @@
     const sortOrder = document.getElementById('sort-order').value;
 
     let filtered = allPerformances.filter(p => {
-      const fullName = p.firstName ? `${p.surname}, ${p.firstName}`.toLowerCase() : p.surname.toLowerCase();
-      const compMatch = !selectedComposer || fullName === selectedComposer || p.surname.toLowerCase().includes(selectedComposer);
-      
       const soloistMatch = !soloistQuery || (p.performers && p.performers.toLowerCase().includes(soloistQuery));
       
-      const workText = (p.canonicalWorkName || p.work).toLowerCase();
-      const workMatch = !workQuery || workText.includes(workQuery);
+      // Check if any work in this concert matches the composer and work filters
+      const matchingWorks = p.works.filter(w => {
+        const fullName = w.firstName ? `${w.surname}, ${w.firstName}`.toLowerCase() : w.surname.toLowerCase();
+        const compMatch = !selectedComposer || fullName === selectedComposer || w.surname.toLowerCase().includes(selectedComposer);
+        
+        const workText = (w.canonicalWorkName || w.work).toLowerCase();
+        const workMatch = !workQuery || workText.includes(workQuery);
 
-      return compMatch && soloistMatch && workMatch;
+        return compMatch && workMatch;
+      });
+
+      // If either soloist matches and at least one work matches the composer/work query, keep the concert group
+      return soloistMatch && matchingWorks.length > 0;
     });
 
     // Sort chronologically based on primaryDate
@@ -373,18 +383,29 @@
     renderArchiveList(filtered);
   }
 
-  // Helper function to format dates as "28 May 2007"
+  // Timezone-safe date formatter (extracts year, month, day components directly)
   function formatHumanDate(dateString) {
     if (!dateString) return '';
+    let parts = dateString.split('T')[0].split('-');
+    if (parts.length === 3) {
+      let year = parseInt(parts[0], 10);
+      let month = parseInt(parts[1], 10) - 1;
+      let day = parseInt(parts[2], 10);
+      let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
+        return `${day} ${months[month]} ${year}`;
+      }
+    }
+    // Fallback for custom text strings
     let d = new Date(dateString);
-    if (isNaN(d.getTime())) return dateString; // Fallback if custom text string
-    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    if (isNaN(d.getTime())) return dateString;
+    const options = { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' };
     return d.toLocaleDateString('en-GB', options);
   }
 
   function renderArchiveList(performances) {
     const container = document.getElementById('archive-container');
-    document.getElementById('result-count').textContent = `Showing ${performances.length} performances`;
+    document.getElementById('result-count').textContent = `Showing ${performances.length} concert dates`;
 
     if (performances.length === 0) {
       container.innerHTML = '<p style="text-align: center; color: #64748b; padding: 30px;">No performances match your selected filters.</p>';
@@ -393,14 +414,22 @@
 
     let html = '';
     performances.forEach(p => {
-      // 1. Format Date
+      // 1. Format Date (Appears at the very top in bold 12px print)
       const formattedDate = formatHumanDate(p.primaryDate);
+      let dateHtml = `<div class="perf-date">${formattedDate}</div>`;
 
-      // 2. Format Composer & Work Line: "Surname, Work Title" (Surname bold, work title bold italic)
-      const workLine = `<strong>${p.surname},</strong> <em>${p.work}</em>`;
+      // 2. Render all works performed on this date
+      let worksHtml = '';
+      p.works.forEach(w => {
+        const workLine = `<strong>${w.surname},</strong> <em>${w.work}</em>`;
+        worksHtml += `<div class="perf-work">${workLine}</div>`;
+      });
 
-      // 3. Format Venues and Dates (Primary + Repeats)
-      let venuesHtml = `<div class="perf-venue">${formattedDate} &ndash; ${p.primaryVenue || 'National Concert Hall, Dublin'}</div>`;
+      // 3. Performers
+      let detailsHtml = `<div class="perf-details">${p.performers || ''}</div>`;
+
+      // 4. Venues (Primary + Repeats)
+      let venuesHtml = `<div class="perf-venue">${p.primaryVenue || 'National Concert Hall, Dublin'}</div>`;
       if (p.repeat1Date && p.repeat1Venue) {
         venuesHtml += `<div class="perf-venue">${formatHumanDate(p.repeat1Date)} &ndash; ${p.repeat1Venue}</div>`;
       }
@@ -408,10 +437,10 @@
         venuesHtml += `<div class="perf-venue">${formatHumanDate(p.repeat2Date)} &ndash; ${p.repeat2Venue}</div>`;
       }
 
-      // 4. Extra Free Text Notes
+      // 5. Extra Free Text Notes
       let notesHtml = p.extraText ? `<div class="perf-notes">${p.extraText}</div>` : '';
 
-      // 5. Links Construction (Program PDF + Custom URLs)
+      // 6. Links Construction (Program PDF + Custom URLs)
       let linksHtml = '';
       if (p.programPdf) {
         const pdfUrl = p.programPdf.startsWith('http') ? p.programPdf : `https://drive.google.com/open?id=${p.programPdf}`;
@@ -435,8 +464,9 @@
 
       html += `
         <div class="performance-item">
-          <div class="perf-work">${workLine}</div>
-          <div class="perf-details">${p.performers || ''}</div>
+          ${dateHtml}
+          ${worksHtml}
+          ${detailsHtml}
           ${venuesHtml}
           ${notesHtml}
           ${linkSectionHtml}
