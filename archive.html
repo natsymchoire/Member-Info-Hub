@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>National Sympho ny x Chorus Ireland - Performances Archive</title>
+  <title>National Symphony Chorus Ireland - Performances Archive</title>
   <link rel="icon" type="image/png" href="icon.png">
   <style>
     body {
@@ -34,7 +34,7 @@
       position: relative;
       width: 100%;
       height: 350px;
-      background-image: url('choir-hero.jpg'); /* Replace with your actual hero image filename or path */
+      background-image: url('choir-hero.jpg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -42,7 +42,6 @@
       align-items: center;
       text-align: center;
     }
-    /* Dark overlay to match the atmospheric look and make text pop */
     .hero-banner::after {
       content: '';
       position: absolute;
@@ -181,7 +180,6 @@
       padding: 20px 15px;
       border-bottom: 1px solid #e0e0e0;
     }
-    /* Alternating backgrounds: White vs Light Grey */
     .performance-item:nth-child(odd) {
       background-color: #ffffff;
     }
@@ -209,10 +207,21 @@
     .perf-venue {
       font-size: 14px;
       color: #444;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+    }
+    .perf-notes {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+    .links-container {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
     }
     .prog-link {
-      display: inline-block;
       color: #1a0dab;
       text-decoration: underline;
       font-size: 14px;
@@ -255,14 +264,12 @@
           </select>
         </div>
         <div class="filter-group">
-          <label for="filter-conductor">Conductor</label>
-          <select id="filter-conductor" onchange="filterArchive()">
-            <option value="">All Conductors</option>
-          </select>
+          <label for="filter-soloist">Performer / Soloist / Chorus</label>
+          <input type="text" id="filter-soloist" placeholder="e.g. RTÉ Philharmonic Choir" oninput="filterArchive()">
         </div>
         <div class="filter-group">
-          <label for="filter-soloist">Soloist / Performer</label>
-          <input type="text" id="filter-soloist" placeholder="e.g. Cara O'Sullivan" oninput="filterArchive()">
+          <label for="filter-work">Work Search</label>
+          <input type="text" id="filter-work" placeholder="e.g. Messiah" oninput="filterArchive()">
         </div>
         <div class="filter-group">
           <label for="sort-order">Sort Order</label>
@@ -304,11 +311,13 @@
 
   function populateDropdowns() {
     const composers = new Set();
-    const conductors = new Set();
 
     allPerformances.forEach(p => {
-      if (p.composer) composers.add(p.composer.trim());
-      if (p.conductor) conductors.add(p.conductor.trim());
+      if (p.surname) {
+        // Construct display name for dropdown (e.g., "Beethoven, Ludwig van" or just "Beethoven")
+        const fullName = p.firstName ? `${p.surname}, ${p.firstName}` : p.surname;
+        composers.add(fullName);
+      }
     });
 
     const compSelect = document.getElementById('filter-composer');
@@ -318,33 +327,30 @@
       opt.textContent = c;
       compSelect.appendChild(opt);
     });
-
-    const condSelect = document.getElementById('filter-conductor');
-    Array.from(conductors).sort().forEach(c => {
-      const opt = document.createElement('option');
-      opt.value = c;
-      opt.textContent = c;
-      condSelect.appendChild(opt);
-    });
   }
 
   function filterArchive() {
     const selectedComposer = document.getElementById('filter-composer').value.toLowerCase();
-    const selectedConductor = document.getElementById('filter-conductor').value.toLowerCase();
     const soloistQuery = document.getElementById('filter-soloist').value.toLowerCase().trim();
+    const workQuery = document.getElementById('filter-work').value.toLowerCase().trim();
     const sortOrder = document.getElementById('sort-order').value;
 
     let filtered = allPerformances.filter(p => {
-      const compMatch = !selectedComposer || (p.composer && p.composer.toLowerCase().includes(selectedComposer));
-      const condMatch = !selectedConductor || (p.conductor && p.conductor.toLowerCase().includes(selectedConductor));
+      const fullName = p.firstName ? `${p.surname}, ${p.firstName}`.toLowerCase() : p.surname.toLowerCase();
+      const compMatch = !selectedComposer || fullName === selectedComposer || p.surname.toLowerCase().includes(selectedComposer);
+      
       const soloistMatch = !soloistQuery || (p.performers && p.performers.toLowerCase().includes(soloistQuery));
-      return compMatch && condMatch && soloistMatch;
+      
+      const workText = (p.canonicalWorkName || p.work).toLowerCase();
+      const workMatch = !workQuery || workText.includes(workQuery);
+
+      return compMatch && soloistMatch && workMatch;
     });
 
-    // Sort
+    // Sort chronologically based on primaryDate
     filtered.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
+      const dateA = new Date(a.primaryDate);
+      const dateB = new Date(b.primaryDate);
       return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
     });
 
@@ -362,21 +368,52 @@
 
     let html = '';
     performances.forEach(p => {
-      let linkHtml = '';
-      if (p.programPdf) {
-        const pdfUrl = p.programPdf.startsWith('http') ? p.programPdf : `https://drive.google.com/open?id=${p.programPdf}`;
-        linkHtml = `<div><a href="${pdfUrl}" target="_blank" class="prog-link">Click here for program</a></div>`;
+      // 1. Format Composer Name Display (e.g. "Ludwig van Beethoven" or "Beethoven")
+      const composerDisplay = p.firstName ? `${p.firstName} ${p.surname}` : p.surname;
+      let fullWorkLine = `${composerDisplay}, <em>${p.work}</em>`;
+
+      // 2. Format Venues and Dates (Primary + Repeats)
+      let venuesHtml = `<div class="perf-venue"><strong>${p.primaryDate}</strong> &ndash; ${p.primaryVenue || 'National Concert Hall, Dublin'}</div>`;
+      if (p.repeat1Date && p.repeat1Venue) {
+        venuesHtml += `<div class="perf-venue"><strong>${p.repeat1Date}</strong> &ndash; ${p.repeat1Venue}</div>`;
+      }
+      if (p.repeat2Date && p.repeat2Venue) {
+        venuesHtml += `<div class="perf-venue"><strong>${p.repeat2Date}</strong> &ndash; ${p.repeat2Venue}</div>`;
       }
 
-      let fullWorkLine = p.composer ? `${p.composer}, ${p.work}` : p.work;
+      // 3. Extra Free Text Notes
+      let notesHtml = p.extraText ? `<div class="perf-notes">${p.extraText}</div>` : '';
+
+      // 4. Links Construction (Program PDF + Custom URLs)
+      let linksHtml = '';
+      if (p.programPdf) {
+        const pdfUrl = p.programPdf.startsWith('http') ? p.programPdf : `https://drive.google.com/open?id=${p.programPdf}`;
+        linksHtml += `<a href="${pdfUrl}" target="_blank" class="prog-link">Click here for program</a>`;
+      }
+
+      // Add Custom URLs (URL 1, URL 2, URL 3)
+      const customLinks = [
+        { url: p.url1, text: p.url1Text },
+        { url: p.url2, text: p.url2Text },
+        { url: p.url3, text: p.url3Text }
+      ];
+
+      customLinks.forEach(link => {
+        if (link.url) {
+          const label = link.text || link.url;
+          linksHtml += `<a href="${link.url}" target="_blank" class="prog-link">${label}</a>`;
+        }
+      });
+
+      let linkSectionHtml = linksHtml ? `<div class="links-container">${linksHtml}</div>` : '';
 
       html += `
         <div class="performance-item">
-          <div class="perf-date">${p.displayDate || p.date}</div>
           <div class="perf-work">${fullWorkLine}</div>
           <div class="perf-details">${p.performers || ''}</div>
-          <div class="perf-venue">${p.venue || 'National Concert Hall, Dublin'}</div>
-          ${linkHtml}
+          ${venuesHtml}
+          ${notesHtml}
+          ${linkSectionHtml}
         </div>
       `;
     });
@@ -386,8 +423,8 @@
 
   function resetFilters() {
     document.getElementById('filter-composer').value = '';
-    document.getElementById('filter-conductor').value = '';
     document.getElementById('filter-soloist').value = '';
+    document.getElementById('filter-work').value = '';
     document.getElementById('sort-order').value = 'desc';
     filterArchive();
   }
