@@ -24,19 +24,19 @@
       },
       {
         "surname": "Handel",
-        "firstName": "",
+        "firstName": "George Frideric",
         "work": "Laudate pueri, HWV 237",
         "canonicalWorkName": ""
       },
       {
         "surname": "Handel",
-        "firstName": "",
+        "firstName": "George Frideric",
         "work": "Zadok the Priest",
         "canonicalWorkName": ""
       },
       {
         "surname": "Haydn",
-        "firstName": "",
+        "firstName": "Joseph",
         "work": "Insanae et vanae curae",
         "canonicalWorkName": ""
       }
@@ -111,13 +111,13 @@
     "works": [
       {
         "surname": "Haydn",
-        "firstName": "",
+        "firstName": "Joseph",
         "work": "Mass in B Flat Major, 'Theresien Messe;",
         "canonicalWorkName": ""
       },
       {
         "surname": "Vaughan Williams",
-        "firstName": "",
+        "firstName": "Ralph",
         "work": "Fantasia on Christmas Carols",
         "canonicalWorkName": ""
       }
@@ -142,7 +142,7 @@
     "works": [
       {
         "surname": "Haydn",
-        "firstName": "",
+        "firstName": "Joseph",
         "work": "The Creation",
         "canonicalWorkName": ""
       }
@@ -167,7 +167,7 @@
     "works": [
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Elijah",
         "canonicalWorkName": ""
       }
@@ -192,13 +192,13 @@
     "works": [
       {
         "surname": "Haydn",
-        "firstName": "",
+        "firstName": "Joseph",
         "work": "Te Deum for the Empress Maria Therese",
         "canonicalWorkName": ""
       },
       {
         "surname": "Poulenc",
-        "firstName": "",
+        "firstName": "Francis",
         "work": "Gloria",
         "canonicalWorkName": ""
       }
@@ -223,7 +223,7 @@
     "works": [
       {
         "surname": "Parry",
-        "firstName": "",
+        "firstName": "Hubert",
         "work": "I Was Glad",
         "canonicalWorkName": ""
       }
@@ -248,7 +248,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No.2, 'Resurrection'",
         "canonicalWorkName": ""
       }
@@ -273,64 +273,14 @@
     "works": [
       {
         "surname": "Prokofiev",
-        "firstName": "",
+        "firstName": "Sergei ",
         "work": "Alexander Nevsky, Op.78",
         "canonicalWorkName": ""
       },
       {
         "surname": "Stravinsky",
-        "firstName": "",
+        "firstName": "Igor",
         "work": "Symphony of Psalms",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "1988-07-07T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Virginia Kerr (soprano), Deirdre Cooling-Nolan (contralto), Peter Kerr (tenor), Frank O'Brien (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), RTÉ Symphony Orchestra, Brian Wright (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1urSerdjWjzVgix0C1wKKrFqPnnUV2Rkb",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "1988-11-29T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Mary Clark (soprano), Regina Hanley (alto), Emmanuel Lawler (tenor), Nigel Williams (bass), RTÉ Philharmonic Choir, RTÉ Concert Orchestra, Colin Mawby (chorus director and conductor)",
-    "programPdf": "https://drive.google.com/open?id=1c8X8s922YcLqy4YExrW3u6_hK_ouM5RT",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Mass in C Major, Op.86",
         "canonicalWorkName": ""
       }
     ]
@@ -354,7 +304,7 @@
     "works": [
       {
         "surname": "Haydn",
-        "firstName": "",
+        "firstName": "Joseph",
         "work": "Missa in tempore belli ('Paukenmesse)",
         "canonicalWorkName": ""
       }
@@ -379,7 +329,7 @@
     "works": [
       {
         "surname": "Delius",
-        "firstName": "",
+        "firstName": "Frederick",
         "work": "Appalachia",
         "canonicalWorkName": ""
       }
@@ -404,7 +354,7 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Requiem",
         "canonicalWorkName": ""
       }
@@ -429,33 +379,8 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Requiem",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "1990-02-23T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Julie Kennard (soprano), Bernadette Greevy (mezzo-soprano), Andrew Murgatroyd (tenor), Nigel William (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra of Ireland, George Hurst (conductor)",
-    "programPdf": "",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Missa Solemnis, Op.123",
         "canonicalWorkName": ""
       }
     ]
@@ -486,56 +411,6 @@
     ]
   },
   {
-    "primaryDate": "1990-07-12T23:00:00.000Z",
-    "primaryVenue": "Festival Marquee, Adare Manor, County Limerick",
-    "performers": "Karen Williams (soprano), Bernadette Greevy (contralto), Jon Garrison (tenor), Mark Doss (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), New Jersey Symphony Orchestra, Hugh Wolff (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1llhxSNIyBkk9VGSgTBXPbHkRLwEpSmAz",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "1990-07-13",
-    "repeat1Venue": "Festival Marquee, Adare Manor, County Limerick",
-    "repeat2Date": "1990-07-15",
-    "repeat2Venue": "National Concert Hall, Dublin",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "1991-01-13T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Nova Thomas (soprano, Arline), Berndatte Cullen (contralto, Queen of the Gipsies), Jonathan Summers (baritone, Count Arnheim), John del Carlo (tenor, Devilshoof),  Patrick Power (bass, Thaddeus), Timothy German (tenor, Florestein), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, Richard Bonynge (conductor)",
-    "programPdf": "",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "(with later recording sessions between 14 and 20 January 1991) ",
-    "works": [
-      {
-        "surname": "Balfe",
-        "firstName": "Michael William",
-        "work": "The Bohemian Girl",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "1991-05-20T23:00:00.000Z",
     "primaryVenue": "Montrose Pavillion, Donnybrook, Dublin (part of the Carrolls RTE Proms)",
     "performers": "Virginia Kerr (soprano), Peter Kerr (tenor), Brian Raynor-Cook (baritone), Cór na nÓg RTE, RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, James Blair (conductor)",
@@ -554,7 +429,7 @@
     "works": [
       {
         "surname": "Orff",
-        "firstName": "",
+        "firstName": "Carl",
         "work": "Carmina Burana",
         "canonicalWorkName": ""
       }
@@ -579,13 +454,13 @@
     "works": [
       {
         "surname": "Mozart",
-        "firstName": "",
+        "firstName": "Wolfgang A.",
         "work": "Ave Verum, K.618",
         "canonicalWorkName": ""
       },
       {
         "surname": "Mozart",
-        "firstName": "",
+        "firstName": "Wolfgang A.",
         "work": "Mass in C Minor",
         "canonicalWorkName": ""
       }
@@ -610,33 +485,8 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No.8 in Eb Major, 'Symphony of a Thousand'",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "1992-05-24T23:00:00.000Z",
-    "primaryVenue": "Montrose Pavillion, Donnybrook, Dublin (part of the Bank of Ireland RTÉ Proms)",
-    "performers": "Cara O'Sullivan (soprano), Deirdre Cooling-Nolan (contralto), Maldwyn Davies (tenor), Michael George (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, Michiyoshi Inoue (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1WqZppMBD95rkdotFc_C7WG9AXy78bAWm",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
         "canonicalWorkName": ""
       }
     ]
@@ -685,7 +535,7 @@
     "works": [
       {
         "surname": "Elgar",
-        "firstName": "",
+        "firstName": "Edward",
         "work": "The Dream of Gerontius",
         "canonicalWorkName": ""
       }
@@ -710,7 +560,7 @@
     "works": [
       {
         "surname": "Orff",
-        "firstName": "",
+        "firstName": "Carl",
         "work": "Carmina Burana",
         "canonicalWorkName": ""
       }
@@ -735,7 +585,7 @@
     "works": [
       {
         "surname": "Rossini",
-        "firstName": "",
+        "firstName": "Gioachino",
         "work": "Petite Messe Solenelle",
         "canonicalWorkName": ""
       }
@@ -760,7 +610,7 @@
     "works": [
       {
         "surname": "Stanford",
-        "firstName": "",
+        "firstName": "Charles Villiers",
         "work": "Requiem, Op.63",
         "canonicalWorkName": ""
       }
@@ -785,7 +635,7 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Requiem",
         "canonicalWorkName": ""
       }
@@ -817,31 +667,6 @@
     ]
   },
   {
-    "primaryDate": "1995-05-11T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Majella Cullagh (soprano), Ethna Robinson (contralto), Emmanuel Lawlor (tenor), Andrew Murphy (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, Kaspar de Roo (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1VjrjzulT7GarrksdZ6QrUt6PS0ykSPwr",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "1995-05-21T23:00:00.000Z",
     "primaryVenue": "Main Hall, RDS, Ballsbridge, Dublin",
     "performers": "Orla Boylan (soprano), Julia Canavan (soprano), Michael Pearce (baritone), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, Colman Pearce (conductor)",
@@ -860,7 +685,7 @@
     "works": [
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Incidental Music for 'A Midsummer Night's Dream'",
         "canonicalWorkName": ""
       }
@@ -885,7 +710,7 @@
     "works": [
       {
         "surname": "Walton",
-        "firstName": "",
+        "firstName": "William",
         "work": "Belshazzar's Feast",
         "canonicalWorkName": ""
       }
@@ -910,7 +735,7 @@
     "works": [
       {
         "surname": "Wallace",
-        "firstName": "",
+        "firstName": "William Vincent",
         "work": "Maritana",
         "canonicalWorkName": ""
       }
@@ -935,33 +760,8 @@
     "works": [
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Symphony No.2, 'Lobgesang'",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "1996-03-29T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Deirdre Cooling-Nolan (contralto), Jean-Luc Maurette (tenor), Fernand Bernandi (bass), Cantique Chamber Choir, RTÉ Philharmonic Choir, James Cavanagh (guest chorus director), National Symphony Orchestra, Kasper de Roo (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1OhmVx7l845mtUG_usGz-53B3LWhQShaA",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Berlioz",
-        "firstName": "Hector",
-        "work": "Roméo et Juliette",
         "canonicalWorkName": ""
       }
     ]
@@ -984,8 +784,8 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Rachmaninov",
-        "firstName": "",
+        "surname": "Rachmaninoff",
+        "firstName": "Sergei",
         "work": "The Bells, Op.35",
         "canonicalWorkName": ""
       }
@@ -1053,19 +853,19 @@
       },
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Kyrie, Ehre sei Gott in der Höhe",
         "canonicalWorkName": ""
       },
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Richte mich, Gott",
         "canonicalWorkName": ""
       },
       {
         "surname": "Schubert",
-        "firstName": "",
+        "firstName": "Franz",
         "work": "Salve Regina",
         "canonicalWorkName": ""
       }
@@ -1090,7 +890,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No.2, 'Resurrection'",
         "canonicalWorkName": ""
       }
@@ -1115,33 +915,8 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No.2, 'Resurrection'",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "1997-12-13T00:00:00.000Z",
-    "primaryVenue": "Whitefriars Street Church, Dublin",
-    "performers": "Philip O'Reilly (baritone), RTÉ Philharmonic Choir, RTÉ Concert Orchestra, Mark Duley (chorus director and conductor)",
-    "programPdf": "https://drive.google.com/open?id=1AbWzqRN5OhHRX4FJRYWEIEH6_rk8lP9h",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "Four Excerpts from the Christmas Oratorio",
         "canonicalWorkName": ""
       }
     ]
@@ -1165,7 +940,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No. 3",
         "canonicalWorkName": ""
       }
@@ -1190,7 +965,7 @@
     "works": [
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Elijah",
         "canonicalWorkName": ""
       }
@@ -1215,7 +990,7 @@
     "works": [
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Elijah",
         "canonicalWorkName": ""
       }
@@ -1240,7 +1015,7 @@
     "works": [
       {
         "surname": "Poulenc",
-        "firstName": "",
+        "firstName": "Francis",
         "work": "Gloria",
         "canonicalWorkName": ""
       }
@@ -1265,7 +1040,7 @@
     "works": [
       {
         "surname": "Orff",
-        "firstName": "",
+        "firstName": "Carl",
         "work": "Carmina Burana",
         "canonicalWorkName": ""
       }
@@ -1290,7 +1065,7 @@
     "works": [
       {
         "surname": "Stravinsky",
-        "firstName": "",
+        "firstName": "Igor",
         "work": "Symphony of Psalms",
         "canonicalWorkName": ""
       }
@@ -1328,87 +1103,6 @@
     ]
   },
   {
-    "primaryDate": "1999-11-05T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Virgina Kerr (soprano), Deirdre Cooling-Nolan (contralto), Patrick Power (tenor), Oleg Melinkov (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, Alexander Anissimov (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1MsMwg_3i-HLsDSRdNFJEzAD9eAgrb0yc",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Wagner",
-        "firstName": "",
-        "work": "Excerpts from Die Meistersingers von Nurnberg: including \"Wach' auf\" from the Procession of the Mastersingers and the Finale \"Verachtet mir\" from Act 3, Scene 2",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2000-04-26T23:00:00.000Z",
-    "primaryVenue": "City Hall, Cork",
-    "performers": "Mary Hegarty (soprano), Alison Browner (contralto), Justin Lavender (tenor), Tigran Martirosyan (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, Alexander Anissimov (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1TdmEZoHINaXaIT4AIEWskmQwwV8s3l1l",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "2000-04-27",
-    "repeat1Venue": "National Concert Hall, Dublin",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Missa Solemnis, Op.123",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2000-12-08T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Ann Murray (soprano, Mary), John Mark Ainsley (tenor, Narrator & Centurion), Peter Mikulas (bass, Herod), Andrew Murphy (bass, Joseph), Gerard O'Connor (bass, The Father, Polydorus), RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, Paul Mann (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1Fd7RKu-hLG59YPEsUb75e3qR85CvDm2B",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Berlioz",
-        "firstName": "Hector",
-        "work": "L'Enfance du Christ",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "2001-03-01T00:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "Orla Boylan (soprano), Jane Irwin (mezzo-soprano), Kaludi Kaludow (tenor), Peter Mikulás (baritone), RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, Alexander Anissimov (conductor)",
@@ -1427,7 +1121,7 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Requiem",
         "canonicalWorkName": ""
       }
@@ -1452,7 +1146,7 @@
     "works": [
       {
         "surname": "Rachmaninov",
-        "firstName": "",
+        "firstName": "Sergei",
         "work": "The Bells, Op.35",
         "canonicalWorkName": ""
       }
@@ -1477,7 +1171,7 @@
     "works": [
       {
         "surname": "Mozart",
-        "firstName": "",
+        "firstName": "Wolfgang A.",
         "work": "Mass in C Minor, K.427 (417a) \"Great\"",
         "canonicalWorkName": ""
       }
@@ -1577,39 +1271,14 @@
     "works": [
       {
         "surname": "Delius",
-        "firstName": "",
+        "firstName": "Frederick",
         "work": "Sea Drift",
         "canonicalWorkName": ""
       },
       {
         "surname": "Howells",
-        "firstName": "",
+        "firstName": "Arthur",
         "work": "Hymnus Paradisi",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2002-12-06T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Cara O'Sullivan (soprano), Ann Murray (mezzo-soprano), Alan Woodrow (tenor), Philip O'Reilly (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1x7q5O5kg0FsNc1_GajsIQL3s8TVVphNj",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Missa Solemnis, Op.123",
         "canonicalWorkName": ""
       }
     ]
@@ -1657,34 +1326,9 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Lovland",
-        "firstName": "",
+        "surname": "Løvland ",
+        "firstName": "Rolf",
         "work": "Secret Garden",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2003-12-05T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Anne Murray (mezzo-soprano, Marguerite, Celestial Voice), Peter Hoare (tenor, Faust), Gerard O'Connor (bass, Mephistopheles), Darren Jeffrey (bass, Brander), Boys of Clongowes Wood College & De La Salle College, Waterford, RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1JFS7JfE4ZQTJoSqu-F8s3uS6qGQwuKqK",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Berlioz",
-        "firstName": "Hector",
-        "work": "La Damnation de Faust, Op.24",
         "canonicalWorkName": ""
       }
     ]
@@ -1708,7 +1352,7 @@
     "works": [
       {
         "surname": "Prokofiev",
-        "firstName": "",
+        "firstName": "Sergei ",
         "work": "Alexander Nevsky, Op.78",
         "canonicalWorkName": ""
       }
@@ -1733,58 +1377,8 @@
     "works": [
       {
         "surname": "Tchaikovsky",
-        "firstName": "",
+        "firstName": "Pyotr Ilyich",
         "work": "Coronation Cantata 'Moscow'",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2004-04-30T23:00:00.000Z",
-    "primaryVenue": "Áras an Uachtaráin, Dublin",
-    "performers": "RTÉ Philharmonic Choir, RTÉ National Symphony Orchestra, Fergal Caulfield (chorus director and conductor)",
-    "programPdf": "",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "(at the Official Ceremony marking the Accession of Cyprus, Czechia, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Slovakia and Slovenia as Member States of the European Union)",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Ode to Joy' from Symphony No. 9",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2004-05-20T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Franzita Whelan (soprano, Lenore), Albert Bonnema (tenor, Florestan), Ailish Tynan (soprano, Marzelline), Frode Olsen (bass-baritone, Rocco), Daniel Norman (tenor, Jacquino), D'Arcy Bleiker (bass-baritone, Don Fernando), Gidon Saks (bass-baritone, Pizarro), John McKeown (tenor, First Prisoner), Sean Green (bass, Second Prisoner), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1xGh9dKD5o9Fi8GZtOkxV8mt54-xwJpDY",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "2004-05-21",
-    "repeat1Venue": "National Concert Hall, Dublin",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Fidelio, Op.72 (concert performance)",
         "canonicalWorkName": ""
       }
     ]
@@ -1808,7 +1402,7 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Il Trovatore (concert performance)",
         "canonicalWorkName": ""
       }
@@ -1833,7 +1427,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Das klagende Lied",
         "canonicalWorkName": ""
       }
@@ -1858,7 +1452,7 @@
     "works": [
       {
         "surname": "Liszt",
-        "firstName": "",
+        "firstName": "Franz",
         "work": "A Dante Symphony",
         "canonicalWorkName": ""
       }
@@ -1883,39 +1477,14 @@
     "works": [
       {
         "surname": "Mozart",
-        "firstName": "",
+        "firstName": "Wolfgang A.",
         "work": "Requiem Mass in D Minor, K.626",
         "canonicalWorkName": ""
       },
       {
         "surname": "Stravinsky",
-        "firstName": "",
+        "firstName": "Igor",
         "work": "Symphony of Psalms",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2005-05-12T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Franzita Whelan (soprano), Ann Murray (mezzo-soprano), Peter Hoare (tenor), Markus Bruck (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1-iJnXUMaRaKyhrgAMppt3P12-PFFvkIB",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "2005-05-14",
-    "repeat1Venue": "National Concert Hall, Dublin",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
         "canonicalWorkName": ""
       }
     ]
@@ -1938,40 +1507,9 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Janacek",
-        "firstName": "",
+        "surname": "Janáček",
+        "firstName": "Leoš ",
         "work": "Glagolitic Mass",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2005-10-20T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, William Eddins (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1sW0N36YAG2qxurs03rHbOMBfQpL_xe_9",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Borodin",
-        "firstName": "Alexander ",
-        "work": "Polovtsian Dances",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Shostakovich",
-        "firstName": "",
-        "work": "Symphony No.2 in B Major, Op.14, 'To October'",
         "canonicalWorkName": ""
       }
     ]
@@ -2020,7 +1558,7 @@
     "works": [
       {
         "surname": "Shostakovich",
-        "firstName": "",
+        "firstName": "Dmitri",
         "work": "Symphony No.3 in Eb Major, Op.20 ('The First of May')",
         "canonicalWorkName": ""
       }
@@ -2045,7 +1583,7 @@
     "works": [
       {
         "surname": "Puccini",
-        "firstName": "",
+        "firstName": "Giacomo ",
         "work": "La Boheme (concert performance)",
         "canonicalWorkName": ""
       }
@@ -2070,7 +1608,7 @@
     "works": [
       {
         "surname": "Poulenc",
-        "firstName": "",
+        "firstName": "Francis",
         "work": "Stabat Mater",
         "canonicalWorkName": ""
       }
@@ -2127,31 +1665,6 @@
     ]
   },
   {
-    "primaryDate": "2006-09-08T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Majella Cullagh (soprano), Imelda Drumm (mezzo-soprano), Paul McNamara (tenor), Markus Bruck (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=15MjXDUUsKgN6vt7TYIF85hOD0CYbLGCY",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "2006-09-09",
-    "repeat1Venue": "National Concert Hall, Dublin",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "2006-10-05T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "Nikita Storojev (bass), RTÉ Philharmonic Choir, Cathal Garvey (guest chorus director), RTÉ National Symphony Orchestra, Vladimir Altschuler (conductor)",
@@ -2170,7 +1683,7 @@
     "works": [
       {
         "surname": "Shostakovich",
-        "firstName": "",
+        "firstName": "Dmitri",
         "work": "Symphony No.13 in Bb Minor, Op.113, 'Babi Yar'",
         "canonicalWorkName": ""
       }
@@ -2195,7 +1708,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No.2, 'Resurrection'",
         "canonicalWorkName": ""
       }
@@ -2220,7 +1733,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No 3",
         "canonicalWorkName": ""
       }
@@ -2270,7 +1783,7 @@
     "works": [
       {
         "surname": "Elgar",
-        "firstName": "",
+        "firstName": "Edward",
         "work": "The Dream of Gerontius",
         "canonicalWorkName": ""
       }
@@ -2295,7 +1808,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No.8 in Eb Major, 'Symphony of a Thousand'",
         "canonicalWorkName": ""
       }
@@ -2320,13 +1833,13 @@
     "works": [
       {
         "surname": "Eberwein",
-        "firstName": "",
+        "firstName": "Carl",
         "work": "Proserpina",
         "canonicalWorkName": ""
       },
       {
         "surname": "Orff",
-        "firstName": "",
+        "firstName": "Carl",
         "work": "Carmina Burana",
         "canonicalWorkName": ""
       }
@@ -2351,7 +1864,7 @@
     "works": [
       {
         "surname": "Liszt",
-        "firstName": "",
+        "firstName": "Franz",
         "work": "A Faust Symphony",
         "canonicalWorkName": ""
       }
@@ -2407,7 +1920,7 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Requiem",
         "canonicalWorkName": ""
       }
@@ -2432,33 +1945,8 @@
     "works": [
       {
         "surname": "Puccini",
-        "firstName": "",
+        "firstName": "Giacomo ",
         "work": "Messa di Gloria",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2008-05-22T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Daniil Shtoda (tenor), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1_48wBcIg6ZHohJgmrvmfqVPK8zs8QPu_",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Berlioz",
-        "firstName": "Hector",
-        "work": "Requiem (Grande Messe des Morts)",
         "canonicalWorkName": ""
       }
     ]
@@ -2482,7 +1970,7 @@
     "works": [
       {
         "surname": "Haydn",
-        "firstName": "",
+        "firstName": "Joseph",
         "work": "The Creation",
         "canonicalWorkName": ""
       }
@@ -2506,8 +1994,8 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Janacek",
-        "firstName": "",
+        "surname": "Janáček",
+        "firstName": "Leoš ",
         "work": "Glagolitic Mass",
         "canonicalWorkName": ""
       }
@@ -2532,33 +2020,8 @@
     "works": [
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "St Paul",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2009-04-30T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Ailish Tynan (soprano), Jane Irwin (mezzo-soprano), Wynne Evans (tenor), Markus Bruck (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1iJpivQ063ADBceiHTWqB1QmOjDFswXgH",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
         "canonicalWorkName": ""
       }
     ]
@@ -2582,7 +2045,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No. 2, 'Resurrection'",
         "canonicalWorkName": ""
       }
@@ -2632,7 +2095,7 @@
     "works": [
       {
         "surname": "Haydn",
-        "firstName": "",
+        "firstName": "Joseph",
         "work": "Nelson Mass",
         "canonicalWorkName": ""
       }
@@ -2682,7 +2145,7 @@
     "works": [
       {
         "surname": "Schumann",
-        "firstName": "",
+        "firstName": "Robert",
         "work": "Das Paradies und die Peri",
         "canonicalWorkName": ""
       }
@@ -2707,33 +2170,8 @@
     "works": [
       {
         "surname": "Hindemith",
-        "firstName": "",
+        "firstName": "Paul",
         "work": "When lilacs last in the door-yard bloom'd",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2010-10-14T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Malin Christensson (soprano), Alison Browner (mezzo-soprano), Sean Clayton (tenor), Matthew Hargreaves (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Nicholas Kraemer (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1VEjV1QAEzaDjcv8DjC5lKAXFpm5-SaOO",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "Mass in B Minor, BWV 232",
         "canonicalWorkName": ""
       }
     ]
@@ -2757,7 +2195,7 @@
     "works": [
       {
         "surname": "Debussy",
-        "firstName": "",
+        "firstName": "Claude",
         "work": "Nocturnes",
         "canonicalWorkName": ""
       }
@@ -2782,13 +2220,13 @@
     "works": [
       {
         "surname": "Sibelius",
-        "firstName": "",
+        "firstName": "Jean",
         "work": "The Captive Queen, Op.48",
         "canonicalWorkName": ""
       },
       {
         "surname": "Walton",
-        "firstName": "",
+        "firstName": "William",
         "work": "Belshazzar's Feast",
         "canonicalWorkName": ""
       }
@@ -2813,19 +2251,19 @@
     "works": [
       {
         "surname": "Ingalls",
-        "firstName": "",
+        "firstName": "Jeremiah",
         "work": "Glory to God on High",
         "canonicalWorkName": ""
       },
       {
         "surname": "Laurisdsen",
-        "firstName": "",
+        "firstName": "Morten",
         "work": "O magnum mysterium",
         "canonicalWorkName": ""
       },
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Lasset uns Frohlocken",
         "canonicalWorkName": ""
       },
@@ -2842,7 +2280,7 @@
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "Karen Vourc'h (soprano), Elodie Méchain (alto), Robin Tritschler (tenor), Eric Génovese (narrator), Charlotte Coffey (treble), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Pascal Rophé (conductor)",
     "programPdf": "https://drive.google.com/open?id=1JiRxujC-YjvUrA5IzJViVj1SF7-U_zEN",
-    "url1": "",
+    "url1": "https://www.nch.ie/all-events-listing/nsoi-the-planets-star-wars/",
     "url1Text": "",
     "url2": "",
     "url2Text": "",
@@ -2856,7 +2294,7 @@
     "works": [
       {
         "surname": "Honegger",
-        "firstName": "",
+        "firstName": "Arthur",
         "work": "King David (Le Roi David)",
         "canonicalWorkName": ""
       }
@@ -2881,7 +2319,7 @@
     "works": [
       {
         "surname": "Puccini",
-        "firstName": "",
+        "firstName": "Giacomo ",
         "work": "La Boheme (concert performance)",
         "canonicalWorkName": ""
       }
@@ -2906,7 +2344,7 @@
     "works": [
       {
         "surname": "Rachmaninov",
-        "firstName": "",
+        "firstName": "Sergei",
         "work": "The Bells, Op.35",
         "canonicalWorkName": ""
       }
@@ -2931,58 +2369,8 @@
     "works": [
       {
         "surname": "Orff",
-        "firstName": "",
+        "firstName": "Carl",
         "work": "Carmina Burana",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2012-01-06T00:00:00.000Z",
-    "primaryVenue": "St Patrick's Cathedral, Dublin",
-    "performers": "Julia Doyle (soprano), Paula Murrihy (alto), Mark Padmore (tenor), Peter Harvey (bass), RTÉ Philharmonic Choir, Mark Hindley (guest chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1Gbcba0Jo-dLDp9WyrEHuAPFsTqUQSqaY",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "Christmas Oratorio, BWV 248 (Parts 1 to 3)",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2012-01-07T00:00:00.000Z",
-    "primaryVenue": "St Patrick's Cathedral, Dublin",
-    "performers": "Julia Doyle (soprano), Paula Murrihy (alto), Mark Padmore (tenor), Peter Harvey (bass), RTÉ Philharmonic Choir, Mark Hindley (guest chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1Gbcba0Jo-dLDp9WyrEHuAPFsTqUQSqaY",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "Christmas Oratorio, BWV 248 (Parts 4 to 6)",
         "canonicalWorkName": ""
       }
     ]
@@ -3006,13 +2394,13 @@
     "works": [
       {
         "surname": "Mozart",
-        "firstName": "",
+        "firstName": "Wolfgang A.",
         "work": "Requiem Mass in D Minor, K.626",
         "canonicalWorkName": ""
       },
       {
         "surname": "Rimsky-Korsakov",
-        "firstName": "",
+        "firstName": "Nikolai",
         "work": "Mozart and Salieri",
         "canonicalWorkName": ""
       }
@@ -3062,58 +2450,8 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Four Sacred Pieces",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2013-01-25T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Katherine Broderick (soprano), Claudia Huckle (alto), Robin Tritschler (tenor), Andrew Foster-Williams (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1Wyc4rJ_85ixmykBRWU5Uy5-BF2Y3BpRf",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2013-03-29T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Mark Wilde (tenor, Evangelist), Nicholas Merryweather (bass, Christus), Gavan Ring (bass, Pilate), Sara Power (soprano), Sharon Carty (mezzo-soprano), Eamonn Mulhall (tenor), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Michael Rosewell (conductor)",
-    "programPdf": "https://drive.google.com/open?id=16on8adxVSzYw1w-La9hfIpx5EpE8HvBz",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "St John Passion",
         "canonicalWorkName": ""
       }
     ]
@@ -3137,7 +2475,7 @@
     "works": [
       {
         "surname": "Poulenc",
-        "firstName": "",
+        "firstName": "Francis",
         "work": "Gloria",
         "canonicalWorkName": ""
       }
@@ -3162,7 +2500,7 @@
     "works": [
       {
         "surname": "Verdi",
-        "firstName": "",
+        "firstName": "Giuseppe ",
         "work": "Requiem",
         "canonicalWorkName": ""
       }
@@ -3194,92 +2532,6 @@
     ]
   },
   {
-    "primaryDate": "2014-02-07T00:00:00.000Z",
-    "primaryVenue": "The Helix, Glasnevin",
-    "performers": "Mairead Buicke (soprano), Mark Holland (baritone),  RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Neil Thomson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1o0lZbaXwZKwiiO1Chw4_0F5SW9xZOFWt",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bizet",
-        "firstName": "Georges",
-        "work": "March of the Toreadors, from Carmen",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Borodin",
-        "firstName": "Alexander ",
-        "work": "Polovtsian Dances, from Prince Igor",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Mascagni",
-        "firstName": "",
-        "work": "Easter Hymn, from Cavalleria Rusticana",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Mussorgsky",
-        "firstName": "",
-        "work": "Coronation Scene, from Boris Godunov",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Puccini",
-        "firstName": "",
-        "work": "Te Deum, from Tosca",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Tchaikovsky",
-        "firstName": "",
-        "work": "Entr'acte & Waltz, from Eugene Onegin",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2014-04-17T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Sarah Power (soprano), Paula Murrihy (mezzo-soprano), Joshua Ellicott (tenor), Michael George (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Roy Gooman (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1G_mN-u1TLEpZgT4zFwq19CLzXYc2EJas",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "Cantata No.11, 'Lobet Gott in seinen Reichen, 'Ascension Oratorio'",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "Easter Oratorio, BWV 249",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "2014-05-15T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "Zach Borichevsky (tenor), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, David Hill (conductor)",
@@ -3298,20 +2550,20 @@
     "works": [
       {
         "surname": "Coleridge-Taylor",
-        "firstName": "",
+        "firstName": "Samuel",
         "work": "Hiawatha's Wedding Feast",
         "canonicalWorkName": ""
       },
       {
         "surname": "Stanford",
-        "firstName": "",
+        "firstName": "Charles Villiers",
         "work": "Song to the Soul, Op.97b",
         "canonicalWorkName": ""
       }
     ]
   },
   {
-    "primaryDate": "19 Sept 2014",
+    "primaryDate": "2014-09-18T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Gavin Maloney (conductor)",
     "programPdf": "https://drive.google.com/open?id=17t5Hrc2NG_h_QOSnHJtm1YbajKWdNmBZ",
@@ -3361,62 +2613,6 @@
     ]
   },
   {
-    "primaryDate": "2015-01-09T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Imelda Drumm (mezzo-soprano), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Andrew Litton (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1iIgtIPUc-55XVCgKBziFU1DXtOdZdT3F",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Agnew",
-        "firstName": "Elaine",
-        "work": "Everyone Sang",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Elgar",
-        "firstName": "",
-        "work": "The Music Makers",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2015-04-02T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "James Oxley (tenor, Evangelist), Philip O'Reilly (bass, Jesus), Róisín O'Grady (soprano), Sharon Carty (alto), Eamonn Mulhall (tenor), Padraic Rowan (bass, Pilate), Pascall Kennedy (bass), Shokri Raoof (bass), Margaret Bridge (alto), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Robert Howarth (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1m1VEldgVL-r0BYpTLAiKxqePf0HxUK5L",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "St Matthew Passion",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "2015-05-21T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "Darren Jeffrey (bass, Elijah), Celine Byrne (soprano, The Widow), Imelda Drumm (mezzo-sopano), Joshua Ellicott (tenor), Tiny Gaughran (The Youth), Sara Shine (soprano), Heather Fogarty (mezzo-soprano), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Paul Daniel (conductor)",
@@ -3435,7 +2631,7 @@
     "works": [
       {
         "surname": "Mendelssohn",
-        "firstName": "",
+        "firstName": "Felix",
         "work": "Elijah",
         "canonicalWorkName": ""
       }
@@ -3460,33 +2656,8 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No. 2, 'Resurrection'",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2015-12-04T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Eleanor Daniels (soprano), Rachel Kelly (mezzo-soprano), Robin Tritschler (tenor), Marcus Farnsworth (baritone), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Cristian Macelaru (conductor)",
-    "programPdf": "https://drive.google.com/open?id=14PqSEZjtlL3S6ykZzCRzT6fUDP2_Us7q",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Beethoven",
-        "firstName": "Ludwig von",
-        "work": "Missa Solemnis, Op.123",
         "canonicalWorkName": ""
       }
     ]
@@ -3510,33 +2681,8 @@
     "works": [
       {
         "surname": "Stravinsky",
-        "firstName": "",
+        "firstName": "Igor",
         "work": "Symphony of Psalms",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2016-03-25T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Ben Johnson (tenor, Evangelist), Christopher Cull (bass, Christus), Gavan Ring (bass, Pilate), Daire Halpin (soprano), William Towers (countertenor), Dean Power (tenor), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Nicholas McGegan (conductor)",
-    "programPdf": "https://drive.google.com/open?id=18KMQ1YXEClhNI8Gd4gHlhuMpWiSQUhdM",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Bach",
-        "firstName": "Johann Sebastian",
-        "work": "St John Passion",
         "canonicalWorkName": ""
       }
     ]
@@ -3560,7 +2706,7 @@
     "works": [
       {
         "surname": "Mahler",
-        "firstName": "",
+        "firstName": "Gustav",
         "work": "Symphony No. 3",
         "canonicalWorkName": ""
       }
@@ -3585,7 +2731,7 @@
     "works": [
       {
         "surname": "Prokofiev",
-        "firstName": "",
+        "firstName": "Sergei ",
         "work": "Alexander Nevsky, Op.78",
         "canonicalWorkName": ""
       }
@@ -3691,8 +2837,1884 @@
     "works": [
       {
         "surname": "Handel",
-        "firstName": "",
+        "firstName": "George Frideric",
         "work": "Messiah",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2017-05-18T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Rebecca Afonwy Jones (mezzo-soprano), Mark Le Brocq (tenor), Neal Davies (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1COqBtROBnj24xt7aQDK_R2d8YaZu0siy",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Elgar",
+        "firstName": "Edward",
+        "work": "The Dream of Gerontius",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2017-12-01T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Máire Flavin (soprano), Sara Mingardo (alto), Robin Tritschler (tenor), Leon Kosavic (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Nathalie Stutzmann (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1CHJ0m1i8LuIa4m_vqIPOyXLBhkli-bR9",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Mozart",
+        "firstName": "Wolfgang A.",
+        "work": "Requiem Mass in D Minor, K.626",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2018-02-04T00:00:00.000Z",
+    "primaryVenue": "Radio Centre, RTE, Donnybrook, Dublin",
+    "performers": "",
+    "programPdf": "https://www.youtube.com/watch?v=OV9yA70q9uM",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Traditional, arranged by Daryl Runswick",
+        "firstName": "",
+        "work": "She Moved Through the Fair",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2018-08-18T23:00:00.000Z",
+    "primaryVenue": "St Giles Cathedral, Edinburgh",
+    "performers": "Cathy Gibbons (soprano), RTÉ Philharmonic Choir, Fergal Caulfield (organ), Mark Hindley (conductor) ",
+    "programPdf": "https://drive.google.com/open?id=1nx56KF9l8pBLeKvlUN3Xm2BDSDki1cYv",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Duruflé",
+        "firstName": "Maurice",
+        "work": "Requiem, Op. 9",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2018-09-13T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Orla Boylan (soprano), Jennifer Johnston (mezzo-soprano), RTÉ Philharmonic Choir, Desmond Early, (guest chorus director), RTÉ National Symphony Orchestra, Robert Trevino (conductor)",
+    "programPdf": "https://drive.google.com/open?id=12D2h4gKK0j1336CoE28tAE9n3UQZnQfQ",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Mahler",
+        "firstName": "Gustav",
+        "work": "Symphony No. 2, 'Resurrection'",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2018-09-27T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ National Symphony Orchestra, José Serebrier (conductor)",
+    "programPdf": "https://drive.google.com/open?id=15LHDh0jVreV2dafaQ5m_3AfMppjtgL-T",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Holst",
+        "firstName": "Gustav",
+        "work": "The Planets",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2018-11-09T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall",
+    "performers": "Ailish Tynan (soprano), Robin Tritschler (tenor), Gavan Ring (baritone), The Choristers of St Patrick's Cathedral, RTÉ Philharmonic Choir, Desmond Earley, (guest chorus director), RTÉ Concert Orchestra and RTÉ National Symphony Orchestra, David Brophy (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1Ob8ihEpbArZLEJlnyvGO_b7fWeQz7BTn",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Britten",
+        "firstName": "Benjamin",
+        "work": "War Requiem",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2019-01-25T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Andrew Foster-Williams (bass), RTÉ Philharmonic Choir, Alan Leech (guest chorus director), RTÉ National Symphony Orchestra, Ted Sperling (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1ERXfveTFWJYO6UQpuw7VBwpJ0gE99iye",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Gounod",
+        "firstName": "Charles",
+        "work": "‘Gloire immortelle de nos aïeux’ (Soliders' Chorus), from Faust",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Leoncavallo",
+        "firstName": "Ruggero",
+        "work": "Bell Chorus, from Pagliacci",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Mussorgsky",
+        "firstName": "Modest",
+        "work": "Coronation Scene, from Boris Godunov",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Puccini",
+        "firstName": "Giacomo ",
+        "work": "Te Deum', from Tosca",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Tchaikovsky",
+        "firstName": "Pyotr Ilyich",
+        "work": "Waltz Scene, from Eugene Onegin",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Verdi",
+        "firstName": "Giuseppe ",
+        "work": "(1) 'Va, pensiero’ (Chorus of the Hebrew Slaves) from Nabucco; (2) Witches’ Chorus from Macbeth; (3) Triumphal Scene from Aida; (4) Anvil Chorus from Il Trovatore",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Wagner",
+        "firstName": "Richard",
+        "work": "(1) Pilgrims' Chorus, from Tannhäuser; (2) Bridal Chorus from Lohengrin",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2019-04-30T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "RTÉ Philharmonic Choir, Brian Dungan (conductor) ",
+    "programPdf": "https://drive.google.com/open?id=1RTH7OMrh77W9DD_T-GrPNOV0VjIts9Yk",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Neville",
+        "firstName": "Katie",
+        "work": "Though There are Torturers",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2019-05-16T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Angela Meade (soprano), Enkelejda Shkoza (alto), Antonio Poli (tenor), Evgeny Stavinsky (bass), RTÉ Philharmonic Choir, Alan Leech (guest chorus director), RTÉ National Symphony Orchestra, Michele Mariotti (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1IyL_HsT_jOw18eN0yPJfGxcmCbyvpTEm",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Verdi",
+        "firstName": "Giuseppe ",
+        "work": "Requiem",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2019-08-17T23:00:00.000Z",
+    "primaryVenue": "St Giles Cathedral, Edinburgh",
+    "performers": "Fergal Caulfield (organ), RTÉ Philharmonic Choir, Mark Hindley (conductor) ",
+    "programPdf": "https://drive.google.com/open?id=1ERXfveTFWJYO6UQpuw7VBwpJ0gE99iye",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Pärt",
+        "firstName": "Arvo",
+        "work": "Salve Regina",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2019-08-24T23:00:00.000Z",
+    "primaryVenue": "St Giles Cathedral, Edinburgh",
+    "performers": "Fergal Caulfield (organ), RTÉ Philharmonic Choir, Mark Hindley (conductor) ",
+    "programPdf": "https://drive.google.com/open?id=1aUWBA3kDYrj2DxQnGKgItxqN5p0FPCzI",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Kodály",
+        "firstName": "Zoltán ",
+        "work": "Missa Brevis",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2019-10-10T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Mahler",
+        "firstName": "Gustav",
+        "work": "Symphony No. 3",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2019-11-08T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Catherine Wyn-Rodgers (mezzo-soprano), Norbert Ernst (tenor), Johan Wållberg (bass), RTÉ Philharmonic Choir, David Young (chorus director), RTÉ National Symphony Orchestra, Kenneth Montgomery (conductor)",
+    "programPdf": "Concert Program",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Elgar",
+        "firstName": "Edward",
+        "work": "The Dream of Gerontius",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2020-01-17T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Adrienn Miksch (soprano), Patricia Bardon (alto), Julian Hubbard (tenor), William Thomas (bass), RTÉ Philharmonic Choir, David Young (chorus director), RTÉ National Symphony Orchestra, Patrik Ringborg (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Dvořák",
+        "firstName": "Anton",
+        "work": "Requiem",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2022-04-14T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Máire Flavin (soprano), Catherine Wyn-Rodgers (contralto), James Oxley (tenor), Stephan Loges (bass-baritone), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, Nicholas McGegan (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1Mu0jX8o8_0J0ZQ4_nyc9AA63qPGCs-Am/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Handel",
+        "firstName": "George Frideric",
+        "work": "Messiah",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2022-05-19T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Jennifer Davis (soprano), Ben McAteer (baritone), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1sRaDCgU36ZFuEwd7kbUj-lh74CvG9kbo/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Brahms",
+        "firstName": "Johannes ",
+        "work": "Ein deutsches Requiem (A German Requiem), Op.45",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2022-11-25T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Anna Devin (soprano), Rafal Tomkiewicz (counter-tenor), Samuel Dale Johnson (baritone), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, Jaime Martín (conductor)",
+    "programPdf": "https://drive.google.com/file/d/13YItAa9Nw2ix8KNeiNMSyo_tvZSha_vD/view?usp=share_link",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "2022-11-26",
+    "repeat1Venue": "South Eastern Technological University Arena, Waterford",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Boulanger",
+        "firstName": "Lili",
+        "work": "Psalm 129 - Ils m'ont assez opprimé",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Orff",
+        "firstName": "Carl",
+        "work": "Carmina Burana",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2023-02-03T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "National Symphony Chorus, Tomos Watkins (guest chorus director), National Symphony Orchestra, Jaime Martín (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1YSz-WqneLowqdGhp9tYIN40mf136DZgc/view?usp=share_link",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Ravel",
+        "firstName": "Maurice",
+        "work": "Daphnis et Chloé",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2023-04-20T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Frauke Aulbert (soprano), Michelle O’Rourke (mezzo-soprano), Eoghan Desmond (baritone), Dermot Dunne (accordion), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, David Brophy (conductor), Justine Cooper (visual direction), Annemarie Ní Churreáin (poetry), Michelle O’Rourke and David Young (vocal development & collaborators)",
+    "programPdf": "https://drive.google.com/file/d/1PLGiyxRODSO1zllemPU02UA-w4MXa2vI/view?usp=share_link",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "World Premiere",
+    "works": [
+      {
+        "surname": "Cleare",
+        "firstName": "Ann",
+        "work": "Midhe",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2023-05-25T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Mirjam Mesak (soprano), Valentyn Dytiuk (tenor), Andrei Bondarenko (baritone), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, Mihhail Gerts (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1Aru1arTg2GOx3eifXQAU9xmKywHsWAWA/view?usp=drive_link",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Rachmaninov",
+        "firstName": "Sergei",
+        "work": "The Bells, Op.35",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2023-11-24T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Katherine Broderick (soprano), Mark Stone (baritone), RIAM Chorale (Blánaid Murphy, musical director), National Symphony Chorus (David Young, chorus director), Members of the RIAM Philharmonia, National Symphony Orchestra, Leonard Slatkin (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1Twk-ExfvK4e3pHf_V2JMJesJOAeFOvEj/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Vaughan Williams",
+        "firstName": "Ralph",
+        "work": "A Sea Symphony",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2024-01-05T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Benjamin Russell (baritone), Cór na nÓg (Mary Amond O’Brien, choral director), Cór Linn, National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, Jean-Luc Tingaud, conductor",
+    "programPdf": "https://drive.google.com/file/d/129QXzt-WQdfpNGifrgjTxt1Ml9SYgq4d/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Fauré",
+        "firstName": "Gabriel",
+        "work": "Les Djinns",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Fauré",
+        "firstName": "Gabriel",
+        "work": "Requiem",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2024-02-09T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Ailish Tynan (soprano), Niamh O’Sullivan (mezzo-soprano), Cór Linn, National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, Anja Bihlmaier (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Mahler",
+        "firstName": "Gustav",
+        "work": "Symphony No. 2, 'Resurrection'",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2024-05-30T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Miah Persson (soprano), Paula Murrihy (mezzo-soprano), Valentyn Dytiuk (tenor), Evgeny Stavinsky (bass), National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, Jaime Martín (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1Wfh-2IZylJ0Rks5_20OgEOqsOSQekW22/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Verdi",
+        "firstName": "Giuseppe ",
+        "work": "Requiem",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2024-10-24T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Gwyn Hughes Jones (tenor), Simon Shibambu (bass-baritone), National Symphony Chorus (David Young chorus director), National Symphony Orchestra, Carlo Rizzi (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Puccini",
+        "firstName": "Giacomo ",
+        "work": "Messa di Gloria",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2024-11-22T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Máire Flavin (soprano), Sharon Carty (mezzo-soprano),  James Way (tenor), John Molloy (bass), National Symphony Chorus (David Young choral director), National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1Vvc4gRfijLbIogfhSSFbvpf_vv2PUWs6/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Stanford",
+        "firstName": "Charles Villiers",
+        "work": "Requiem, Op.63",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2025-02-07T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Aoife Miskelly (soprano), Gemma Ní Bhriain (mezzo-soprano), Robin Tritschler (tenor),  Milan Siljanov (bass-baritone), National Symphony Chorus (David Young choral director), National Symphony Orchestra, David Brophy (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1PoOvczGFpvcdozBzIu2IwMwF7bFXZoQr/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Mozart (orch. Levin)",
+        "firstName": "Wolfgang A.",
+        "work": "Requiem",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Pärt",
+        "firstName": "Arvo",
+        "work": "Berliner Messe",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2025-04-17T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Seán Boylan (baritone), Chamber Choir Ireland (Paul Hillier choral director), National Symphony Chorus (David Young choral director), National Symphony Orchestra, David Hill (conductor)",
+    "programPdf": "https://drive.google.com/file/d/14M9bii_0f8tUzGfbiyri4EWjhE7FtmZe/view?usp=sharing",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "MacMillan",
+        "firstName": "James",
+        "work": "St John Passion (Irish Premiere)",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2025-05-22T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Anna Devin (soprano), Laurence Kilsby (tenor), William Thomas (bass), National Symphony Chorus (David Young choral director), National Symphony Orchestra, Peter Whelan (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Haydn",
+        "firstName": "Joseph",
+        "work": "The Creation",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2025-11-28T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Ailish Tynan (soprano), Anna Stéphany (mezzo-soprano), Sunnyboy Dladla (tenor), James Atkinson (baritone), National Symphony Chorus Ireland (David Young, chorus director), National Symphony Orchestra Ireland, Gerhard Markson (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bruckner",
+        "firstName": "Anton",
+        "work": "Te Deum",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Clarke",
+        "firstName": "Rhona",
+        "work": "Points of Light",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Wagner",
+        "firstName": "Richard",
+        "work": "Excerpts from Die Meistersinger von Nürnberg",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2026-01-13T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Nardus Williams (soprano), Anna Devin (soprano), Rihab Chaieb (mezzo-soprano), Robin Tritschler (tenor), Mark Stone (baritone), Eiméar Harper (soprano), Emma Power (mezzo-soprano), National Symphony Chorus Ireland (David Young, chorus director), National Symphony Orchestra Ireland, Alexander Shelley (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Schumann",
+        "firstName": "Robert",
+        "work": "Das Paradies und die Peri",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2026-04-02T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Masabane Cecilia Rangwanasha (soprano), Niamh O’Sullivan (mezzo-soprano), Valentyn Dytiuk (tenor), Ashley Riches (bass), National Symphony Chorus Ireland (David Young, chorus director), National Symphony Orchestra Ireland, Jiří Rožeň (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Dvořák",
+        "firstName": "Anton",
+        "work": "Stabat Mater",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2026-05-22T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "National Symphony Chorus Ireland (David Young, chorus director), National Symphony Orchestra Ireland, Eric Whitacre (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Whitacre",
+        "firstName": "Eric",
+        "work": "Godzilla Eats Las Vegas",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2026-09-10T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Tara Erraught (soprano), Dame Sarah Connolly (mezzo-soprano), National Symphony Chorus Ireland (David Young, chorus director), National Symphony Orchestra Ireland, Alexander Shelly (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Mahler",
+        "firstName": "Gustav",
+        "work": "Symphony No. 2, 'Resurrection'",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2026-11-27T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall",
+    "performers": "Ailish Tynan (soprano), Laurence Kilsby (tenor), Joshua Hopkins (baritone), Choristers of St Patrick’s Cathedral (Stuart Nicholson, Master of the Music), National Symphony Chorus Ireland (David Young, chorus director), RTÉ Concert Orchestra, National Symphony Orchestra Ireland, Anja Bihlmaier (conductor)",
+    "programPdf": "",
+    "url1": "https://www.nch.ie/all-events-listing/nsoi-britten-war-requiem/",
+    "url1Text": "Booking information",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Britten",
+        "firstName": "Benjamin",
+        "work": "War Requiem",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2027-02-26T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Renée Fleming (soprano), Thomas Hampson (baritone), National Symphony Chorus Ireland (David Young, chorus director), National Symphony Orchestra Ireland, Alexander Shelly (conductor)",
+    "programPdf": "",
+    "url1": "https://www.nch.ie/all-events-listing/nsoi-renee-fleming-thomas-hampson/",
+    "url1Text": "Booking information",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Adams",
+        "firstName": "John",
+        "work": "Nixon in China (excerpts)",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "National Symphony Chorus Ireland (Neil Ferris, guest chorus director), National Symphony Orchestra Ireland, Samy Rachid (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Adams",
+        "firstName": "John",
+        "work": "Harmonium",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Holst",
+        "firstName": "Gustav",
+        "work": "The Planets",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1988-07-07T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Virginia Kerr (soprano), Deirdre Cooling-Nolan (contralto), Peter Kerr (tenor), Frank O'Brien (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), RTÉ Symphony Orchestra, Brian Wright (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1urSerdjWjzVgix0C1wKKrFqPnnUV2Rkb",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1988-11-29T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Mary Clark (soprano), Regina Hanley (alto), Emmanuel Lawler (tenor), Nigel Williams (bass), RTÉ Philharmonic Choir, RTÉ Concert Orchestra, Colin Mawby (chorus director and conductor)",
+    "programPdf": "https://drive.google.com/open?id=1c8X8s922YcLqy4YExrW3u6_hK_ouM5RT",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Mass in C Major, Op.86",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1990-02-23T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Julie Kennard (soprano), Bernadette Greevy (mezzo-soprano), Andrew Murgatroyd (tenor), Nigel William (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra of Ireland, George Hurst (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Missa Solemnis, Op.123",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1990-07-12T23:00:00.000Z",
+    "primaryVenue": "Festival Marquee, Adare Manor, County Limerick",
+    "performers": "Karen Williams (soprano), Bernadette Greevy (contralto), Jon Garrison (tenor), Mark Doss (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), New Jersey Symphony Orchestra, Hugh Wolff (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1llhxSNIyBkk9VGSgTBXPbHkRLwEpSmAz",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "1990-07-13",
+    "repeat1Venue": "Festival Marquee, Adare Manor, County Limerick",
+    "repeat2Date": "1990-07-15",
+    "repeat2Venue": "National Concert Hall, Dublin",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1991-01-13T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Nova Thomas (soprano, Arline), Berndatte Cullen (contralto, Queen of the Gipsies), Jonathan Summers (baritone, Count Arnheim), John del Carlo (tenor, Devilshoof),  Patrick Power (bass, Thaddeus), Timothy German (tenor, Florestein), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, Richard Bonynge (conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "(with later recording sessions between 14 and 20 January 1991) ",
+    "works": [
+      {
+        "surname": "Balfe",
+        "firstName": "Michael William",
+        "work": "The Bohemian Girl",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1992-05-24T23:00:00.000Z",
+    "primaryVenue": "Montrose Pavillion, Donnybrook, Dublin (part of the Bank of Ireland RTÉ Proms)",
+    "performers": "Cara O'Sullivan (soprano), Deirdre Cooling-Nolan (contralto), Maldwyn Davies (tenor), Michael George (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, Michiyoshi Inoue (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1WqZppMBD95rkdotFc_C7WG9AXy78bAWm",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1995-05-11T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Majella Cullagh (soprano), Ethna Robinson (contralto), Emmanuel Lawlor (tenor), Andrew Murphy (bass), RTÉ Philharmonic Choir, Colin Mawby (chorus director), National Symphony Orchestra, Kaspar de Roo (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1VjrjzulT7GarrksdZ6QrUt6PS0ykSPwr",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1996-03-29T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Deirdre Cooling-Nolan (contralto), Jean-Luc Maurette (tenor), Fernand Bernandi (bass), Cantique Chamber Choir, RTÉ Philharmonic Choir, James Cavanagh (guest chorus director), National Symphony Orchestra, Kasper de Roo (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1OhmVx7l845mtUG_usGz-53B3LWhQShaA",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Berlioz",
+        "firstName": "Hector",
+        "work": "Roméo et Juliette",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1997-12-13T00:00:00.000Z",
+    "primaryVenue": "Whitefriars Street Church, Dublin",
+    "performers": "Philip O'Reilly (baritone), RTÉ Philharmonic Choir, RTÉ Concert Orchestra, Mark Duley (chorus director and conductor)",
+    "programPdf": "https://drive.google.com/open?id=1AbWzqRN5OhHRX4FJRYWEIEH6_rk8lP9h",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "Four Excerpts from the Christmas Oratorio",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "1999-11-05T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Virgina Kerr (soprano), Deirdre Cooling-Nolan (contralto), Patrick Power (tenor), Oleg Melinkov (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, Alexander Anissimov (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1MsMwg_3i-HLsDSRdNFJEzAD9eAgrb0yc",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Wagner",
+        "firstName": "Richard",
+        "work": "Excerpts from Die Meistersingers von Nurnberg: including \"Wach' auf\" from the Procession of the Mastersingers and the Finale \"Verachtet mir\" from Act 3, Scene 2",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2000-04-26T23:00:00.000Z",
+    "primaryVenue": "City Hall, Cork",
+    "performers": "Mary Hegarty (soprano), Alison Browner (contralto), Justin Lavender (tenor), Tigran Martirosyan (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, Alexander Anissimov (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1TdmEZoHINaXaIT4AIEWskmQwwV8s3l1l",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "2000-04-27",
+    "repeat1Venue": "National Concert Hall, Dublin",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Missa Solemnis, Op.123",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2000-12-08T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Ann Murray (soprano, Mary), John Mark Ainsley (tenor, Narrator & Centurion), Peter Mikulas (bass, Herod), Andrew Murphy (bass, Joseph), Gerard O'Connor (bass, The Father, Polydorus), RTÉ Philharmonic Choir, Mark Duley (chorus director), National Symphony Orchestra, Paul Mann (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1Fd7RKu-hLG59YPEsUb75e3qR85CvDm2B",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Berlioz",
+        "firstName": "Hector",
+        "work": "L'Enfance du Christ",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2002-12-06T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Cara O'Sullivan (soprano), Ann Murray (mezzo-soprano), Alan Woodrow (tenor), Philip O'Reilly (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1x7q5O5kg0FsNc1_GajsIQL3s8TVVphNj",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Missa Solemnis, Op.123",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2003-12-05T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Anne Murray (mezzo-soprano, Marguerite, Celestial Voice), Peter Hoare (tenor, Faust), Gerard O'Connor (bass, Mephistopheles), Darren Jeffrey (bass, Brander), Boys of Clongowes Wood College & De La Salle College, Waterford, RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1JFS7JfE4ZQTJoSqu-F8s3uS6qGQwuKqK",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Berlioz",
+        "firstName": "Hector",
+        "work": "La Damnation de Faust, Op.24",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2004-04-30T23:00:00.000Z",
+    "primaryVenue": "Áras an Uachtaráin, Dublin",
+    "performers": "RTÉ Philharmonic Choir, RTÉ National Symphony Orchestra, Fergal Caulfield (chorus director and conductor)",
+    "programPdf": "",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "(at the Official Ceremony marking the Accession of Cyprus, Czechia, Estonia, Hungary, Latvia, Lithuania, Malta, Poland, Slovakia and Slovenia as Member States of the European Union)",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Ode to Joy' from Symphony No. 9",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2004-05-20T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Franzita Whelan (soprano, Lenore), Albert Bonnema (tenor, Florestan), Ailish Tynan (soprano, Marzelline), Frode Olsen (bass-baritone, Rocco), Daniel Norman (tenor, Jacquino), D'Arcy Bleiker (bass-baritone, Don Fernando), Gidon Saks (bass-baritone, Pizarro), John McKeown (tenor, First Prisoner), Sean Green (bass, Second Prisoner), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1xGh9dKD5o9Fi8GZtOkxV8mt54-xwJpDY",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "2004-05-21",
+    "repeat1Venue": "National Concert Hall, Dublin",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Fidelio, Op.72 (concert performance)",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2005-05-12T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Franzita Whelan (soprano), Ann Murray (mezzo-soprano), Peter Hoare (tenor), Markus Bruck (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1-iJnXUMaRaKyhrgAMppt3P12-PFFvkIB",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "2005-05-14",
+    "repeat1Venue": "National Concert Hall, Dublin",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2005-10-20T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, William Eddins (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1sW0N36YAG2qxurs03rHbOMBfQpL_xe_9",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Borodin",
+        "firstName": "Alexander ",
+        "work": "Polovtsian Dances",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Shostakovich",
+        "firstName": "Dmitri",
+        "work": "Symphony No.2 in B Major, Op.14, 'To October'",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2006-09-08T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Majella Cullagh (soprano), Imelda Drumm (mezzo-soprano), Paul McNamara (tenor), Markus Bruck (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=15MjXDUUsKgN6vt7TYIF85hOD0CYbLGCY",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "2006-09-09",
+    "repeat1Venue": "National Concert Hall, Dublin",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2008-05-22T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Daniil Shtoda (tenor), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1_48wBcIg6ZHohJgmrvmfqVPK8zs8QPu_",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Berlioz",
+        "firstName": "Hector",
+        "work": "Requiem (Grande Messe des Morts)",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2009-04-30T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Ailish Tynan (soprano), Jane Irwin (mezzo-soprano), Wynne Evans (tenor), Markus Bruck (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1iJpivQ063ADBceiHTWqB1QmOjDFswXgH",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2010-10-14T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Malin Christensson (soprano), Alison Browner (mezzo-soprano), Sean Clayton (tenor), Matthew Hargreaves (bass), RTÉ Philharmonic Choir, Mark Duley (chorus director), RTÉ National Symphony Orchestra, Nicholas Kraemer (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1VEjV1QAEzaDjcv8DjC5lKAXFpm5-SaOO",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "Mass in B Minor, BWV 232",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2012-01-06T00:00:00.000Z",
+    "primaryVenue": "St Patrick's Cathedral, Dublin",
+    "performers": "Julia Doyle (soprano), Paula Murrihy (alto), Mark Padmore (tenor), Peter Harvey (bass), RTÉ Philharmonic Choir, Mark Hindley (guest chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1Gbcba0Jo-dLDp9WyrEHuAPFsTqUQSqaY",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "Christmas Oratorio, BWV 248 (Parts 1 to 3)",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2012-01-07T00:00:00.000Z",
+    "primaryVenue": "St Patrick's Cathedral, Dublin",
+    "performers": "Julia Doyle (soprano), Paula Murrihy (alto), Mark Padmore (tenor), Peter Harvey (bass), RTÉ Philharmonic Choir, Mark Hindley (guest chorus director), RTÉ National Symphony Orchestra, Matthew Halls (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1Gbcba0Jo-dLDp9WyrEHuAPFsTqUQSqaY",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "Christmas Oratorio, BWV 248 (Parts 4 to 6)",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2013-01-25T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Katherine Broderick (soprano), Claudia Huckle (alto), Robin Tritschler (tenor), Andrew Foster-Williams (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1Wyc4rJ_85ixmykBRWU5Uy5-BF2Y3BpRf",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Symphony No. 9 in D Minor, Op.125 'Choral\"",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2013-03-29T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Mark Wilde (tenor, Evangelist), Nicholas Merryweather (bass, Christus), Gavan Ring (bass, Pilate), Sara Power (soprano), Sharon Carty (mezzo-soprano), Eamonn Mulhall (tenor), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Michael Rosewell (conductor)",
+    "programPdf": "https://drive.google.com/open?id=16on8adxVSzYw1w-La9hfIpx5EpE8HvBz",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "St John Passion",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2014-02-07T00:00:00.000Z",
+    "primaryVenue": "The Helix, Glasnevin",
+    "performers": "Mairead Buicke (soprano), Mark Holland (baritone),  RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Neil Thomson (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1o0lZbaXwZKwiiO1Chw4_0F5SW9xZOFWt",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bizet",
+        "firstName": "Georges",
+        "work": "March of the Toreadors, from Carmen",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Borodin",
+        "firstName": "Alexander ",
+        "work": "Polovtsian Dances, from Prince Igor",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Mascagni",
+        "firstName": "Pietro",
+        "work": "Easter Hymn, from Cavalleria Rusticana",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Mussorgsky",
+        "firstName": "Modest",
+        "work": "Coronation Scene, from Boris Godunov",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Puccini",
+        "firstName": "Giacomo ",
+        "work": "Te Deum, from Tosca",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Tchaikovsky",
+        "firstName": "Pyotr Ilyich",
+        "work": "Entr'acte & Waltz, from Eugene Onegin",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2014-04-17T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Sarah Power (soprano), Paula Murrihy (mezzo-soprano), Joshua Ellicott (tenor), Michael George (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Roy Gooman (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1G_mN-u1TLEpZgT4zFwq19CLzXYc2EJas",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "Cantata No.11, 'Lobet Gott in seinen Reichen, 'Ascension Oratorio'",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "Easter Oratorio, BWV 249",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2015-01-09T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Imelda Drumm (mezzo-soprano), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Andrew Litton (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1iIgtIPUc-55XVCgKBziFU1DXtOdZdT3F",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Agnew",
+        "firstName": "Elaine",
+        "work": "Everyone Sang",
+        "canonicalWorkName": ""
+      },
+      {
+        "surname": "Elgar",
+        "firstName": "Edward",
+        "work": "The Music Makers",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2015-04-02T23:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "James Oxley (tenor, Evangelist), Philip O'Reilly (bass, Jesus), Róisín O'Grady (soprano), Sharon Carty (alto), Eamonn Mulhall (tenor), Padraic Rowan (bass, Pilate), Pascall Kennedy (bass), Shokri Raoof (bass), Margaret Bridge (alto), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Robert Howarth (conductor)",
+    "programPdf": "https://drive.google.com/open?id=1m1VEldgVL-r0BYpTLAiKxqePf0HxUK5L",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "St Matthew Passion",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2015-12-04T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Eleanor Daniels (soprano), Rachel Kelly (mezzo-soprano), Robin Tritschler (tenor), Marcus Farnsworth (baritone), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Cristian Macelaru (conductor)",
+    "programPdf": "https://drive.google.com/open?id=14PqSEZjtlL3S6ykZzCRzT6fUDP2_Us7q",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Missa Solemnis, Op.123",
+        "canonicalWorkName": ""
+      }
+    ]
+  },
+  {
+    "primaryDate": "2016-03-25T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Ben Johnson (tenor, Evangelist), Christopher Cull (bass, Christus), Gavan Ring (bass, Pilate), Daire Halpin (soprano), William Towers (countertenor), Dean Power (tenor), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Nicholas McGegan (conductor)",
+    "programPdf": "https://drive.google.com/open?id=18KMQ1YXEClhNI8Gd4gHlhuMpWiSQUhdM",
+    "url1": "",
+    "url1Text": "",
+    "url2": "",
+    "url2Text": "",
+    "url3": "",
+    "url3Text": "",
+    "repeat1Date": "",
+    "repeat1Venue": "",
+    "repeat2Date": "",
+    "repeat2Venue": "",
+    "extraText": "",
+    "works": [
+      {
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "St John Passion",
         "canonicalWorkName": ""
       }
     ]
@@ -3754,31 +4776,6 @@
     ]
   },
   {
-    "primaryDate": "2017-05-18T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Rebecca Afonwy Jones (mezzo-soprano), Mark Le Brocq (tenor), Neal Davies (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1COqBtROBnj24xt7aQDK_R2d8YaZu0siy",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Elgar",
-        "firstName": "",
-        "work": "The Dream of Gerontius",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "2017-10-19T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "Rachael Wilson (mezzo-soprano), Christopher Ainslie (countertenor), Huw Montague Rendall (baritone), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Jonas Alber (conductor)",
@@ -3803,58 +4800,8 @@
       },
       {
         "surname": "Duruflé",
-        "firstName": "",
+        "firstName": "Maurice",
         "work": "Requiem, Op.9",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2017-12-01T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Máire Flavin (soprano), Sara Mingardo (alto), Robin Tritschler (tenor), Leon Kosavic (bass), RTÉ Philharmonic Choir, Mark Hindley (chorus director), RTÉ National Symphony Orchestra, Nathalie Stutzmann (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1CHJ0m1i8LuIa4m_vqIPOyXLBhkli-bR9",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Mozart",
-        "firstName": "",
-        "work": "Requiem Mass in D Minor, K.626",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2018-02-04T00:00:00.000Z",
-    "primaryVenue": "Radio Centre, RTE, Donnybrook, Dublin",
-    "performers": "",
-    "programPdf": "https://www.youtube.com/watch?v=OV9yA70q9uM",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Traditional, arranged by Daryl Runswick",
-        "firstName": "",
-        "work": "She Moved Through the Fair",
         "canonicalWorkName": ""
       }
     ]
@@ -3941,167 +4888,6 @@
     ]
   },
   {
-    "primaryDate": "2018-08-18T23:00:00.000Z",
-    "primaryVenue": "St Giles Cathedral, Edinburgh",
-    "performers": "Cathy Gibbons (soprano), RTÉ Philharmonic Choir, Fergal Caulfield (organ), Mark Hindley (conductor) ",
-    "programPdf": "https://drive.google.com/open?id=1nx56KF9l8pBLeKvlUN3Xm2BDSDki1cYv",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Duruflé",
-        "firstName": "",
-        "work": "Requiem, Op. 9",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2018-09-13T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Orla Boylan (soprano), Jennifer Johnston (mezzo-soprano), RTÉ Philharmonic Choir, Desmond Early, (guest chorus director), RTÉ National Symphony Orchestra, Robert Trevino (conductor)",
-    "programPdf": "https://drive.google.com/open?id=12D2h4gKK0j1336CoE28tAE9n3UQZnQfQ",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Mahler",
-        "firstName": "",
-        "work": "Symphony No. 2, 'Resurrection'",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2018-09-27T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "RTÉ Philharmonic Choir, Desmond Earley (guest chorus director), RTÉ National Symphony Orchestra, José Serebrier (conductor)",
-    "programPdf": "https://drive.google.com/open?id=15LHDh0jVreV2dafaQ5m_3AfMppjtgL-T",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Holst",
-        "firstName": "",
-        "work": "The Planets",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2018-11-09T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall",
-    "performers": "Ailish Tynan (soprano), Robin Tritschler (tenor), Gavan Ring (baritone), The Choristers of St Patrick's Cathedral, RTÉ Philharmonic Choir, Desmond Earley, (guest chorus director), RTÉ Concert Orchestra and RTÉ National Symphony Orchestra, David Brophy (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1Ob8ihEpbArZLEJlnyvGO_b7fWeQz7BTn",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Britten",
-        "firstName": "Benjamin",
-        "work": "War Requiem",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2019-01-25T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Andrew Foster-Williams (bass), RTÉ Philharmonic Choir, Alan Leech (guest chorus director), RTÉ National Symphony Orchestra, Ted Sperling (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1ERXfveTFWJYO6UQpuw7VBwpJ0gE99iye",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Gounod",
-        "firstName": "",
-        "work": "‘Gloire immortelle de nos aïeux’ (Soliders' Chorus), from Faust",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Leoncavallo",
-        "firstName": "",
-        "work": "Bell Chorus, from Pagliacci",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Mussorgsky",
-        "firstName": "",
-        "work": "Coronation Scene, from Boris Godunov",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Puccini",
-        "firstName": "",
-        "work": "Te Deum', from Tosca",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Tchaikovsky",
-        "firstName": "",
-        "work": "Waltz Scene, from Eugene Onegin",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Verdi",
-        "firstName": "",
-        "work": "(1) 'Va, pensiero’ (Chorus of the Hebrew Slaves) from Nabucco; (2) Witches’ Chorus from Macbeth; (3) Triumphal Scene from Aida; (4) Anvil Chorus from Il Trovatore",
-        "canonicalWorkName": ""
-      },
-      {
-        "surname": "Wagner",
-        "firstName": "",
-        "work": "(1) Pilgrims' Chorus, from Tannhäuser; (2) Bridal Chorus from Lohengrin",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
     "primaryDate": "2019-04-18T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "James Way (tenor, Evangelist), James Newby (bass, Jesus), Daire Halpin (soprano), Claudia Huckle (alto), James Oxley (tenor), Padraic Rowan (bass, Pilate), RTÉ Cór na nÓg, RTÉ Philharmonic Choir, David Young (guest chorus director), RTÉ National Symphony Orchestra, David Hill (conductor)",
@@ -4127,10 +4913,10 @@
     ]
   },
   {
-    "primaryDate": "2019-04-30T23:00:00.000Z",
+    "primaryDate": "2023-04-06T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "RTÉ Philharmonic Choir, Brian Dungan (conductor) ",
-    "programPdf": "https://drive.google.com/open?id=1RTH7OMrh77W9DD_T-GrPNOV0VjIts9Yk",
+    "performers": "James Gilchrist (tenor, Evangelist), Fflur Wyn (soprano), James Hall (countertenor), Dean Power (tenor), Gareth Brynmor John (bass, Christus), Rory Dunne (bass, Pilate), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, David Hill (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1mEkPfprR2ZB1MCxnGqioyNdD36CDVeXx/view?usp=share_link",
     "url1": "",
     "url1Text": "",
     "url2": "",
@@ -4144,18 +4930,18 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Neville",
-        "firstName": "Katie",
-        "work": "Though There are Torturers",
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "St John Passion",
         "canonicalWorkName": ""
       }
     ]
   },
   {
-    "primaryDate": "2019-05-16T23:00:00.000Z",
+    "primaryDate": "2023-10-12T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Angela Meade (soprano), Enkelejda Shkoza (alto), Antonio Poli (tenor), Evgeny Stavinsky (bass), RTÉ Philharmonic Choir, Alan Leech (guest chorus director), RTÉ National Symphony Orchestra, Michele Mariotti (conductor)",
-    "programPdf": "https://drive.google.com/open?id=1IyL_HsT_jOw18eN0yPJfGxcmCbyvpTEm",
+    "performers": "Sarah Fox (soprano), Martina Belli (alto), Norman Reinhardt (tenor), Nicola Ulivieri (bass), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, Diego Matheuz (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1tNv7f4NxV1V3sb2nlzYJ6bmO2mKFulbk/view?usp=sharing",
     "url1": "",
     "url1Text": "",
     "url2": "",
@@ -4169,18 +4955,18 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Verdi",
-        "firstName": "",
-        "work": "Requiem",
+        "surname": "Beethoven",
+        "firstName": "Ludwig von",
+        "work": "Mass in C Major, Op.86",
         "canonicalWorkName": ""
       }
     ]
   },
   {
-    "primaryDate": "2019-08-17T23:00:00.000Z",
-    "primaryVenue": "St Giles Cathedral, Edinburgh",
-    "performers": "Fergal Caulfield (organ), RTÉ Philharmonic Choir, Mark Hindley (conductor) ",
-    "programPdf": "https://drive.google.com/open?id=1ERXfveTFWJYO6UQpuw7VBwpJ0gE99iye",
+    "primaryDate": "2024-03-29T00:00:00.000Z",
+    "primaryVenue": "National Concert Hall, Dublin",
+    "performers": "Gavan Ring (tenor, Evangelist), Dan D’Souza (bass, Jesus), Kelli-Ann Masterson (soprano), Bethany Horak-Hallett (alto), Ilker Arcayürek (tenor), Michael Mofidian (bass, Pilate), Cór na nÓg (Mary Amond O’Brien, choral director), National Symphony Chorus (David Young, chorus director), National Symphony Orchestra, David Young (conductor)",
+    "programPdf": "https://drive.google.com/file/d/1HK9RS5TD3fIcUl-8UCvGsIlInnCs66oc/view?usp=sharing",
     "url1": "",
     "url1Text": "",
     "url2": "",
@@ -4194,40 +4980,15 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Pärt",
-        "firstName": "Arvo",
-        "work": "Salve Regina",
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "St Matthew Passion",
         "canonicalWorkName": ""
       }
     ]
   },
   {
-    "primaryDate": "2019-08-24T23:00:00.000Z",
-    "primaryVenue": "St Giles Cathedral, Edinburgh",
-    "performers": "Fergal Caulfield (organ), RTÉ Philharmonic Choir, Mark Hindley (conductor) ",
-    "programPdf": "https://drive.google.com/open?id=1aUWBA3kDYrj2DxQnGKgItxqN5p0FPCzI",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Kodály",
-        "firstName": "",
-        "work": "Missa Brevis",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2019-10-10T23:00:00.000Z",
+    "primaryDate": "2025-10-09T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
     "performers": "",
     "programPdf": "",
@@ -4244,45 +5005,20 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Mahler",
-        "firstName": "",
-        "work": "Symphony No. 3",
+        "surname": "Bizet",
+        "firstName": "Georges",
+        "work": "Carmen (concert performance)",
         "canonicalWorkName": ""
       }
     ]
   },
   {
-    "primaryDate": "2019-11-08T00:00:00.000Z",
+    "primaryDate": "2027-03-26T00:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Catherine Wyn-Rodgers (mezzo-soprano), Norbert Ernst (tenor), Johan Wållberg (bass), RTÉ Philharmonic Choir, David Young (chorus director), RTÉ National Symphony Orchestra, Kenneth Montgomery (conductor)",
-    "programPdf": "Concert Program",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Elgar",
-        "firstName": "",
-        "work": "The Dream of Gerontius",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2020-01-17T00:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Adrienn Miksch (soprano), Patricia Bardon (alto), Julian Hubbard (tenor), William Thomas (bass), RTÉ Philharmonic Choir, David Young (chorus director), RTÉ National Symphony Orchestra, Patrik Ringborg (conductor)",
+    "performers": "Gwilym Bowen (tenor - Evangelist), Anna Devin (soprano), Jess Dandy (contralto), Milan Siljanov (bass - Christus), Simon Shibambu (bass), Cór na Óg (Mary Amond O’Brien, director), National Symphony Chorus Ireland (Ciaran Kelly, guest chorus director), National Symphony Orchestra Ireland, Gerhard Markson (conductor)",
     "programPdf": "",
-    "url1": "",
-    "url1Text": "",
+    "url1": "https://www.nch.ie/all-events-listing/nsoi-good-friday-st-matthew-passion/",
+    "url1Text": "Booking information",
     "url2": "",
     "url2Text": "",
     "url3": "",
@@ -4294,20 +5030,20 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Dvořák",
-        "firstName": "",
-        "work": "Requiem",
+        "surname": "Bach",
+        "firstName": "Johann Sebastian",
+        "work": "St Matthew Passion",
         "canonicalWorkName": ""
       }
     ]
   },
   {
-    "primaryDate": "2022-04-14T23:00:00.000Z",
+    "primaryDate": "2027-05-27T23:00:00.000Z",
     "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Máire Flavin (soprano), Catherine Wyn-Rodgers (contralto), James Oxley (tenor), Stephan Loges (bass-baritone), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, Nicholas McGegan (conductor)",
-    "programPdf": "https://drive.google.com/file/d/1Mu0jX8o8_0J0ZQ4_nyc9AA63qPGCs-Am/view?usp=sharing",
-    "url1": "",
-    "url1Text": "",
+    "performers": "Paul Appleby (tenor - Faust), Adam Plachetka (bass baritone - Méphistopheles), Sasha Cooke (mezzo-soprano - Marguerite), Seán Boylan (baritone -Brander), National Symphony Chorus Ireland (David Young, chorus director), National Symphony Orchestra Ireland, Antony Hermus (conductor)",
+    "programPdf": "",
+    "url1": "https://www.nch.ie/all-events-listing/nsoi-berlioz-damnation-of-faust/",
+    "url1Text": "Booking information",
     "url2": "",
     "url2Text": "",
     "url3": "",
@@ -4319,34 +5055,9 @@
     "extraText": "",
     "works": [
       {
-        "surname": "Handel",
-        "firstName": "",
-        "work": "Messiah",
-        "canonicalWorkName": ""
-      }
-    ]
-  },
-  {
-    "primaryDate": "2022-05-19T23:00:00.000Z",
-    "primaryVenue": "National Concert Hall, Dublin",
-    "performers": "Jennifer Davis (soprano), Ben McAteer (baritone), National Symphony Chorus, David Young (chorus director), National Symphony Orchestra, Gerhard Markson (conductor)",
-    "programPdf": "https://drive.google.com/file/d/1sRaDCgU36ZFuEwd7kbUj-lh74CvG9kbo/view?usp=sharing",
-    "url1": "",
-    "url1Text": "",
-    "url2": "",
-    "url2Text": "",
-    "url3": "",
-    "url3Text": "",
-    "repeat1Date": "",
-    "repeat1Venue": "",
-    "repeat2Date": "",
-    "repeat2Venue": "",
-    "extraText": "",
-    "works": [
-      {
-        "surname": "Brahms",
-        "firstName": "Johannes ",
-        "work": "Ein deutsches Requiem (A German Requiem), Op.45",
+        "surname": "Berlioz",
+        "firstName": "Hector",
+        "work": "The Damnation of Faust",
         "canonicalWorkName": ""
       }
     ]
