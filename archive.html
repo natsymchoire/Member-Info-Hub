@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" href="icon.png">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
       background-color: #f0f2f5;
       color: #222;
       margin: 0;
@@ -26,6 +26,7 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 14px;
+      font-family: 'Roboto', Arial, sans-serif;
     }
     .back-btn:hover { text-decoration: underline; }
 
@@ -57,6 +58,7 @@
       line-height: 1.2;
       padding: 0 20px;
       text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      font-family: 'Roboto', Arial, sans-serif;
     }
 
     @media (min-width: 768px) {
@@ -150,7 +152,7 @@
       border: 1px solid #cbd5e1;
       border-radius: 4px;
       font-size: 14px;
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
     }
     .filter-actions {
       margin-top: 12px;
@@ -186,34 +188,48 @@
     .performance-item:nth-child(even) {
       background-color: #e5e5e5;
     }
+
+    /* Specific Typography Styles Requested */
     .perf-date {
+      font-family: 'Roboto', Arial, sans-serif;
       font-weight: bold;
-      font-size: 15px;
+      font-size: 12px;
       margin-bottom: 6px;
       color: #111;
     }
     .perf-work {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 14px;
       font-weight: bold;
-      font-size: 16px;
-      font-style: italic;
       color: #000;
       margin-bottom: 8px;
     }
+    .perf-work em {
+      font-style: italic;
+    }
     .perf-details {
-      font-size: 14px;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
       color: #333;
       margin-bottom: 6px;
     }
     .perf-venue {
-      font-size: 14px;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
       color: #444;
       margin-bottom: 6px;
     }
     .perf-notes {
-      font-size: 14px;
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 12px;
+      font-weight: normal;
+      font-style: normal;
       color: #555;
       margin-bottom: 8px;
-      font-style: italic;
     }
     .links-container {
       margin-top: 6px;
@@ -222,9 +238,10 @@
       gap: 15px;
     }
     .prog-link {
+      font-family: 'Roboto', Arial, sans-serif;
       color: #1a0dab;
       text-decoration: underline;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 500;
     }
     .prog-link:hover { color: #0d1a66; }
@@ -314,7 +331,6 @@
 
     allPerformances.forEach(p => {
       if (p.surname) {
-        // Construct display name for dropdown (e.g., "Beethoven, Ludwig van" or just "Beethoven")
         const fullName = p.firstName ? `${p.surname}, ${p.firstName}` : p.surname;
         composers.add(fullName);
       }
@@ -357,6 +373,15 @@
     renderArchiveList(filtered);
   }
 
+  // Helper function to format dates as "28 May 2007"
+  function formatHumanDate(dateString) {
+    if (!dateString) return '';
+    let d = new Date(dateString);
+    if (isNaN(d.getTime())) return dateString; // Fallback if custom text string
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return d.toLocaleDateString('en-GB', options);
+  }
+
   function renderArchiveList(performances) {
     const container = document.getElementById('archive-container');
     document.getElementById('result-count').textContent = `Showing ${performances.length} performances`;
@@ -368,30 +393,31 @@
 
     let html = '';
     performances.forEach(p => {
-      // 1. Format Composer Name Display (e.g. "Ludwig van Beethoven" or "Beethoven")
-      const composerDisplay = p.firstName ? `${p.firstName} ${p.surname}` : p.surname;
-      let fullWorkLine = `${composerDisplay}, <em>${p.work}</em>`;
+      // 1. Format Date
+      const formattedDate = formatHumanDate(p.primaryDate);
 
-      // 2. Format Venues and Dates (Primary + Repeats)
-      let venuesHtml = `<div class="perf-venue"><strong>${p.primaryDate}</strong> &ndash; ${p.primaryVenue || 'National Concert Hall, Dublin'}</div>`;
+      // 2. Format Composer & Work Line: "Surname, Work Title" (Surname bold, work title bold italic)
+      const workLine = `<strong>${p.surname},</strong> <em>${p.work}</em>`;
+
+      // 3. Format Venues and Dates (Primary + Repeats)
+      let venuesHtml = `<div class="perf-venue">${formattedDate} &ndash; ${p.primaryVenue || 'National Concert Hall, Dublin'}</div>`;
       if (p.repeat1Date && p.repeat1Venue) {
-        venuesHtml += `<div class="perf-venue"><strong>${p.repeat1Date}</strong> &ndash; ${p.repeat1Venue}</div>`;
+        venuesHtml += `<div class="perf-venue">${formatHumanDate(p.repeat1Date)} &ndash; ${p.repeat1Venue}</div>`;
       }
       if (p.repeat2Date && p.repeat2Venue) {
-        venuesHtml += `<div class="perf-venue"><strong>${p.repeat2Date}</strong> &ndash; ${p.repeat2Venue}</div>`;
+        venuesHtml += `<div class="perf-venue">${formatHumanDate(p.repeat2Date)} &ndash; ${p.repeat2Venue}</div>`;
       }
 
-      // 3. Extra Free Text Notes
+      // 4. Extra Free Text Notes
       let notesHtml = p.extraText ? `<div class="perf-notes">${p.extraText}</div>` : '';
 
-      // 4. Links Construction (Program PDF + Custom URLs)
+      // 5. Links Construction (Program PDF + Custom URLs)
       let linksHtml = '';
       if (p.programPdf) {
         const pdfUrl = p.programPdf.startsWith('http') ? p.programPdf : `https://drive.google.com/open?id=${p.programPdf}`;
         linksHtml += `<a href="${pdfUrl}" target="_blank" class="prog-link">Click here for program</a>`;
       }
 
-      // Add Custom URLs (URL 1, URL 2, URL 3)
       const customLinks = [
         { url: p.url1, text: p.url1Text },
         { url: p.url2, text: p.url2Text },
@@ -409,7 +435,7 @@
 
       html += `
         <div class="performance-item">
-          <div class="perf-work">${fullWorkLine}</div>
+          <div class="perf-work">${workLine}</div>
           <div class="perf-details">${p.performers || ''}</div>
           ${venuesHtml}
           ${notesHtml}
