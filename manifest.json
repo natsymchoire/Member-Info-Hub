@@ -1,10 +1,13 @@
 {
+  "id": "/",
   "name": "NSCI Hub",
   "short_name": "NSCI Hub",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f0f2f5",
   "theme_color": "#d97706",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon.png",
