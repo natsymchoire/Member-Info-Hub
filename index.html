@@ -1982,7 +1982,6 @@
     const voiceEl = document.querySelector('input[name="absence-voice"]:checked');
     const voice = voiceEl ? voiceEl.value : 'Not specified';
     const mobile = document.getElementById('absence-mobile').value.trim() || 'Not provided';
-    const email = document.getElementById('absence-email').value.trim();
     const notes = document.getElementById('absence-notes').value.trim();
 
     const selectedDates = [];
@@ -1998,7 +1997,6 @@
       `Name: ${name}\n` +
       `Voice Part: ${voice}\n` +
       `Mobile: ${mobile}\n` +
-      `Email: ${email || 'Not provided'}\n\n` +
       `Forthcoming Absences:\n- ${datesString}\n\n` +
       `Additional Information:\n${notes || 'None provided'}\n\n` +
       `---`
@@ -2019,7 +2017,6 @@
     const voiceEl = document.querySelector('input[name="perf-absence-voice"]:checked');
     const voice = voiceEl ? voiceEl.value : 'Not specified';
     const mobile = document.getElementById('perf-absence-mobile').value.trim() || 'Not provided';
-    const email = document.getElementById('perf-absence-email').value.trim();
     const notes = document.getElementById('perf-absence-notes').value.trim();
 
     const selectedDates = [];
@@ -2035,7 +2032,6 @@
       `Name: ${name}\n` +
       `Voice Part: ${voice}\n` +
       `Mobile: ${mobile}\n` +
-      `Email: ${email || 'Not provided'}\n\n` +
       `Forthcoming Performance Absences:\n- ${datesString}\n\n` +
       `Additional Information:\n${notes || 'None provided'}\n\n` +
       `---`
