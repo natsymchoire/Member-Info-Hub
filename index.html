@@ -2004,6 +2004,10 @@
 
     let mailtoUri = `mailto:natsymphchorus@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoUri;
+
+    // Immediately close the subcard and reset the form fields
+    toggleSubcard('rehearsal-absence-card');
+    event.target.reset();
   }
 
   function submitPerformanceAbsence(event) {
@@ -2035,6 +2039,10 @@
 
     let mailtoUri = `mailto:natsymphchorus@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoUri;
+
+    // Immediately close the subcard and reset the form fields
+    toggleSubcard('performance-absence-card');
+    event.target.reset();
   }
 </script>
 
