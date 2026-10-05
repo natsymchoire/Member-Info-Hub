@@ -612,7 +612,7 @@
     <div class="subcard-intro-text">
       <p>NSCI Members are expected to try to attend all rehearsals. However it is understood that this is not always possible. NCSI management will always try to work around individual issues - particularly last-minute emergencies.</p>
       <p>Please communicate absences to the Choir Manager ahead of time whenever possible. We understand that circumstances change, but late drop-outs can make the planning and running of the NCSI really challenging.</p>
-      <p><strong>If you wish you can complete this form. (A bot will then generate a message to the Choir Manager.)</strong></p>
+      <p><strong>If you wish you can complete this form to generate a pre-populated email, which you can then send to the Choir Manager.)</strong></p>
     </div>
 
     <form id="rehearsal-absence-form" onsubmit="submitRehearsalAbsence(event)">
@@ -636,26 +636,20 @@
         <input type="tel" id="absence-mobile" placeholder="Your mobile number">
       </div>
 
-      <div class="form-group">
-        <label for="absence-email">4. Email Address (optional):</label>
-        <input type="email" id="absence-email" placeholder="your.email@example.com">
-        <small style="display: block; font-size: 12px; color: #6b7280; margin-top: 4px;">Providing your email will allow for a copy of this notice to be sent to you.</small>
-      </div>
-
-      <div class="form-group">
-        <label>5. Rehearsal(s) From Which You Will be Absent:</label>
+           <div class="form-group">
+        <label>4. Rehearsal(s) From Which You Will be Absent:</label>
         <div id="rehearsal-checkboxes-container" class="checkbox-group">
           <em>Loading upcoming rehearsal dates...</em>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="absence-notes">6. Additional Information:</label>
+        <label for="absence-notes">5. Additional Information:</label>
         <textarea id="absence-notes" rows="3" placeholder="Any additional absences you currently anticipate, or any other relevant information"></textarea>
       </div>
 
       <div class="form-buttons">
-        <button type="submit" class="form-submit-btn">Submit Absence Notice</button>
+        <button type="submit" class="form-submit-btn">Generate Pro-forma EMail</button>
         <button type="button" class="form-cancel-btn" onclick="toggleSubcard('rehearsal-absence-card')">Cancel</button>
       </div>
     </form>
@@ -668,7 +662,7 @@
     <div class="subcard-intro-text">
       <p>NSCI Members are expected to commit to all or most of the concert performances scheduled in a season in order to retain their place in the choir. (Taking part in half or less of the concerts in a season will lead to a discussion regarding your continuing membership). However NSCI Management fully acknowledge that members will sometimes be compelled to miss a performance. They will always try to accommodate individual issues, particularly last-minute emergencies.</p>
       <p>If you know you will be unable to take part in a forthcoming performance it is essential that the Choir Manager be advised at the earliest possible opportunity. The Chorus Director needs to know to what extent the choir may be operating in any forthcoming concert with somewhat reduced numbers. Late drop-outs make that sort of planning really challenging. Accordingly, such drop-outs must be avoided except when they arise by virtue of genuinely unforeseen & pressing circumstances.</p>
-      <p><strong>The form below can, if you wish, be used to generate a message to the Choir Manager regarding any forthcoming performances you will be unable to take part in.</strong></p>
+      <p><strong>If you wish you can complete this form to generate a pre-populated email, which you can then send to the Choir Manager, regarding any forthcoming performances you will be unable to take part in.</strong></p>
     </div>
 
     <form id="performance-absence-form" onsubmit="submitPerformanceAbsence(event)">
@@ -693,20 +687,14 @@
       </div>
 
       <div class="form-group">
-        <label for="perf-absence-email">4. Email Address (optional):</label>
-        <input type="email" id="perf-absence-email" placeholder="your.email@example.com">
-        <small style="display: block; font-size: 12px; color: #6b7280; margin-top: 4px;">Providing your email will allow for a copy of this notice to be sent to you.</small>
-      </div>
-
-      <div class="form-group">
-        <label>5. Performance(s) From Which You Will be Absent:</label>
+        <label>4. Performance(s) From Which You Will be Absent:</label>
         <div id="performance-checkboxes-container" class="checkbox-group">
           <em>Loading upcoming performance dates...</em>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="perf-absence-notes">6. Additional Information:</label>
+        <label for="perf-absence-notes">5. Additional Information:</label>
         <textarea id="perf-absence-notes" rows="3" placeholder="Any additional information regarding your absence"></textarea>
       </div>
 
@@ -715,7 +703,7 @@
     </div>
 
       <div class="form-buttons">
-        <button type="submit" class="form-submit-btn">Submit Performance Absence Notice</button>
+        <button type="submit" class="form-submit-btn">Generate Pro-forma EMail</button>
         <button type="button" class="form-cancel-btn" onclick="toggleSubcard('performance-absence-card')">Cancel</button>
       </div>
     </form>
