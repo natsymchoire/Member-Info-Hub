@@ -649,7 +649,7 @@
       </div>
 
       <div class="form-buttons">
-        <button type="submit" class="form-submit-btn">Generate Pro-forma EMail</button>
+        <button type="submit" class="form-submit-btn">Generate EMail (and remember to actually send it)</button>
         <button type="button" class="form-cancel-btn" onclick="toggleSubcard('rehearsal-absence-card')">Cancel</button>
       </div>
     </form>
@@ -703,7 +703,7 @@
     </div>
 
       <div class="form-buttons">
-        <button type="submit" class="form-submit-btn">Generate Pro-forma EMail</button>
+        <button type="submit" class="form-submit-btn">Generate EMail (and remember to actually send it)</button>
         <button type="button" class="form-cancel-btn" onclick="toggleSubcard('performance-absence-card')">Cancel</button>
       </div>
     </form>
@@ -1993,10 +1993,10 @@
 
     const subject = encodeURIComponent(`Rehearsal Absence Notice: ${name} (${voice})`);
     const body = encodeURIComponent(
-      `A rehearsal absence notification has been submitted via the NSCI Hub App:\n\n` +
-      `Name: ${name}\n` +
-      `Voice Part: ${voice}\n` +
-      `Mobile: ${mobile}\n` +
+      `This is a rehearsal absence notification generated via NSCI Hub App:\n\n` +
+      `Name: ${name}\n\n` +
+      `Voice Part: ${voice}\n\n` +
+      `Mobile: ${mobile}\n\n` +
       `Forthcoming Absences:\n- ${datesString}\n\n` +
       `Additional Information:\n${notes || 'None provided'}\n\n` +
       `---`
@@ -2028,12 +2028,12 @@
 
     const subject = encodeURIComponent(`Performance Absence Notice: ${name} (${voice})`);
     const body = encodeURIComponent(
-      `A performance absence notification has been submitted via the NSCI Hub App:\n\n` +
-      `Name: ${name}\n` +
-      `Voice Part: ${voice}\n` +
-      `Mobile: ${mobile}\n` +
-      `Forthcoming Performance Absences:\n- ${datesString}\n\n` +
-      `Additional Information:\n${notes || 'None provided'}\n\n` +
+      `This is a performance absence notification generated via the NSCI Hub App:\n\n` +
+      `Name: ${name}\n\n` +
+      `Voice Part: ${voice}\n\n` +
+      `Mobile: ${mobile}\n\n` +
+      `Forthcoming Performance Absences:\n\n- ${datesString}\n\n` +
+      `Additional Information:\n\n${notes || 'None provided'}\n\n` +
       `---`
     );
 
