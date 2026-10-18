@@ -1,0 +1,2044 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choir Seating Allocation</title>
+
+
+    <style>
+        .main-heading {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 36px;
+            margin: 24px 0 28px;
+        }
+
+        .choir-number-entry {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            font-family: Arial, sans-serif;
+        }
+
+        .choir-number-entry label {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .choir-number-entry input {
+            width: 180px;
+            max-width: 80%;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            color: #8b4900;
+            background-color: #fff8df;
+            border: 3px solid #d18b00;
+            border-radius: 10px;
+        }
+
+        .choir-number-entry input:focus {
+            outline: 3px solid #f5cf69;
+            outline-offset: 3px;
+        }
+
+
+        /* STEP 79 — Headings and seating diagrams */
+
+        .diagram-heading {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 30px 0 18px;
+        }
+
+
+        /* Gently animate the choir-number placeholder. */
+
+        @keyframes choirPlaceholderPulse {
+
+            0%,
+            100% {
+                opacity: 0.35;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .choir-number-entry input:placeholder-shown::placeholder {
+            color: #b97800;
+            animation: choirPlaceholderPulse 2.4s ease-in-out infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .choir-number-entry input::placeholder {
+                animation: none;
+            }
+        }
+
+        /* STEP 81 — Centre the seating diagrams at all screen sizes. */
+
+        #complete-balcony-container,
+        #blue-zone-container,
+        #turquoise-zone-container,
+        #salmon-zone-container,
+        #green-zone-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #complete-balcony-container svg,
+        #blue-zone-container svg,
+        #turquoise-zone-container svg,
+        #salmon-zone-container svg,
+        #green-zone-container svg {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: auto;
+        }
+
+
+        /* Hide the redundant allocation message after a successful lookup. */
+        #allocation-result:empty {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1 class="main-heading">Find Your Seat</h1>
+
+
+
+
+    <div class="choir-number-entry">
+        <label for="choir-number">Choir Number</label>
+
+        <input type="text" id="choir-number" inputmode="numeric" pattern="[0-9]{3}" maxlength="3" autocomplete="off"
+            placeholder="— — —" oninput="checkChoirNumber()">
+    </div>
+
+
+
+    <p id="allocation-result"></p>
+
+    <div id="zone-selector-controls" style="display: none;">
+
+        <h2>Find Your Seating Zone</h2>
+
+        <p>
+            For testing purposes, select a colour zone below.
+            Later, the application will select it automatically
+            when a singer enters their choir number.
+        </p>
+
+        <label for="zone-selector">Select a zone:</label>
+
+        <select id="zone-selector" onchange="showSelectedZone()">
+            <option value="">-- Choose a zone --</option>
+            <option value="blue">Blue</option>
+            <option value="turquoise">Turquoise</option>
+            <option value="salmon">Salmon</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+
+
+
+    <h2 id="balcony-heading" class="diagram-heading">
+        Enter Your Choir Number to Find Your Seat
+    </h2>
+
+
+
+
+
+    <div id="complete-balcony-container"></div>
+
+
+    <div id="central-section">
+
+        <h2>Interactive SVG — Central Block</h2>
+
+        <div id="central-block-container"></div>
+
+    </div>
+
+
+    <div id="blue-section">
+
+        <h2 class="diagram-heading zone-heading">
+            Your Exact Seat Position
+        </h2>
+
+        <div id="blue-zone-container"></div>
+
+    </div>
+
+    <div id="turquoise-section">
+
+        <h2 class="diagram-heading zone-heading">
+            Your Exact Seat Position
+        </h2>
+
+        <div id="turquoise-zone-container"></div>
+
+    </div>
+
+
+
+    <h2 id="selected-seat" class="diagram-heading" style="display: none;"></h2>
+
+
+
+
+    <div id="salmon-section">
+
+        <h2 class="diagram-heading zone-heading">
+            Your Exact Seat Position
+        </h2>
+
+        <div id="salmon-zone-container"></div>
+
+    </div>
+
+
+
+    <div id="green-section">
+
+        <h2 class="diagram-heading zone-heading">
+            Your Exact Seat Position
+        </h2>
+
+        <div id="green-zone-container"></div>
+
+    </div>
+
+
+    <script>
+        const seatWidth = 50;
+        const seatHeight = 55;
+        const seatGap = 3;
+        const rowGap = 14;
+
+        const unit = seatWidth + seatGap;
+
+        const blueRows = {
+            A: 6,
+            B: 6,
+            C: 6,
+            D: 8,
+            E: 8
+        };
+
+        const turquoiseRows = {
+            A: 6,
+            B: 6,
+            C: 6,
+            D: 8,
+            E: 8
+        };
+
+        const rowLetters = ["E", "D", "C", "B", "A"];
+
+        const blueFill = "#9ed9ff";
+        const turquoiseFill = "#9df0e8";
+        const highlightFill = "#ffff00";
+
+
+
+        // SAMPLE CHOIR ALLOCATIONS
+        // These will eventually come from Google Sheets.
+        // Keys are choir numbers.
+        // Values identify unique SVG seat objects.
+
+        const choirAllocations = {
+            "101": "salmon-C1",
+            "134": "salmon-C2",
+            "159": "salmon-E6",
+            "161": "blue-B4",
+            "111": "turquoise-D5",
+            "199": "green-C4",
+            "201": "green-E2"
+        };
+
+
+
+        let previouslySelectedSeat = null;
+
+        function rowY(rowIndex) {
+            return 20 + rowIndex * (seatHeight + rowGap);
+        }
+
+        function createSeat(svg, seatId, x, y, labelText, fillColour) {
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            const group = document.createElementNS(svgNS, "g");
+            group.setAttribute("id", seatId);
+            group.style.cursor = "default";
+
+            const rect = document.createElementNS(svgNS, "rect");
+            rect.setAttribute("x", x);
+            rect.setAttribute("y", y);
+            rect.setAttribute("width", seatWidth);
+            rect.setAttribute("height", seatHeight);
+            rect.setAttribute("fill", fillColour);
+            rect.setAttribute("stroke", "#555");
+            rect.setAttribute("data-original-fill", fillColour);
+
+            const label = document.createElementNS(svgNS, "text");
+            label.setAttribute("x", x + seatWidth / 2);
+            label.setAttribute("y", y + seatHeight / 2 + 6);
+            label.setAttribute("text-anchor", "middle");
+            label.setAttribute("font-size", "17");
+            label.textContent = labelText;
+
+            group.appendChild(rect);
+            group.appendChild(label);
+
+            svg.appendChild(group);
+        }
+
+
+
+        function clearSeatHighlight() {
+
+            // Restore all SVG seats to their original colours,
+            // whether rectangles or projected polygons.
+
+            document.querySelectorAll(
+                'g[data-seat-id] rect, g[data-seat-id] polygon, ' +
+                'g[id^="blue-"] rect, ' +
+                'g[id^="turquoise-"] rect, ' +
+                'g[id^="salmon-"] rect, ' +
+                'g[id^="green-"] rect'
+            ).forEach(shape => {
+
+                const originalFill =
+                    shape.getAttribute("data-original-fill");
+
+                if (originalFill) {
+                    shape.setAttribute("fill", originalFill);
+                }
+            });
+
+            previouslySelectedSeat = null;
+
+            document.getElementById("selected-seat").textContent = "";
+        }
+
+
+
+
+        function selectSeat(seatId) {
+
+            // Restore any previous highlighting.
+            document.querySelectorAll(
+                'g[data-seat-id] rect, g[data-seat-id] polygon, ' +
+                'g[id^="blue-"] rect, ' +
+                'g[id^="turquoise-"] rect, ' +
+                'g[id^="salmon-"] rect, ' +
+                'g[id^="green-"] rect'
+            ).forEach(shape => {
+
+                const originalFill =
+                    shape.getAttribute("data-original-fill");
+
+                if (originalFill) {
+                    shape.setAttribute("fill", originalFill);
+                }
+            });
+
+            // Find the original seat in its flat zone diagram.
+            const originalSeat = document.getElementById(seatId);
+
+            // Find matching copies in the complete balcony
+            // and any other graphical views.
+            const matchingCopies = document.querySelectorAll(
+                `g[data-seat-id="${seatId}"]`
+            );
+
+            // Highlight the original labelled seat.
+            if (originalSeat) {
+                const shape =
+                    originalSeat.querySelector("rect, polygon");
+
+                if (shape) {
+                    shape.setAttribute("fill", highlightFill);
+                }
+            }
+
+            // Highlight every matching graphical copy.
+            matchingCopies.forEach(group => {
+
+                const shape =
+                    group.querySelector("rect, polygon");
+
+                if (shape) {
+                    shape.setAttribute("fill", highlightFill);
+                }
+            });
+
+            // Display the selected seat identifier.
+            document.getElementById("selected-seat").textContent =
+                "You selected seat: " + seatId;
+
+            previouslySelectedSeat = seatId;
+        }
+
+
+        function createCentralBlock() {
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            // CENTRAL BALCONY GEOMETRY
+            //
+            // Blue and Turquoise each have five rows (A-E).
+            //
+            // Rows A, B and C contain six seats.
+            // Rows D and E contain eight seats.
+            //
+            // BLUE:
+            // Seats are numbered from right to left.
+            // D3/E3 align vertically with A1/B1/C1.
+            // D1/D2 and E1/E2 extend towards the centre.
+            //
+            // TURQUOISE:
+            // Seats are numbered from left to right.
+            // D3/E3 align vertically with A1/B1/C1.
+            // D1/D2 and E1/E2 extend towards the centre.
+            //
+            // CENTRAL AREA:
+            // The organ console occupies the central space
+            // opposite rows A and B and the lower half of C.
+            //
+            // The upper half of the central C-row space is
+            // unusable and shown as a horizontal magenta strip.
+            //
+            // The vertical magenta divider between Blue and
+            // Turquoise rows D and E is purely notional.
+            // It does not represent a physical barrier.
+            //
+            // Small, matching white gaps separate the central
+            // graphical elements from the adjacent seats.
+            //
+            // All seats use identical dimensions.
+
+            const sideGap = 6;
+            const blueOriginX = 20;
+            const dividerWidth = Math.max(6, unit * 0.2);
+
+            // Adjust the central elements to provide equal white gaps.
+            const centralOffset = (sideGap - seatGap) / 2;
+
+            const dividerX = blueOriginX + 8 * unit + centralOffset;
+            const turquoiseOriginX = dividerX + dividerWidth + sideGap;
+
+
+            const svgWidth = turquoiseOriginX + 8 * unit + 20;
+            const svgHeight = rowY(4) + seatHeight + 20;
+
+            const svg = document.createElementNS(svgNS, "svg");
+            svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+            svg.style.width = "100%";
+            svg.style.maxWidth = "1000px";
+
+            // ---- CENTRAL BLOCKING FEATURES ----
+
+            // Small white gaps so blocked areas do not touch seats directly.
+            const verticalGap = 6;
+
+            // Draw notional vertical divider (rows D-E only)
+            const dividerY = rowY(0);
+            const dividerHeight = (2 * seatHeight) + rowGap;
+
+            const dividerRect = document.createElementNS(svgNS, "rect");
+            dividerRect.setAttribute("x", dividerX);
+            dividerRect.setAttribute("y", dividerY);
+            dividerRect.setAttribute("width", dividerWidth);
+            dividerRect.setAttribute("height", dividerHeight);
+            dividerRect.setAttribute("fill", "#e97be9");
+            svg.appendChild(dividerRect);
+
+            // Overall blocked width between Blue C1/B1/A1 and Turquoise C1/B1/A1
+
+            const blockedAreaX = blueOriginX + 6 * unit + centralOffset;
+
+            const blockedAreaWidth = (2 * unit) + dividerWidth + (2 * unit);
+
+            // Magenta horizontal blocked strip:
+            // this occupies the upper half of the C-row level, but is not the organ itself.
+            const magentaBlockX = blockedAreaX + sideGap;
+            const magentaBlockY = rowY(2);
+            const magentaBlockWidth = blockedAreaWidth - (2 * sideGap);
+            const magentaBlockHeight = (seatHeight / 2) - 2;
+
+            const magentaBlock = document.createElementNS(svgNS, "rect");
+            magentaBlock.setAttribute("x", magentaBlockX);
+            magentaBlock.setAttribute("y", magentaBlockY);
+            magentaBlock.setAttribute("width", magentaBlockWidth);
+            magentaBlock.setAttribute("height", magentaBlockHeight);
+            magentaBlock.setAttribute("fill", "#e97be9");
+            svg.appendChild(magentaBlock);
+
+            // Organ console:
+            // starts below the magenta strip, with a little white space between them,
+            // and leaves a small white sliver at left and right beside adjacent seats.
+            const organX = blockedAreaX + sideGap;
+            const organY = rowY(2) + (seatHeight / 2) + verticalGap;
+            const organWidth = blockedAreaWidth - (2 * sideGap);
+            const organHeight =
+                (seatHeight / 2 - verticalGap) + // lower half of row C
+                rowGap +
+                seatHeight +                     // row B
+                rowGap +
+                seatHeight;                      // row A
+
+            const organRect = document.createElementNS(svgNS, "rect");
+            organRect.setAttribute("x", organX);
+            organRect.setAttribute("y", organY);
+            organRect.setAttribute("width", organWidth);
+            organRect.setAttribute("height", organHeight);
+            organRect.setAttribute("fill", "#d8b08a");
+            svg.appendChild(organRect);
+
+            const organLabel = document.createElementNS(svgNS, "text");
+            organLabel.setAttribute("x", organX + organWidth / 2);
+            organLabel.setAttribute("y", organY + organHeight / 2 - 10);
+            organLabel.setAttribute("text-anchor", "middle");
+            organLabel.setAttribute("font-size", "27");
+            organLabel.setAttribute("font-weight", "bold");
+
+            const organLine1 = document.createElementNS(svgNS, "tspan");
+            organLine1.setAttribute("x", organX + organWidth / 2);
+            organLine1.setAttribute("dy", "0");
+            organLine1.textContent = "Organ";
+
+            const organLine2 = document.createElementNS(svgNS, "tspan");
+            organLine2.setAttribute("x", organX + organWidth / 2);
+            organLine2.setAttribute("dy", "30");
+            organLine2.textContent = "Console";
+
+            organLabel.appendChild(organLine1);
+            organLabel.appendChild(organLine2);
+
+            svg.appendChild(organLabel);
+
+            // BLUE seats
+            rowLetters.forEach((row, rowIndex) => {
+                const seatCount = blueRows[row];
+
+                for (let seatNumber = 1; seatNumber <= seatCount; seatNumber++) {
+                    let col;
+
+                    if (seatCount === 8) {
+                        // D and E: eight seats across, numbered right to left
+                        col = 8 - seatNumber;
+                    } else {
+                        // A, B and C: six seats across, occupying LEFT six columns
+                        col = 6 - seatNumber;
+                    }
+
+                    const x = blueOriginX + col * unit;
+                    const y = rowY(rowIndex);
+                    const seatId = `blue-${row}${seatNumber}`;
+
+                    createSeat(svg, seatId, x, y, `${row}${seatNumber}`, blueFill);
+                }
+            });
+
+            // TURQUOISE seats
+            rowLetters.forEach((row, rowIndex) => {
+                const seatCount = turquoiseRows[row];
+
+                for (let seatNumber = 1; seatNumber <= seatCount; seatNumber++) {
+                    let col;
+
+                    if (seatCount === 8) {
+                        // D and E: eight seats across, numbered left to right
+                        col = seatNumber - 1;
+                    } else {
+                        // A, B and C: six seats across, occupying RIGHT six columns
+                        col = seatNumber + 1;
+                    }
+
+                    const x = turquoiseOriginX + col * unit;
+                    const y = rowY(rowIndex);
+                    const seatId = `turquoise-${row}${seatNumber}`;
+
+                    createSeat(
+                        svg,
+                        seatId,
+                        x,
+                        y,
+                        `${row}${seatNumber}`,
+                        turquoiseFill
+                    );
+                }
+            });
+
+            document.getElementById("central-block-container").appendChild(svg);
+        }
+
+        function createSalmonZone() {
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            // Current Salmon seating arrangement.
+            // These counts can be revised later.
+            const salmonRows = {
+                F: 4,
+                E: 11,
+                D: 10,
+                C: 9
+            };
+
+            const salmonFill = "#f4b7c0";
+            const salmonRowLetters = ["F", "E", "D", "C"];
+
+            const svg = document.createElementNS(svgNS, "svg");
+
+            const svgWidth = 11 * unit + 20;
+            const svgHeight =
+                salmonRowLetters.length * (seatHeight + rowGap) + 20;
+
+            svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+            svg.style.width = "100%";
+            svg.style.maxWidth = "700px";
+
+            salmonRowLetters.forEach((row, rowIndex) => {
+                const seatCount = salmonRows[row];
+
+                for (let seatNumber = 1;
+                    seatNumber <= seatCount;
+                    seatNumber++) {
+
+
+
+                    // STEP 82 — Align Salmon rows C, D and E
+                    // towards the staircase on the right.
+                    // Row E has the maximum 11 seats.
+
+
+                    // STEP 83 — Align Salmon rows correctly.
+                    //
+                    // C, D and E are right-aligned towards the staircase.
+                    // F is centred above Row E.
+
+                    const column =
+                        row === "F"
+                            ? 3.5 + (seatNumber - 1)
+                            : (11 - seatCount) + (seatNumber - 1);
+
+
+
+                    // Centre Row F above Row E.
+                    // Row F has 4 seats and Row E has 11.
+                    // The difference of 7 seats gives an offset of 3.5.
+                    // This alignment is provisional, pending verification.
+
+                    const rowOffset = 0;
+
+                    const x = 10 + rowOffset + column * unit;
+                    const y = 10 + rowIndex * (seatHeight + rowGap);
+
+
+                    const seatId = `salmon-${row}${seatNumber}`;
+
+                    createSeat(
+                        svg,
+                        seatId,
+                        x,
+                        y,
+                        `${row}${seatNumber}`,
+                        salmonFill
+                    );
+                }
+            });
+
+            document.getElementById(
+                "salmon-zone-container"
+            ).appendChild(svg);
+        }
+
+        function createGreenZone() {
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            // Provisional Green seating arrangement.
+            // Green mirrors Salmon in row sizes and alignment.
+            const greenRows = {
+                F: 4,
+                E: 11,
+                D: 10,
+                C: 9
+            };
+
+            const greenFill = "#b8f5a2";
+            const greenRowLetters = ["F", "E", "D", "C"];
+
+            const svg = document.createElementNS(svgNS, "svg");
+
+            const svgWidth = 11 * unit + 20;
+            const svgHeight =
+                greenRowLetters.length * (seatHeight + rowGap) + 20;
+
+            svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
+            svg.style.width = "100%";
+            svg.style.maxWidth = "700px";
+
+            greenRowLetters.forEach((row, rowIndex) => {
+                const seatCount = greenRows[row];
+
+                for (let seatNumber = 1;
+                    seatNumber <= seatCount;
+                    seatNumber++) {
+
+                    // Green seats run from left to right
+                    // in the straight-on enlarged view.
+                    const column = seatNumber - 1;
+
+                    // Provisionally centre Row F above Row E.
+                    const rowOffset =
+                        row === "F" ? 3.5 * unit : 0;
+
+                    const x = 10 + rowOffset + column * unit;
+                    const y = 10 + rowIndex *
+                        (seatHeight + rowGap);
+
+                    const seatId = `green-${row}${seatNumber}`;
+
+                    createSeat(
+                        svg,
+                        seatId,
+                        x,
+                        y,
+                        `${row}${seatNumber}`,
+                        greenFill
+                    );
+                }
+            });
+
+            document.getElementById(
+                "green-zone-container"
+            ).appendChild(svg);
+        }
+
+
+        function addZoneToCompleteBalcony(
+            balconySVG,
+            sourceContainerId,
+            zoneName,
+            offsetX,
+            offsetY
+        ) {
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            // Find the existing SVG for this colour zone.
+            const sourceSVG = document.querySelector(
+                `#${sourceContainerId} svg`
+            );
+
+            if (!sourceSVG) {
+                console.error("SVG not found for zone:", zoneName);
+                return;
+            }
+
+            // Create a group that we can reposition later.
+            const zoneGroup = document.createElementNS(svgNS, "g");
+
+
+            // Angle the two outer seating sections.
+            // Salmon and Green lean in opposite directions.
+            //
+            // These angles are provisional and can be
+            // adjusted without changing any seat allocations.
+
+            const skewAngle = zoneName === "salmon" ? -12 : 12;
+
+            zoneGroup.setAttribute(
+                "transform",
+                `translate(${offsetX}, ${offsetY}) skewY(${skewAngle})`
+            );
+
+
+            zoneGroup.setAttribute("data-zone", zoneName);
+
+            // Copy each seat from the existing zone.
+            sourceSVG.querySelectorAll("g[id]").forEach(originalSeat => {
+                const copiedSeat = originalSeat.cloneNode(true);
+                const seatId = originalSeat.getAttribute("id");
+
+                copiedSeat.removeAttribute("id");
+                copiedSeat.setAttribute("data-seat-id", seatId);
+
+                // Hide seat labels in the complete balcony only.
+                const seatLabel = copiedSeat.querySelector("text");
+                if (seatLabel) {
+                    seatLabel.style.display = "none";
+                }
+
+                zoneGroup.appendChild(copiedSeat);
+            });
+
+            balconySVG.appendChild(zoneGroup);
+        }
+
+
+        const virtualCamera = {
+            // Approximate viewing distance: 15 metres.
+            distance: 15000,
+
+            // Use the same scale for the central reference plane.
+            focalLength: 15000,
+
+            // Position of the camera's viewing centre
+            // within the existing SVG coordinate system.
+            centreX: 456,
+            centreY: 200
+        };
+
+
+        const balconyModel = {
+
+            // Conversion between physical measurements
+            // and SVG drawing units.
+            millimetresPerSVGUnit: 10,
+
+            // Provisional physical dimensions.
+            seatWidthMM: 500,
+
+            // The virtual camera's eye level corresponds
+            // to the eye level of singers in Row C.
+            referenceRow: "C",
+
+            // The central seating plane is our reference.
+            centralPlaneZ: 0,
+
+            // Provisional angle of the Salmon seating plane.
+            salmonAngleDegrees: 35
+        };
+
+
+
+        function projectBalconyPoint(xMM, heightMM, depthMM) {
+
+            // Convert a three-dimensional balcony point
+            // into the existing SVG coordinate system.
+            //
+            // Row C eye level is our vertical reference.
+            // Positive height is above Row C.
+            //
+            // Physical distances are measured in millimetres.
+
+            const projected = project3DPoint(
+                xMM,
+                heightMM,
+                depthMM,
+                virtualCamera
+            );
+
+            const conversion =
+                balconyModel.millimetresPerSVGUnit;
+
+            return {
+                x: virtualCamera.centreX +
+                    (projected.x - virtualCamera.centreX) / conversion,
+
+                y: virtualCamera.centreY +
+                    (projected.y - virtualCamera.centreY) / conversion,
+
+                scale: projected.scale
+            };
+        }
+
+
+        function testBalconyProjection() {
+
+            const testDistances = [0, 1000, 2000, 3000];
+
+            console.table(
+                testDistances.map(distance => {
+
+                    const point = salmonSurfacePoint(
+                        distance,
+                        0,
+                        balconyModel.salmonAngleDegrees
+                    );
+
+                    const projected = projectBalconyPoint(
+                        point.x,
+                        point.y,
+                        point.z
+                    );
+
+                    return {
+                        distanceMM: distance,
+                        svgX: projected.x.toFixed(2),
+                        svgY: projected.y.toFixed(2),
+                        scale: projected.scale.toFixed(3)
+                    };
+                })
+            );
+        }
+
+        testBalconyProjection();
+
+        function salmonSurfacePoint(distanceAlongRow, height, angleDegrees) {
+
+            // Three-dimensional Salmon surface.
+            //
+            // distanceAlongRow:
+            //   distance outward from the central block,
+            //   measured along the Salmon seating surface.
+            //
+            // height:
+            //   vertical position, positive upwards.
+            //
+            // angleDegrees:
+            //   angle through which Salmon turns towards
+            //   the virtual camera.
+
+            const radians = angleDegrees * Math.PI / 180;
+
+            return {
+                x: -distanceAlongRow * Math.cos(radians),
+                y: height,
+                z: distanceAlongRow * Math.sin(radians)
+            };
+        }
+
+
+        function testSalmonSurface() {
+
+            const angle = 35;
+
+            // Three reference positions along Salmon:
+            // nearest the staircase, halfway along,
+            // and at the outer end.
+            const distances = [0, 2000, 4000];
+
+            console.table(
+                distances.map(distance => {
+
+                    const point = salmonSurfacePoint(
+                        distance,
+                        0,
+                        angle
+                    );
+
+                    const projected = project3DPoint(
+                        point.x,
+                        point.y,
+                        point.z,
+                        virtualCamera
+                    );
+
+                    return {
+                        distanceAlongRow: distance,
+                        x: point.x.toFixed(1),
+                        z: point.z.toFixed(1),
+                        projectedX: projected.x.toFixed(1),
+                        scale: projected.scale.toFixed(3)
+                    };
+                })
+            );
+        }
+
+        testSalmonSurface();
+
+        function project3DPoint(x, y, z, camera) {
+
+            // PROJECTIVE GEOMETRY
+            //
+            // x = horizontal position in the balcony
+            // y = vertical position (positive upwards)
+            // z = distance towards the camera
+            //
+            // The camera is positioned in front of the balcony.
+            // Points nearer the camera appear larger.
+            //
+            // This function projects a three-dimensional point
+            // onto a two-dimensional SVG drawing surface.
+
+            const distance = camera.distance;
+            const focalLength = camera.focalLength;
+
+            // Keep the point in front of the camera.
+            const depth = Math.max(0.1, distance - z);
+
+            const scale = focalLength / depth;
+
+            return {
+                x: camera.centreX + x * scale,
+                y: camera.centreY - y * scale,
+                scale: scale
+            };
+        }
+
+
+        function testVirtualCamera() {
+
+            // Three points at different distances
+            // from our virtual camera.
+            const testPoints = [
+                { name: "Reference plane", x: 100, y: 0, z: 0 },
+                { name: "Towards camera", x: 100, y: 0, z: 3000 },
+                { name: "Away from camera", x: 100, y: 0, z: -3000 }
+            ];
+
+            console.table(
+                testPoints.map(point => {
+                    const projected = project3DPoint(
+                        point.x,
+                        point.y,
+                        point.z,
+                        virtualCamera
+                    );
+
+                    return {
+                        point: point.name,
+                        projectedX: projected.x.toFixed(2),
+                        projectedY: projected.y.toFixed(2),
+                        scale: projected.scale.toFixed(3)
+                    };
+                })
+            );
+        }
+
+        testVirtualCamera();
+
+
+
+        function addPerspectiveSalmonToCompleteBalcony(balconySVG) {
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            // STEP 61A — THREE-DIMENSIONAL SALMON PROJECTION
+            //
+            // Applies ONLY to the complete balcony.
+            // All enlarged seating views remain unchanged.
+            //
+            // The inner end of each row is anchored beside Blue.
+            // The outer end extends leftwards and towards the camera.
+            //
+            // Every seat corner is projected using the same
+            // virtual-camera model.
+
+            const staircaseGap = unit;
+
+            // Provisional physical dimensions, in millimetres.
+            const seatWidthMM = 500;
+            const seatHeightMM = 550;
+            const seatPitchMM = 530;
+            const tierPitchMM =
+                (seatHeight + rowGap) *
+                balconyModel.millimetresPerSVGUnit;
+
+            // Provisional physical rise: 100 mm per metre outward.
+            const risePerMetre = 0;
+
+            const angle = balconyModel.salmonAngleDegrees;
+
+
+            // STEP 63 — CURVED SALMON SEATING SURFACE
+            //
+            // The Salmon seating surface follows a circular arc.
+            //
+            // At the staircase, the row begins horizontally,
+            // continuing the direction of the central block.
+            //
+            // Further out, the seats turn progressively
+            // towards the virtual camera.
+            //
+            // The curvature is deliberately provisional.
+
+            function curvedSalmonSurfacePoint(
+                distanceMM,
+                heightMM,
+                row
+            ) {
+                // Distance represented by the longest Salmon row.
+                const totalLengthMM = 11 * seatPitchMM;
+
+
+                // STEP 64 — Stronger curvature for Row D only.
+                // Rows C and E retain their existing 65-degree curve.
+
+
+
+                const maximumAngleDegrees =
+                    (row === "C" || row === "D" || row === "E")
+                        ? 90
+                        : 65;
+
+
+
+
+                const maximumAngleRadians =
+                    maximumAngleDegrees * Math.PI / 180;
+
+                // Radius of the circular seating arc.
+                const radiusMM =
+                    totalLengthMM / maximumAngleRadians;
+
+                // Angle reached at this distance along the row.
+                const theta = distanceMM / radiusMM;
+
+                return {
+                    x: -radiusMM * Math.sin(theta),
+                    y: heightMM,
+                    z: radiusMM * (1 - Math.cos(theta))
+                };
+            }
+
+
+            // The central block provides the fixed reference points.
+            const rowDefinitions = {
+                E: { count: 11, anchor: "blue-E8" },
+                D: { count: 10, anchor: "blue-D8" },
+                C: { count: 9, anchor: "blue-C6" }
+            };
+
+            // Project a point on the Salmon seating surface,
+            // relative to a fixed staircase-side anchor.
+            function projectSeatPoint(
+                distanceMM,
+                heightAboveBaseMM,
+                anchorX,
+                anchorY,
+                row
+            ) {
+                // Convert the anchor's screen height to a
+                // physical height relative to camera eye level.
+                const baseHeightMM =
+                    (virtualCamera.centreY - anchorY) *
+                    balconyModel.millimetresPerSVGUnit;
+
+                const surfaceRiseMM =
+                    (distanceMM / 1000) * risePerMetre;
+
+
+                // STEP 63 — Use the curved seating surface
+                // rather than the original straight surface.
+
+                const point3D = curvedSalmonSurfacePoint(
+                    distanceMM,
+                    baseHeightMM + surfaceRiseMM +
+                    heightAboveBaseMM,
+                    row
+                );
+
+
+                const projected = projectBalconyPoint(
+                    point3D.x,
+                    point3D.y,
+                    point3D.z
+                );
+
+                // Project the pivot point at the inner end.
+                const origin = projectBalconyPoint(
+                    0,
+                    baseHeightMM,
+                    0
+                );
+
+
+                // STEP 68 — Progressive vertical correction
+                // for Salmon Row D only.
+                //
+                // Preserve the existing 3D projection.
+                // Apply no correction at the staircase end.
+                // Increase the downward correction gradually
+                // towards the outer left-hand end.
+
+                const projectedX =
+                    anchorX + projected.x - origin.x;
+
+                const projectedY =
+                    anchorY + projected.y - origin.y;
+
+                // Maximum downward adjustment in SVG units.
+                const maximumDrop = 8;
+
+                // Distance along Row D, expressed as a fraction.
+                const rowDLengthMM = 10 * seatPitchMM;
+
+                const progress = Math.min(
+                    1,
+                    Math.max(0, distanceMM / rowDLengthMM)
+                );
+
+                // Smooth adjustment: gentle near the staircase,
+                // increasing towards the outer end.
+
+                // STEP 69 — Distribute the curvature across
+                // more of Salmon Row D.
+                //
+                // Preserve the existing 3D perspective.
+                // Keep the staircase-side end anchored.
+                // Pull the outer seats progressively inwards.
+
+
+
+                // STEP 72 — Row E is the reference curve.
+                //
+                // Rows D and E now use the same horizontal
+                // adjustment at the same distance from
+                // the staircase.
+                //
+                // Row E remains unchanged.
+
+
+                const inwardAdjustment =
+                    (row === "C" || row === "D" || row === "E")
+                        ? 35 * Math.pow(
+                            Math.min(
+                                1,
+                                distanceMM / (11 * seatPitchMM)
+                            ),
+                            1.45
+                        )
+                        : 0;
+
+
+
+
+                // Retain the successful Step 68
+                // downward correction.
+
+                const downwardAdjustment =
+                    row === "D"
+                        ? maximumDrop * Math.pow(progress, 2)
+                        : row === "E"
+                            ? 18 * Math.pow(
+                                Math.min(
+                                    1,
+                                    distanceMM / (11 * seatPitchMM)
+                                ),
+                                2
+                            )
+                            : 0;
+
+
+                return {
+                    x: projectedX + inwardAdjustment,
+                    y: projectedY + downwardAdjustment
+                };
+
+
+            }
+
+            function drawProjectedSeat(
+                seatId,
+                nearDistanceMM,
+                anchorX,
+                anchorY,
+                row
+            ) {
+                const farDistanceMM =
+                    nearDistanceMM + seatWidthMM;
+
+                // Four projected corners of the seat.
+                const corners = [
+                    projectSeatPoint(
+                        farDistanceMM, seatHeightMM,
+                        anchorX, anchorY, row
+                    ),
+                    projectSeatPoint(
+                        nearDistanceMM, seatHeightMM,
+                        anchorX, anchorY, row
+                    ),
+                    projectSeatPoint(
+                        nearDistanceMM, 0,
+                        anchorX, anchorY, row
+                    ),
+                    projectSeatPoint(
+                        farDistanceMM, 0,
+                        anchorX, anchorY, row
+                    )
+                ];
+
+                const group = document.createElementNS(svgNS, "g");
+                group.setAttribute("data-seat-id", seatId);
+
+                const polygon =
+                    document.createElementNS(svgNS, "polygon");
+
+                polygon.setAttribute(
+                    "points",
+                    corners.map(p => `${p.x},${p.y}`).join(" ")
+                );
+
+                polygon.setAttribute("fill", "#f4b7c0");
+                polygon.setAttribute("stroke", "#555");
+                polygon.setAttribute("stroke-width", "1");
+                polygon.setAttribute(
+                    "data-original-fill", "#f4b7c0"
+                );
+
+                group.appendChild(polygon);
+                balconySVG.appendChild(group);
+            }
+
+            function getAnchor(seatId) {
+                const rect = balconySVG.querySelector(
+                    `g[data-seat-id="${seatId}"] rect`
+                );
+
+                if (!rect) {
+                    console.error("Missing Blue anchor:", seatId);
+                    return null;
+                }
+
+                return {
+                    x: Number(rect.getAttribute("x")) -
+                        staircaseGap,
+
+                    // Base of the corresponding Blue seat.
+                    y: Number(rect.getAttribute("y")) +
+                        Number(rect.getAttribute("height"))
+                };
+            }
+
+            // Draw Rows E, D and C.
+            ["E", "D", "C"].forEach(row => {
+                const definition = rowDefinitions[row];
+                const anchor = getAnchor(definition.anchor);
+
+                if (!anchor) return;
+
+                for (
+                    let seatNumber = 1;
+                    seatNumber <= definition.count;
+                    seatNumber++
+                ) {
+                    // Salmon numbering runs from outer left
+                    // towards the inner staircase end.
+                    const positionsFromInner =
+                        definition.count - seatNumber;
+
+                    const distanceMM =
+                        positionsFromInner * seatPitchMM;
+
+                    drawProjectedSeat(
+                        `salmon-${row}${seatNumber}`,
+                        distanceMM,
+                        anchor.x,
+                        anchor.y,
+                        row
+                    );
+                }
+            });
+
+
+
+
+            // STEP 75 — ROW F
+            //
+            // Position F1-F4 directly behind E5-E8.
+            // Use Row E's established curvature.
+            // Leave all other Salmon rows unchanged.
+
+            const eAnchor = getAnchor("blue-E8");
+
+            if (eAnchor) {
+
+                // One seating tier above Row E.
+                const fAnchorY =
+                    eAnchor.y - (seatHeight + rowGap);
+
+                // Map each F seat to the corresponding
+                // E seat: F1->E5, F2->E6, etc.
+                for (let seatNumber = 1;
+                    seatNumber <= 4;
+                    seatNumber++) {
+
+                    const eSeatNumber = seatNumber + 4;
+
+                    // Row E has 11 seats, numbered
+                    // from left to right.
+                    const positionsFromInner =
+                        11 - eSeatNumber;
+
+                    const distanceMM =
+                        positionsFromInner * seatPitchMM;
+
+                    drawProjectedSeat(
+                        `salmon-F${seatNumber}`,
+                        distanceMM,
+                        eAnchor.x,
+                        fAnchorY,
+                        "E"
+                    );
+                }
+            }
+        }
+
+        function calibrateVirtualCamera() {
+
+            // STEP 59 — CAMERA HEIGHT CALIBRATION
+            //
+            // The virtual camera's eye level corresponds
+            // to the centre of Blue Row C.
+            //
+            // This changes only the projection reference.
+            // No existing seats are moved or resized.
+
+            const blueCSeat = document.querySelector(
+                '#central-block-container g[id="blue-C6"] rect'
+            );
+
+            if (!blueCSeat) {
+                console.error(
+                    "Cannot calibrate camera: Blue C6 not found."
+                );
+                return;
+            }
+
+            const seatY = Number(
+                blueCSeat.getAttribute("y")
+            );
+
+            const seatH = Number(
+                blueCSeat.getAttribute("height")
+            );
+
+            // Use the vertical centre of Row C.
+            virtualCamera.centreY = seatY + seatH / 2;
+
+            console.log(
+                "Virtual camera calibrated to Row C. Y =",
+                virtualCamera.centreY
+            );
+        }
+
+
+
+        function drawCameraReferencePoints(balconySVG) {
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            // STEP 53 — PROJECTED SALMON ROW LEVELS
+            //
+            // Temporary diagnostic markers only.
+            // The camera is at Row C eye level.
+            // Rows D, E and F are progressively higher.
+            //
+            // This leaves all existing seats unchanged.
+
+
+            const rowLevels = [
+                { row: "F", heightMM: 0, colour: "#a000a0" },
+                { row: "E", heightMM: 0, colour: "#c00000" },
+                { row: "D", heightMM: 0, colour: "#e08000" },
+                { row: "C", heightMM: 0, colour: "#ff0000" }
+            ];
+
+
+            const distances = [0, 1500, 3000];
+
+            const rowAnchors = {
+                C: "blue-C6",
+                D: "blue-D8",
+                E: "blue-E8",
+                F: "blue-E8"
+            };
+
+            // Establish a physical reference point at Row C height.
+            const origin3D = salmonSurfacePoint(
+                0,
+                0,
+                balconyModel.salmonAngleDegrees
+            );
+
+            const projectedOrigin = projectBalconyPoint(
+                origin3D.x,
+                origin3D.y,
+                origin3D.z
+            );
+
+            rowLevels.forEach(level => {
+                const blueSeat = balconySVG.querySelector(
+                    `g[data-seat-id="${rowAnchors[level.row]}"] rect`
+                );
+
+                if (!blueSeat) {
+                    console.error("Missing row anchor:", level.row);
+                    return;
+                }
+
+                const blueX = Number(blueSeat.getAttribute("x"));
+                const blueY = Number(blueSeat.getAttribute("y"));
+
+                const staircaseGap = unit;
+
+                // Imaginary Row F lies one tier above Row E.
+                const fOffset = level.row === "F"
+                    ? -(seatHeight + rowGap)
+                    : 0;
+
+                const anchorX = blueX - staircaseGap;
+                const anchorY = blueY + seatHeight / 2 + fOffset;
+
+
+                const points = distances.map(distance => {
+
+                    // The inner end of each row stays fixed beside Blue.
+                    // The outer positions extend leftwards and forwards
+                    // towards our virtual camera.
+
+                    // Convert the SVG anchor's vertical position into
+                    // a physical height relative to Row C eye level.
+                    const heightMM =
+                        (virtualCamera.centreY - anchorY) *
+                        balconyModel.millimetresPerSVGUnit;
+
+
+                    // STEP 60 — Provisional rise of the Salmon surface.
+                    // A positive rise means the outer seats are higher
+                    // than the seats nearest the central block.
+                    //
+                    // Start with a rise of 100 mm per metre outward.
+
+                    const risePerMetre = 100;
+
+                    const surfaceRiseMM =
+                        (distance / 1000) * risePerMetre;
+
+
+                    // The point's height and depth are projected together.
+                    const point3D = salmonSurfacePoint(
+                        distance,
+                        heightMM,
+                        balconyModel.salmonAngleDegrees
+                    );
+
+                    const projected = projectBalconyPoint(
+                        point3D.x,
+                        point3D.y,
+                        point3D.z
+                    );
+
+                    // Project the starting position at the same height.
+                    // This ensures the staircase-side end stays anchored.
+                    const originProjected = projectBalconyPoint(
+                        0,
+                        heightMM,
+                        0
+                    );
+
+                    return {
+                        x: anchorX + projected.x - originProjected.x,
+                        y: anchorY + projected.y - originProjected.y
+                    };
+                });
+
+
+                // Connect the three projected reference points.
+                const line = document.createElementNS(svgNS, "polyline");
+
+                line.setAttribute(
+                    "points",
+                    points.map(p => `${p.x},${p.y}`).join(" ")
+                );
+
+                line.setAttribute("fill", "none");
+                line.setAttribute("stroke", level.colour);
+                line.setAttribute("stroke-width", "3");
+                line.setAttribute("stroke-dasharray", "8 5");
+
+                balconySVG.appendChild(line);
+
+                points.forEach((point, index) => {
+                    const marker = document.createElementNS(svgNS, "circle");
+
+                    marker.setAttribute("cx", point.x);
+                    marker.setAttribute("cy", point.y);
+                    marker.setAttribute("r", "5");
+                    marker.setAttribute("fill", level.colour);
+
+                    balconySVG.appendChild(marker);
+
+                    if (index === 2) {
+                        const label = document.createElementNS(svgNS, "text");
+
+                        label.setAttribute("x", point.x - 15);
+                        label.setAttribute("y", point.y - 12);
+                        label.setAttribute("font-size", "20");
+                        label.setAttribute("font-weight", "bold");
+                        label.setAttribute("fill", level.colour);
+                        label.textContent = level.row;
+
+                        balconySVG.appendChild(label);
+                    }
+                });
+            });
+        }
+
+
+
+
+
+        function createCompleteBalcony() {
+
+            // Locate the central block already generated.
+            const centralContainer =
+                document.getElementById("central-block-container");
+
+            const centralSVG = centralContainer.querySelector("svg");
+
+            if (!centralSVG) {
+                console.error("Central block SVG not found.");
+                return;
+            }
+
+            // Make a copy for the complete balcony.
+            const balconySVG = centralSVG.cloneNode(true);
+
+            // Give the copied SVG its own identifier.
+            balconySVG.setAttribute("id", "complete-balcony-svg");
+
+            // Remove duplicate seat IDs from the copy.
+            // Preserve the logical identity in data-seat-id.
+
+            balconySVG.querySelectorAll("g[id]").forEach(group => {
+
+                const originalId = group.getAttribute("id");
+
+                // Keep the logical seat identity without
+                // duplicating the HTML element ID.
+                group.setAttribute("data-seat-id", originalId);
+                group.removeAttribute("id");
+
+                group.style.cursor = "default";
+
+                // Hide seat labels in the complete balcony only.
+                const seatLabel = group.querySelector("text");
+                if (seatLabel) {
+                    seatLabel.style.display = "none";
+                }
+
+            });
+
+
+            // STEP 31: Expand the drawing area to make room
+            // for the angled Salmon and Green sections.
+            //
+            // The central block keeps its existing coordinates.
+            // Additional space is provided to the left and right.
+            //
+            // We will position the side sections in later steps.
+
+            const originalViewBox = balconySVG.viewBox.baseVal;
+
+            const sideSpace = 650;
+
+
+            
+            // STEP 85 — Centre the complete balcony on
+            // the vertical magenta divider.
+
+            const divider = balconySVG.querySelector(
+                'g[data-seat-id="blue-E1"] rect'
+            );
+
+            const dividerCentreX = divider
+                ? Number(divider.getAttribute("x")) +
+                    Number(divider.getAttribute("width")) +
+                    5.3
+                : originalViewBox.width / 2;
+
+            const expandedWidth =
+                originalViewBox.width + (2 * sideSpace);
+
+            const expandedX =
+                dividerCentreX - expandedWidth / 2;
+
+
+            // Allow room above Row E for the imaginary Row F.
+            const topSpace = 100;
+
+            const expandedY = originalViewBox.y - topSpace;
+
+            
+            const expandedHeight = originalViewBox.height + 100 + topSpace;
+
+
+            balconySVG.setAttribute(
+                "viewBox",
+                `${expandedX} ${expandedY} ` +
+                `${expandedWidth} ${expandedHeight}`
+            );
+
+
+            // Give the full balcony a suitable initial size.
+            balconySVG.style.width = "100%";
+            balconySVG.style.maxWidth = "1200px";
+
+
+            // STEP 32: Add Salmon and Green to the complete balcony.
+            //
+            // These provisional positions are deliberately straight-on.
+            // We will angle the side sections in subsequent steps.
+            //
+            // The central block remains at its existing coordinates.
+
+
+            addPerspectiveSalmonToCompleteBalcony(balconySVG);
+
+
+
+            // STEP 76 — GREEN AS A MIRROR OF SALMON
+            //
+            // Reflect the completed Salmon polygons across
+            // the centre of the balcony.
+            // Preserve Green's own seat numbering.
+
+            const blueEdge = balconySVG.querySelector(
+                'g[data-seat-id="blue-E8"] rect'
+            );
+
+            const turquoiseEdge = balconySVG.querySelector(
+                'g[data-seat-id="turquoise-E8"] rect'
+            );
+
+            if (blueEdge && turquoiseEdge) {
+
+                const leftEdge =
+                    Number(blueEdge.getAttribute("x"));
+
+                const rightEdge =
+                    Number(turquoiseEdge.getAttribute("x")) +
+                    Number(turquoiseEdge.getAttribute("width"));
+
+                const mirrorCentreX =
+                    (leftEdge + rightEdge) / 2;
+
+                const greenRowCounts = {
+                    C: 9,
+                    D: 10,
+                    E: 11,
+                    F: 4
+                };
+
+                // Copy and reflect each Salmon seat.
+                balconySVG.querySelectorAll(
+                    'g[data-seat-id^="salmon-"]'
+                ).forEach(salmonSeat => {
+
+                    const salmonId =
+                        salmonSeat.getAttribute("data-seat-id");
+
+                    const match =
+                        salmonId.match(/^salmon-([CDEF])(\d+)$/);
+
+                    if (!match) return;
+
+                    const row = match[1];
+                    const salmonNumber = Number(match[2]);
+
+                    // Reverse numbering across the mirror.
+                    const greenNumber =
+                        greenRowCounts[row] + 1 - salmonNumber;
+
+                    const greenSeat =
+                        salmonSeat.cloneNode(true);
+
+                    greenSeat.setAttribute(
+                        "data-seat-id",
+                        `green-${row}${greenNumber}`
+                    );
+
+                    greenSeat.setAttribute(
+                        "transform",
+                        `translate(${2 * mirrorCentreX} 0) scale(-1 1)`
+                    );
+
+                    const polygon =
+                        greenSeat.querySelector("polygon");
+
+                    if (polygon) {
+                        polygon.setAttribute("fill", "#b8f5a2");
+                        polygon.setAttribute(
+                            "data-original-fill",
+                            "#b8f5a2"
+                        );
+                    }
+
+                    balconySVG.appendChild(greenSeat);
+                });
+            }
+
+
+
+            // Temporary camera calibration markers.
+            // drawCameraReferencePoints(balconySVG);
+
+
+
+            // Insert the copied SVG.
+            document.getElementById(
+                "complete-balcony-container"
+            ).appendChild(balconySVG);
+        }
+
+
+        function createIndividualCentralZones() {
+
+            const svgNS = "http://www.w3.org/2000/svg";
+
+            const centralSVG = document.querySelector(
+                "#central-block-container svg"
+            );
+
+            if (!centralSVG) {
+                console.error("Central SVG not found.");
+                return;
+            }
+
+            ["blue", "turquoise"].forEach(zone => {
+
+                const svg = document.createElementNS(svgNS, "svg");
+
+
+                // Copy the organ console and magenta landmarks.
+                // In the original central SVG, these elements
+                // appear before the individual seat groups.
+                // They do not have seat IDs.
+
+                Array.from(centralSVG.children).forEach(element => {
+                    if (element.tagName.toLowerCase() !== "g") {
+                        svg.appendChild(element.cloneNode(true));
+                    }
+                });
+
+
+
+                const seatGroups = centralSVG.querySelectorAll(
+                    `g[id^="${zone}-"]`
+                );
+
+                // Copy the seats into the separate zone.
+                seatGroups.forEach(originalGroup => {
+
+                    const copiedGroup = originalGroup.cloneNode(true);
+                    const seatId = originalGroup.getAttribute("id");
+
+                    // Preserve the logical seat identity without
+                    // creating duplicate HTML element IDs.
+                    copiedGroup.removeAttribute("id");
+                    copiedGroup.setAttribute("data-seat-id", seatId);
+
+                    svg.appendChild(copiedGroup);
+                });
+
+                // Calculate the bounding box of all the copied seats.
+                // The SVG must be temporarily in the document for this.
+                const container = document.getElementById(
+                    zone + "-zone-container"
+                );
+
+                container.appendChild(svg);
+
+                const bbox = svg.getBBox();
+
+                // Add a margin around the seats.
+                const margin = 15;
+
+                svg.setAttribute(
+                    "viewBox",
+                    `${bbox.x - margin} ${bbox.y - margin} ` +
+                    `${bbox.width + margin * 2} ${bbox.height + margin * 2}`
+                );
+
+                svg.style.width = "100%";
+                svg.style.maxWidth = "650px";
+            });
+        }
+
+
+
+        function showSelectedZone() {
+
+            const selectedZone =
+                document.getElementById("zone-selector").value;
+
+            const centralSection =
+                document.getElementById("central-section");
+
+            const blueSection =
+                document.getElementById("blue-section");
+
+            const turquoiseSection =
+                document.getElementById("turquoise-section");
+
+            const salmonSection =
+                document.getElementById("salmon-section");
+
+            const greenSection =
+                document.getElementById("green-section");
+
+            // The combined central block is retained internally
+            // but is no longer displayed to the singer.
+            centralSection.style.display = "none";
+
+            // Hide all individual colour-zone views.
+            blueSection.style.display = "none";
+            turquoiseSection.style.display = "none";
+            salmonSection.style.display = "none";
+            greenSection.style.display = "none";
+
+            // Show only the singer's allocated zone.
+            if (selectedZone === "blue") {
+
+                blueSection.style.display = "block";
+
+            } else if (selectedZone === "turquoise") {
+
+                turquoiseSection.style.display = "block";
+
+            } else if (selectedZone === "salmon") {
+
+                salmonSection.style.display = "block";
+
+            } else if (selectedZone === "green") {
+
+                greenSection.style.display = "block";
+            }
+        }
+
+
+
+
+        createCentralBlock();
+        createSalmonZone();
+        createGreenZone();
+
+        calibrateVirtualCamera();
+
+        createCompleteBalcony();
+        createIndividualCentralZones();
+
+
+
+
+        function checkChoirNumber() {
+            const input = document.getElementById("choir-number");
+
+            // Accept digits only, with a maximum of three.
+            input.value = input.value.replace(/\D/g, "").slice(0, 3);
+
+            // Always clear the previous allocation first.
+            document.getElementById("allocation-result").textContent = "";
+
+
+            // STEP 80 — Restore the introductory heading
+            // whenever the choir number changes.
+
+            document.getElementById("balcony-heading").textContent =
+                "Enter Your Choir Number to Find Your Seat";
+
+
+            // Hide the previously selected enlarged zone.
+            document.getElementById("zone-selector").value = "";
+            showSelectedZone();
+
+            // Restore all seats to their original colours.
+            clearSeatHighlight();
+
+            // Wait until exactly three digits have been entered.
+            if (input.value.length !== 3) {
+                return;
+            }
+
+            // Choir numbers must be between 100 and 999.
+            if (Number(input.value) < 100) {
+                document.getElementById("allocation-result").textContent =
+                    "Please enter a choir number between 100 and 999.";
+                return;
+            }
+
+            // Look up the new choir number.
+            findMySeat();
+        }
+
+
+
+        function findMySeat() {
+
+            const choirNumber =
+                document.getElementById("choir-number").value.trim();
+
+            const result =
+                document.getElementById("allocation-result");
+
+            // Check whether a number has been entered.
+            if (!choirNumber) {
+                result.textContent = "Please enter your choir number.";
+                return;
+            }
+
+            // Look up the singer's assigned seat.
+            const seatId = choirAllocations[choirNumber];
+
+            if (!seatId) {
+                result.textContent =
+                    "No seating allocation found for choir number " +
+                    choirNumber + ".";
+                return;
+            }
+
+            // Split the seat identifier into its components.
+            // Example: salmon-C1 becomes Salmon, C, 1.
+            const [zone, seatPosition] = seatId.split("-");
+            const row = seatPosition.charAt(0);
+            const seatNumber = seatPosition.substring(1);
+
+            // The seat allocation will be shown in the heading
+            // above the enlarged seating-zone diagram.
+            result.textContent = "";
+
+
+            // STEP 80 — A valid seating allocation has been found.
+            // Change the heading above the Complete Balcony.
+
+            document.getElementById("balcony-heading").textContent =
+                "Your Position Within the Balcony As A Whole";
+
+
+            // Automatically select the relevant enlarged zone.
+            document.getElementById("zone-selector").value = zone;
+
+            const activeZoneHeading = document.querySelector(
+                `#${zone}-section .zone-heading`
+            );
+
+            if (activeZoneHeading) {
+                activeZoneHeading.textContent =
+                    `Exact Position of Seat ${seatPosition} Within the ` +
+                    `${zone.charAt(0).toUpperCase() + zone.slice(1)} Zone`;
+            }
+
+            showSelectedZone();
+
+            // Highlight the allocated seat in the SVG diagrams.
+            selectSeat(seatId);
+        }
+
+
+        showSelectedZone();
+
+    </script>
+
+</body>
+
+</html>
