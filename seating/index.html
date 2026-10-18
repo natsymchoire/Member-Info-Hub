@@ -1967,8 +1967,13 @@
                 return;
             }
 
+            
             // Look up the new choir number.
             findMySeat();
+
+            // STEP 93 — Dismiss the mobile numeric keyboard
+            // after all three digits have been entered.
+            input.blur();
         }
 
 
