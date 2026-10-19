@@ -89,8 +89,8 @@
 
         #complete-balcony-container,
         #blue-zone-container,
-        #turquoise-zone-container,
-        #salmon-zone-container,
+        #orange-zone-container,
+        #red-zone-container,
         #green-zone-container {
             width: 100%;
             display: flex;
@@ -99,13 +99,22 @@
 
         #complete-balcony-container svg,
         #blue-zone-container svg,
-        #turquoise-zone-container svg,
-        #salmon-zone-container svg,
+        #orange-zone-container svg,
+        #red-zone-container svg,
         #green-zone-container svg {
             display: block;
             margin-left: auto;
             margin-right: auto;
             height: auto;
+        }
+
+        /* Centre messages about invalid choir numbers. */
+        #allocation-result {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #b00020;
         }
 
 
@@ -150,8 +159,8 @@
         <select id="zone-selector" onchange="showSelectedZone()">
             <option value="">-- Choose a zone --</option>
             <option value="blue">Blue</option>
-            <option value="turquoise">Turquoise</option>
-            <option value="salmon">Salmon</option>
+            <option value="orange">Orange</option>
+            <option value="red">Red</option>
             <option value="green">Green</option>
         </select>
     </div>
@@ -188,13 +197,13 @@
 
     </div>
 
-    <div id="turquoise-section">
+    <div id="orange-section">
 
         <h2 class="diagram-heading zone-heading">
             Your Exact Seat Position
         </h2>
 
-        <div id="turquoise-zone-container"></div>
+        <div id="orange-zone-container"></div>
 
     </div>
 
@@ -205,13 +214,13 @@
 
 
 
-    <div id="salmon-section">
+    <div id="red-section">
 
         <h2 class="diagram-heading zone-heading">
             Your Exact Seat Position
         </h2>
 
-        <div id="salmon-zone-container"></div>
+        <div id="red-zone-container"></div>
 
     </div>
 
@@ -244,7 +253,7 @@
             E: 8
         };
 
-        const turquoiseRows = {
+        const orangeRows = {
             A: 6,
             B: 6,
             C: 6,
@@ -254,8 +263,8 @@
 
         const rowLetters = ["E", "D", "C", "B", "A"];
 
-        const blueFill = "#9ed9ff";
-        const turquoiseFill = "#9df0e8";
+        const blueFill = "#8FC9F2";
+        const orangeFill = "#F5BC80";
         const highlightFill = "#ffff00";
 
 
@@ -266,11 +275,11 @@
         // Values identify unique SVG seat objects.
 
         const choirAllocations = {
-            "101": "salmon-C1",
-            "134": "salmon-C2",
-            "159": "salmon-E6",
+            "101": "red-C1",
+            "134": "red-C2",
+            "159": "red-E6",
             "161": "blue-B4",
-            "111": "turquoise-D5",
+            "111": "orange-D5",
             "199": "green-C4",
             "201": "green-E2"
         };
@@ -322,8 +331,8 @@
             document.querySelectorAll(
                 'g[data-seat-id] rect, g[data-seat-id] polygon, ' +
                 'g[id^="blue-"] rect, ' +
-                'g[id^="turquoise-"] rect, ' +
-                'g[id^="salmon-"] rect, ' +
+                'g[id^="orange-"] rect, ' +
+                'g[id^="red-"] rect, ' +
                 'g[id^="green-"] rect'
             ).forEach(shape => {
 
@@ -349,8 +358,8 @@
             document.querySelectorAll(
                 'g[data-seat-id] rect, g[data-seat-id] polygon, ' +
                 'g[id^="blue-"] rect, ' +
-                'g[id^="turquoise-"] rect, ' +
-                'g[id^="salmon-"] rect, ' +
+                'g[id^="orange-"] rect, ' +
+                'g[id^="red-"] rect, ' +
                 'g[id^="green-"] rect'
             ).forEach(shape => {
 
@@ -405,7 +414,7 @@
 
             // CENTRAL BALCONY GEOMETRY
             //
-            // Blue and Turquoise each have five rows (A-E).
+            // Blue and Orange each have five rows (A-E).
             //
             // Rows A, B and C contain six seats.
             // Rows D and E contain eight seats.
@@ -428,7 +437,7 @@
             // unusable and shown as a horizontal magenta strip.
             //
             // The vertical magenta divider between Blue and
-            // Turquoise rows D and E is purely notional.
+            // Orange rows D and E is purely notional.
             // It does not represent a physical barrier.
             //
             // Small, matching white gaps separate the central
@@ -444,10 +453,10 @@
             const centralOffset = (sideGap - seatGap) / 2;
 
             const dividerX = blueOriginX + 8 * unit + centralOffset;
-            const turquoiseOriginX = dividerX + dividerWidth + sideGap;
+            const orangeOriginX = dividerX + dividerWidth + sideGap;
 
 
-            const svgWidth = turquoiseOriginX + 8 * unit + 20;
+            const svgWidth = orangeOriginX + 8 * unit + 20;
             const svgHeight = rowY(4) + seatHeight + 20;
 
             const svg = document.createElementNS(svgNS, "svg");
@@ -472,7 +481,7 @@
             dividerRect.setAttribute("fill", "#e97be9");
             svg.appendChild(dividerRect);
 
-            // Overall blocked width between Blue C1/B1/A1 and Turquoise C1/B1/A1
+            // Overall blocked width between Blue C1/B1/A1 and Orange C1/B1/A1
 
             const blockedAreaX = blueOriginX + 6 * unit + centralOffset;
 
@@ -561,7 +570,7 @@
 
             // TURQUOISE seats
             rowLetters.forEach((row, rowIndex) => {
-                const seatCount = turquoiseRows[row];
+                const seatCount = orangeRows[row];
 
                 for (let seatNumber = 1; seatNumber <= seatCount; seatNumber++) {
                     let col;
@@ -574,9 +583,9 @@
                         col = seatNumber + 1;
                     }
 
-                    const x = turquoiseOriginX + col * unit;
+                    const x = orangeOriginX + col * unit;
                     const y = rowY(rowIndex);
-                    const seatId = `turquoise-${row}${seatNumber}`;
+                    const seatId = `orange-${row}${seatNumber}`;
 
                     createSeat(
                         svg,
@@ -584,7 +593,7 @@
                         x,
                         y,
                         `${row}${seatNumber}`,
-                        turquoiseFill
+                        orangeFill
                     );
                 }
             });
@@ -592,33 +601,33 @@
             document.getElementById("central-block-container").appendChild(svg);
         }
 
-        function createSalmonZone() {
+        function createRedZone() {
             const svgNS = "http://www.w3.org/2000/svg";
 
-            // Current Salmon seating arrangement.
+            // Current Red seating arrangement.
             // These counts can be revised later.
-            const salmonRows = {
+            const redRows = {
                 F: 4,
                 E: 11,
                 D: 10,
                 C: 9
             };
 
-            const salmonFill = "#f4b7c0";
-            const salmonRowLetters = ["F", "E", "D", "C"];
+            const redFill = "#ECA1A8";
+            const redRowLetters = ["F", "E", "D", "C"];
 
             const svg = document.createElementNS(svgNS, "svg");
 
             const svgWidth = 11 * unit + 20;
             const svgHeight =
-                salmonRowLetters.length * (seatHeight + rowGap) + 20;
+                redRowLetters.length * (seatHeight + rowGap) + 20;
 
             svg.setAttribute("viewBox", `0 0 ${svgWidth} ${svgHeight}`);
             svg.style.width = "100%";
             svg.style.maxWidth = "700px";
 
-            salmonRowLetters.forEach((row, rowIndex) => {
-                const seatCount = salmonRows[row];
+            redRowLetters.forEach((row, rowIndex) => {
+                const seatCount = redRows[row];
 
                 for (let seatNumber = 1;
                     seatNumber <= seatCount;
@@ -626,12 +635,12 @@
 
 
 
-                    // STEP 82 — Align Salmon rows C, D and E
+                    // STEP 82 — Align Red rows C, D and E
                     // towards the staircase on the right.
                     // Row E has the maximum 11 seats.
 
 
-                    // STEP 83 — Align Salmon rows correctly.
+                    // STEP 83 — Align Red rows correctly.
                     //
                     // C, D and E are right-aligned towards the staircase.
                     // F is centred above Row E.
@@ -654,7 +663,7 @@
                     const y = 10 + rowIndex * (seatHeight + rowGap);
 
 
-                    const seatId = `salmon-${row}${seatNumber}`;
+                    const seatId = `red-${row}${seatNumber}`;
 
                     createSeat(
                         svg,
@@ -662,13 +671,13 @@
                         x,
                         y,
                         `${row}${seatNumber}`,
-                        salmonFill
+                        redFill
                     );
                 }
             });
 
             document.getElementById(
-                "salmon-zone-container"
+                "red-zone-container"
             ).appendChild(svg);
         }
 
@@ -676,7 +685,7 @@
             const svgNS = "http://www.w3.org/2000/svg";
 
             // Provisional Green seating arrangement.
-            // Green mirrors Salmon in row sizes and alignment.
+            // Green mirrors Red in row sizes and alignment.
             const greenRows = {
                 F: 4,
                 E: 11,
@@ -684,7 +693,7 @@
                 C: 9
             };
 
-            const greenFill = "#b8f5a2";
+            const greenFill = "#A9DD9C";
             const greenRowLetters = ["F", "E", "D", "C"];
 
             const svg = document.createElementNS(svgNS, "svg");
@@ -759,12 +768,12 @@
 
 
             // Angle the two outer seating sections.
-            // Salmon and Green lean in opposite directions.
+            // Red and Green lean in opposite directions.
             //
             // These angles are provisional and can be
             // adjusted without changing any seat allocations.
 
-            const skewAngle = zoneName === "salmon" ? -12 : 12;
+            const skewAngle = zoneName === "red" ? -12 : 12;
 
             zoneGroup.setAttribute(
                 "transform",
@@ -825,8 +834,8 @@
             // The central seating plane is our reference.
             centralPlaneZ: 0,
 
-            // Provisional angle of the Salmon seating plane.
-            salmonAngleDegrees: 35
+            // Provisional angle of the Red seating plane.
+            redAngleDegrees: 35
         };
 
 
@@ -870,10 +879,10 @@
             console.table(
                 testDistances.map(distance => {
 
-                    const point = salmonSurfacePoint(
+                    const point = redSurfacePoint(
                         distance,
                         0,
-                        balconyModel.salmonAngleDegrees
+                        balconyModel.redAngleDegrees
                     );
 
                     const projected = projectBalconyPoint(
@@ -894,19 +903,19 @@
 
         testBalconyProjection();
 
-        function salmonSurfacePoint(distanceAlongRow, height, angleDegrees) {
+        function redSurfacePoint(distanceAlongRow, height, angleDegrees) {
 
-            // Three-dimensional Salmon surface.
+            // Three-dimensional Red surface.
             //
             // distanceAlongRow:
             //   distance outward from the central block,
-            //   measured along the Salmon seating surface.
+            //   measured along the Red seating surface.
             //
             // height:
             //   vertical position, positive upwards.
             //
             // angleDegrees:
-            //   angle through which Salmon turns towards
+            //   angle through which Red turns towards
             //   the virtual camera.
 
             const radians = angleDegrees * Math.PI / 180;
@@ -919,11 +928,11 @@
         }
 
 
-        function testSalmonSurface() {
+        function testRedSurface() {
 
             const angle = 35;
 
-            // Three reference positions along Salmon:
+            // Three reference positions along Red:
             // nearest the staircase, halfway along,
             // and at the outer end.
             const distances = [0, 2000, 4000];
@@ -931,7 +940,7 @@
             console.table(
                 distances.map(distance => {
 
-                    const point = salmonSurfacePoint(
+                    const point = redSurfacePoint(
                         distance,
                         0,
                         angle
@@ -955,7 +964,7 @@
             );
         }
 
-        testSalmonSurface();
+        testRedSurface();
 
         function project3DPoint(x, y, z, camera) {
 
@@ -1020,7 +1029,7 @@
 
 
 
-        function addPerspectiveSalmonToCompleteBalcony(balconySVG) {
+        function addPerspectiveRedToCompleteBalcony(balconySVG) {
             const svgNS = "http://www.w3.org/2000/svg";
 
             // STEP 61A — THREE-DIMENSIONAL SALMON PROJECTION
@@ -1047,12 +1056,12 @@
             // Provisional physical rise: 100 mm per metre outward.
             const risePerMetre = 0;
 
-            const angle = balconyModel.salmonAngleDegrees;
+            const angle = balconyModel.redAngleDegrees;
 
 
             // STEP 63 — CURVED SALMON SEATING SURFACE
             //
-            // The Salmon seating surface follows a circular arc.
+            // The Red seating surface follows a circular arc.
             //
             // At the staircase, the row begins horizontally,
             // continuing the direction of the central block.
@@ -1062,12 +1071,12 @@
             //
             // The curvature is deliberately provisional.
 
-            function curvedSalmonSurfacePoint(
+            function curvedRedSurfacePoint(
                 distanceMM,
                 heightMM,
                 row
             ) {
-                // Distance represented by the longest Salmon row.
+                // Distance represented by the longest Red row.
                 const totalLengthMM = 11 * seatPitchMM;
 
 
@@ -1109,7 +1118,7 @@
                 C: { count: 9, anchor: "blue-C6" }
             };
 
-            // Project a point on the Salmon seating surface,
+            // Project a point on the Red seating surface,
             // relative to a fixed staircase-side anchor.
             function projectSeatPoint(
                 distanceMM,
@@ -1131,7 +1140,7 @@
                 // STEP 63 — Use the curved seating surface
                 // rather than the original straight surface.
 
-                const point3D = curvedSalmonSurfacePoint(
+                const point3D = curvedRedSurfacePoint(
                     distanceMM,
                     baseHeightMM + surfaceRiseMM +
                     heightAboveBaseMM,
@@ -1154,7 +1163,7 @@
 
 
                 // STEP 68 — Progressive vertical correction
-                // for Salmon Row D only.
+                // for Red Row D only.
                 //
                 // Preserve the existing 3D projection.
                 // Apply no correction at the staircase end.
@@ -1182,7 +1191,7 @@
                 // increasing towards the outer end.
 
                 // STEP 69 — Distribute the curvature across
-                // more of Salmon Row D.
+                // more of Red Row D.
                 //
                 // Preserve the existing 3D perspective.
                 // Keep the staircase-side end anchored.
@@ -1279,11 +1288,11 @@
                     corners.map(p => `${p.x},${p.y}`).join(" ")
                 );
 
-                polygon.setAttribute("fill", "#f4b7c0");
+                polygon.setAttribute("fill", "#ECA1A8");
                 polygon.setAttribute("stroke", "#555");
                 polygon.setAttribute("stroke-width", "1");
                 polygon.setAttribute(
-                    "data-original-fill", "#f4b7c0"
+                    "data-original-fill", "#ECA1A8"
                 );
 
                 group.appendChild(polygon);
@@ -1322,7 +1331,7 @@
                     seatNumber <= definition.count;
                     seatNumber++
                 ) {
-                    // Salmon numbering runs from outer left
+                    // Red numbering runs from outer left
                     // towards the inner staircase end.
                     const positionsFromInner =
                         definition.count - seatNumber;
@@ -1331,7 +1340,7 @@
                         positionsFromInner * seatPitchMM;
 
                     drawProjectedSeat(
-                        `salmon-${row}${seatNumber}`,
+                        `red-${row}${seatNumber}`,
                         distanceMM,
                         anchor.x,
                         anchor.y,
@@ -1347,7 +1356,7 @@
             //
             // Position F1-F4 directly behind E5-E8.
             // Use Row E's established curvature.
-            // Leave all other Salmon rows unchanged.
+            // Leave all other Red rows unchanged.
 
             const eAnchor = getAnchor("blue-E8");
 
@@ -1374,7 +1383,7 @@
                         positionsFromInner * seatPitchMM;
 
                     drawProjectedSeat(
-                        `salmon-F${seatNumber}`,
+                        `red-F${seatNumber}`,
                         distanceMM,
                         eAnchor.x,
                         fAnchorY,
@@ -1454,10 +1463,10 @@
             };
 
             // Establish a physical reference point at Row C height.
-            const origin3D = salmonSurfacePoint(
+            const origin3D = redSurfacePoint(
                 0,
                 0,
-                balconyModel.salmonAngleDegrees
+                balconyModel.redAngleDegrees
             );
 
             const projectedOrigin = projectBalconyPoint(
@@ -1503,7 +1512,7 @@
                         balconyModel.millimetresPerSVGUnit;
 
 
-                    // STEP 60 — Provisional rise of the Salmon surface.
+                    // STEP 60 — Provisional rise of the Red surface.
                     // A positive rise means the outer seats are higher
                     // than the seats nearest the central block.
                     //
@@ -1516,10 +1525,10 @@
 
 
                     // The point's height and depth are projected together.
-                    const point3D = salmonSurfacePoint(
+                    const point3D = redSurfacePoint(
                         distance,
                         heightMM,
-                        balconyModel.salmonAngleDegrees
+                        balconyModel.redAngleDegrees
                     );
 
                     const projected = projectBalconyPoint(
@@ -1631,7 +1640,7 @@
 
 
             // STEP 31: Expand the drawing area to make room
-            // for the angled Salmon and Green sections.
+            // for the angled Red and Green sections.
             //
             // The central block keeps its existing coordinates.
             // Additional space is provided to the left and right.
@@ -1643,7 +1652,7 @@
             const sideSpace = 650;
 
 
-            
+
             // STEP 85 — Centre the complete balcony on
             // the vertical magenta divider.
 
@@ -1653,8 +1662,8 @@
 
             const dividerCentreX = divider
                 ? Number(divider.getAttribute("x")) +
-                    Number(divider.getAttribute("width")) +
-                    5.3
+                Number(divider.getAttribute("width")) +
+                5.3
                 : originalViewBox.width / 2;
 
             const expandedWidth =
@@ -1669,7 +1678,7 @@
 
             const expandedY = originalViewBox.y - topSpace;
 
-            
+
             const expandedHeight = originalViewBox.height + 100 + topSpace;
 
 
@@ -1685,7 +1694,7 @@
             balconySVG.style.maxWidth = "1200px";
 
 
-            // STEP 32: Add Salmon and Green to the complete balcony.
+            // STEP 32: Add Red and Green to the complete balcony.
             //
             // These provisional positions are deliberately straight-on.
             // We will angle the side sections in subsequent steps.
@@ -1693,13 +1702,13 @@
             // The central block remains at its existing coordinates.
 
 
-            addPerspectiveSalmonToCompleteBalcony(balconySVG);
+            addPerspectiveRedToCompleteBalcony(balconySVG);
 
 
 
             // STEP 76 — GREEN AS A MIRROR OF SALMON
             //
-            // Reflect the completed Salmon polygons across
+            // Reflect the completed Red polygons across
             // the centre of the balcony.
             // Preserve Green's own seat numbering.
 
@@ -1707,18 +1716,18 @@
                 'g[data-seat-id="blue-E8"] rect'
             );
 
-            const turquoiseEdge = balconySVG.querySelector(
-                'g[data-seat-id="turquoise-E8"] rect'
+            const orangeEdge = balconySVG.querySelector(
+                'g[data-seat-id="orange-E8"] rect'
             );
 
-            if (blueEdge && turquoiseEdge) {
+            if (blueEdge && orangeEdge) {
 
                 const leftEdge =
                     Number(blueEdge.getAttribute("x"));
 
                 const rightEdge =
-                    Number(turquoiseEdge.getAttribute("x")) +
-                    Number(turquoiseEdge.getAttribute("width"));
+                    Number(orangeEdge.getAttribute("x")) +
+                    Number(orangeEdge.getAttribute("width"));
 
                 const mirrorCentreX =
                     (leftEdge + rightEdge) / 2;
@@ -1730,28 +1739,28 @@
                     F: 4
                 };
 
-                // Copy and reflect each Salmon seat.
+                // Copy and reflect each Red seat.
                 balconySVG.querySelectorAll(
-                    'g[data-seat-id^="salmon-"]'
-                ).forEach(salmonSeat => {
+                    'g[data-seat-id^="red-"]'
+                ).forEach(redSeat => {
 
-                    const salmonId =
-                        salmonSeat.getAttribute("data-seat-id");
+                    const redId =
+                        redSeat.getAttribute("data-seat-id");
 
                     const match =
-                        salmonId.match(/^salmon-([CDEF])(\d+)$/);
+                        redId.match(/^red-([CDEF])(\d+)$/);
 
                     if (!match) return;
 
                     const row = match[1];
-                    const salmonNumber = Number(match[2]);
+                    const redNumber = Number(match[2]);
 
                     // Reverse numbering across the mirror.
                     const greenNumber =
-                        greenRowCounts[row] + 1 - salmonNumber;
+                        greenRowCounts[row] + 1 - redNumber;
 
                     const greenSeat =
-                        salmonSeat.cloneNode(true);
+                        redSeat.cloneNode(true);
 
                     greenSeat.setAttribute(
                         "data-seat-id",
@@ -1767,10 +1776,10 @@
                         greenSeat.querySelector("polygon");
 
                     if (polygon) {
-                        polygon.setAttribute("fill", "#b8f5a2");
+                        polygon.setAttribute("fill", "#A9DD9C");
                         polygon.setAttribute(
                             "data-original-fill",
-                            "#b8f5a2"
+                            "#A9DD9C"
                         );
                     }
 
@@ -1805,7 +1814,7 @@
                 return;
             }
 
-            ["blue", "turquoise"].forEach(zone => {
+            ["blue", "orange"].forEach(zone => {
 
                 const svg = document.createElementNS(svgNS, "svg");
 
@@ -1878,11 +1887,11 @@
             const blueSection =
                 document.getElementById("blue-section");
 
-            const turquoiseSection =
-                document.getElementById("turquoise-section");
+            const orangeSection =
+                document.getElementById("orange-section");
 
-            const salmonSection =
-                document.getElementById("salmon-section");
+            const redSection =
+                document.getElementById("red-section");
 
             const greenSection =
                 document.getElementById("green-section");
@@ -1893,8 +1902,8 @@
 
             // Hide all individual colour-zone views.
             blueSection.style.display = "none";
-            turquoiseSection.style.display = "none";
-            salmonSection.style.display = "none";
+            orangeSection.style.display = "none";
+            redSection.style.display = "none";
             greenSection.style.display = "none";
 
             // Show only the singer's allocated zone.
@@ -1902,13 +1911,13 @@
 
                 blueSection.style.display = "block";
 
-            } else if (selectedZone === "turquoise") {
+            } else if (selectedZone === "orange") {
 
-                turquoiseSection.style.display = "block";
+                orangeSection.style.display = "block";
 
-            } else if (selectedZone === "salmon") {
+            } else if (selectedZone === "red") {
 
-                salmonSection.style.display = "block";
+                redSection.style.display = "block";
 
             } else if (selectedZone === "green") {
 
@@ -1920,7 +1929,7 @@
 
 
         createCentralBlock();
-        createSalmonZone();
+        createRedZone();
         createGreenZone();
 
         calibrateVirtualCamera();
@@ -1967,13 +1976,14 @@
                 return;
             }
 
-            
+
             // Look up the new choir number.
             findMySeat();
 
             // STEP 93 — Dismiss the mobile numeric keyboard
             // after all three digits have been entered.
             input.blur();
+
         }
 
 
@@ -1996,14 +2006,25 @@
             const seatId = choirAllocations[choirNumber];
 
             if (!seatId) {
+                // Clear the unallocated choir number.
+                const input = document.getElementById("choir-number");
+                input.value = "";
+
+                // Display the invalid-number message.
                 result.textContent =
-                    "No seating allocation found for choir number " +
-                    choirNumber + ".";
+                    "Not A Valid Number. Please Try Again.";
+
+                // On desktop, allow another number to be typed immediately.
+                // On touch devices, leave the mobile keyboard dismissed.
+                if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                    setTimeout(() => input.focus(), 0);
+                }
+
                 return;
             }
 
             // Split the seat identifier into its components.
-            // Example: salmon-C1 becomes Salmon, C, 1.
+            // Example: red-C1 becomes Red, C, 1.
             const [zone, seatPosition] = seatId.split("-");
             const row = seatPosition.charAt(0);
             const seatNumber = seatPosition.substring(1);
