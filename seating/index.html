@@ -269,20 +269,63 @@
 
 
 
-        // SAMPLE CHOIR ALLOCATIONS
-        // These will eventually come from Google Sheets.
-        // Keys are choir numbers.
-        // Values identify unique SVG seat objects.
+        // Choir allocations retrieved from our Cloudflare Worker.
+        // Initially empty; populated from the private Google Sheet.
 
-        const choirAllocations = {
-            "101": "red-C1",
-            "134": "red-C2",
-            "159": "red-E6",
-            "161": "blue-B4",
-            "111": "orange-D5",
-            "199": "green-C4",
-            "201": "green-E2"
-        };
+        let choirAllocations = {};
+
+        // Keep the choir-number input disabled until
+        // the current seating allocations have loaded.
+        document.getElementById("choir-number").disabled = true;
+
+        // Retrieve the current choir seating allocations
+        // from our Cloudflare Worker.
+
+        async function loadChoirAllocations() {
+            const result = document.getElementById("allocation-result");
+
+            try {
+                const response = await fetch(
+                    "https://choir-seating-allocations.natsymphchorus.workers.dev/allocations",
+                    { cache: "no-store" }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Unable to contact seating Worker.");
+                }
+
+                const data = await response.json();
+
+                if (!data.success || !data.allocations) {
+                    throw new Error("Invalid seating allocation response.");
+                }
+
+                choirAllocations = data.allocations;
+
+                console.log(
+                    "Choir allocations loaded:",
+                    Object.keys(choirAllocations).length
+                );
+
+                // The allocations are ready.
+                // Enable the choir-number input.
+                const choirInput = document.getElementById("choir-number");
+                choirInput.disabled = false;
+
+                // On desktop computers, place the typing cursor
+                // automatically in the choir-number box.
+                // On phones, don't open the numeric keyboard automatically.
+                if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                    choirInput.focus();
+                }
+
+            } catch (error) {
+                console.error("Seating allocation error:", error);
+
+                result.textContent =
+                    "Unable to load seating allocations. Please refresh the page.";
+            }
+        }
 
 
 
@@ -1937,6 +1980,10 @@
         createCompleteBalcony();
         createIndividualCentralZones();
 
+        // STEP 102 — Load current seating allocations
+        // from Google Sheets via Cloudflare.
+        loadChoirAllocations();
+
 
 
 
@@ -1980,9 +2027,16 @@
             // Look up the new choir number.
             findMySeat();
 
-            // STEP 93 — Dismiss the mobile numeric keyboard
-            // after all three digits have been entered.
-            input.blur();
+            // On desktop, select the completed number so that
+            // typing the next digit replaces it automatically.
+            // On mobile, dismiss the numeric keyboard.
+            if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+                if (input.value.length === 3) {
+                    input.select();
+                }
+            } else {
+                input.blur();
+            }
 
         }
 
