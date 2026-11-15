@@ -634,6 +634,63 @@
       .form-cancel-btn:hover {
         background-color: #57534e;
       }
+
+      /* Optional temporary Hub updates announcement */
+      .hub-updates {
+        width: 66.6667%;
+        margin: 0 auto 16px;
+        box-sizing: border-box;
+      }
+      .hub-updates-trigger {
+        display: block;
+        width: 100%;
+        padding: 11px 8px;
+        border: 1px solid #459c98;
+        border-radius: 8px;
+        background: #82cfcb;
+        color: #174b49;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+        text-align: center;
+        line-height: 1.4;
+      }
+      .hub-updates-trigger:hover {
+        background: #a5e2df;
+      }
+      .hub-updates-trigger strong {
+        display: block;
+        font-size: 15px;
+      }
+      .hub-updates-trigger span {
+        display: block;
+        font-size: 13px;
+      }
+      .hub-updates-content {
+        background: #fffdf5;
+        border: 1px solid #d6a344;
+        border-radius: 8px;
+        padding: 14px;
+        margin-top: 7px;
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+      .hub-updates-content p {
+        margin: 0 0 10px;
+      }
+      .hub-updates-close {
+        width: 100%;
+        padding: 9px 12px;
+        background: #37474f;
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+      }
+      .hub-updates-close:hover {
+        background: #263238;
+      }
     </style>
   </head>
   <body>
@@ -643,6 +700,66 @@
         <div class="app-title-line1">National Symphony Chorus Ireland</div>
         <div class="app-title-line2">Member Information Hub</div>
       </div>
+
+      <!-- Optional Hub updates notice: controlled by ShowInfoReHubUpdates below -->
+      <section id="hub-updates" class="hub-updates" style="display: none">
+        <button
+          type="button"
+          id="hub-updates-trigger"
+          class="hub-updates-trigger"
+          aria-expanded="false"
+          aria-controls="hub-updates-content"
+          onclick="toggleHubUpdates(true)"
+        >
+          <strong>New Features of Information Hub</strong>
+          <span>15 Nov 2026</span>
+        </button>
+        <div id="hub-updates-content" class="hub-updates-content" hidden>
+          <!-- Replace this placeholder with your own announcement text. -->
+          <p><strong>What's new in the Hub?</strong></p>
+          <p
+            style="padding-left: 20px; text-indent: -20px; text-align: justify"
+          >
+            1. Choir Manager's Notes now appear first in the Current Notes
+            section.
+          </p>
+          <p
+            style="padding-left: 20px; text-indent: -20px; text-align: justify"
+          >
+            2. Any future events which are still <i>To Be Confirmed</i> will be
+            shown with a
+            <span style="background-color: #ead5e7">pale mauve background</span
+            >.
+          </p>
+          <p
+            style="padding-left: 20px; text-indent: -20px; text-align: justify"
+          >
+            3. Any events other than <i>"normal rehearsals"</i> are shown with a
+            <span style="background-color: #f8fbd4">pale cream background</span
+            >. So anything on a day other than Wednesday; and anything on a
+            Wednesday which does <u>not</u> begin at 19:30 & end at 22:00.
+          </p>
+          <p
+            style="padding-left: 20px; text-indent: -20px; text-align: justify"
+          >
+            4. Some events now include a line of <b>Additional Information</b>. For example
+            <i>"If not taking part in the War Requiem performance, please do not
+              attend this rehearsal"</i>
+            for Wednesday 18 November. Or for the forthcoming
+            performance on 27 November, full details of soloists, conductor,
+            etc. Where the additional information is lengthy it will be shown
+            only as a snippet, with the option to tap/click for the full
+            content.
+          </p>
+          <button
+            type="button"
+            class="hub-updates-close"
+            onclick="toggleHubUpdates(false)"
+          >
+            Close
+          </button>
+        </div>
+      </section>
 
       <!-- Top Navigation Buttons Row -->
       <div class="top-nav">
@@ -2329,6 +2446,22 @@
     </div>
 
     <script>
+      // Set to 1 to display the optional updates notice; set to 0 to hide it.
+      const ShowInfoReHubUpdates = 1;
+
+      function toggleHubUpdates(open) {
+        const content = document.getElementById("hub-updates-content");
+        const trigger = document.getElementById("hub-updates-trigger");
+        if (!content || !trigger) return;
+        content.hidden = !open;
+        trigger.setAttribute("aria-expanded", String(open));
+      }
+
+      // Leave the announcement collapsed until a visitor opens it.
+      if (ShowInfoReHubUpdates === 1) {
+        document.getElementById("hub-updates").style.display = "block";
+      }
+
       const WORKER_URL =
         "https://nsc-calendar-proxy.natsymphchorus.workers.dev/";
       const DIRECTOR_NOTES_WORKER =
@@ -3225,7 +3358,8 @@
           '<meta charset="utf-8">' +
           '<meta name="viewport" content="width=device-width, initial-scale=1">' +
           "<title>NSCI Hub - QR Code</title>" +
-          '<scr' + 'ipt src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>' +
+          "<scr" +
+          'ipt src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"><\/script>' +
           "<style>" +
           "body { font-family: Arial, sans-serif; padding: 30px; color: #222; text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.5; }" +
           "h2 { color: #d97706; margin-top: 0; font-variant: small-caps; }" +
@@ -3253,7 +3387,8 @@
           appUrl +
           "</div>" +
           "</div>" +
-          "<scr" + "ipt>" +
+          "<scr" +
+          "ipt>" +
           'new QRCode(document.getElementById("qrcode"), { text: "' +
           appUrl +
           '", width: 220, height: 220, colorDark: "#000000", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.H });' +
