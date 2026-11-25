@@ -3065,23 +3065,48 @@
               const contentEl = document.getElementById("director-content");
               if (contentEl) contentEl.innerHTML = data.content;
             }
+            
             if (data.modifiedTime) {
-              const dateObj = new Date(data.modifiedTime);
+              const actualDate = new Date(data.modifiedTime);
+
+              // Temporary override for 25 November 2026.
+              // Remove this exception once genuinely new notes arrive.
+              const actualIrishDate = actualDate.toLocaleDateString(
+                "en-GB",
+                {
+                  timeZone: "Europe/Dublin",
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric"
+                }
+              );
+
+              const effectiveModifiedTime =
+                actualIrishDate === "25/11/2026"
+                  ? "2026-10-16T11:39:00Z"
+                  : data.modifiedTime;
+
+              const dateObj = new Date(effectiveModifiedTime);
               const formattedDate = dateObj.toLocaleDateString("en-GB", {
                 weekday: "long",
                 day: "numeric",
                 month: "long",
                 year: "numeric",
+                timeZone: "Europe/Dublin"
               });
               const formattedTime = dateObj.toLocaleTimeString("en-GB", {
                 hour: "2-digit",
                 minute: "2-digit",
+                timeZone: "Europe/Dublin"
               });
+
               const timeEl = document.getElementById("director-timestamp");
               if (timeEl)
                 timeEl.innerText =
                   "Last Updated: " + formattedTime + " on " + formattedDate;
-              applyNotesAgeCollapse("director", data.modifiedTime);
+
+              applyNotesAgeCollapse("director", effectiveModifiedTime);
+
             } else {
               const timeEl = document.getElementById("director-timestamp");
               if (timeEl) timeEl.innerText = "Last Updated: Unavailable";
