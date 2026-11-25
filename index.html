@@ -2990,6 +2990,72 @@
 
       loadDynamicEvents();
 
+            function applyNotesAgeCollapse(prefix, modifiedTime) {
+        const contentEl = document.getElementById(prefix + "-content");
+        if (!contentEl) return;
+
+        const oldButton = document.getElementById(prefix + "-age-toggle");
+        if (oldButton) oldButton.remove();
+
+        contentEl.style.display = "";
+
+        const formatter = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Europe/Dublin",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        });
+
+        function calendarDay(date) {
+          const parts = Object.fromEntries(
+            formatter.formatToParts(date).map(p => [p.type, p.value])
+          );
+          return Date.UTC(
+            Number(parts.year),
+            Number(parts.month) - 1,
+            Number(parts.day)
+          );
+        }
+
+        const modifiedDate = new Date(modifiedTime);
+        if (isNaN(modifiedDate.getTime())) return;
+
+        const diffDays =
+          (calendarDay(new Date()) - calendarDay(modifiedDate)) /
+          86400000;
+
+        if (diffDays < 7) return;
+
+        contentEl.style.display = "none";
+
+        const btn = document.createElement("button");
+        btn.id = prefix + "-age-toggle";
+        btn.type = "button";
+        btn.className = "sub-btn";
+        btn.style.backgroundColor =
+          prefix === "manager" ? "#6b1d54" : "#15803d";
+        btn.style.marginTop = "0";
+        btn.style.marginBottom = "10px";
+        btn.innerText =
+          "Content is more than 1 week old. Tap/Click to View";
+        btn.setAttribute("aria-expanded", "false");
+        btn.setAttribute("aria-controls", contentEl.id);
+
+        btn.onclick = function () {
+          const isHidden = contentEl.style.display === "none";
+
+          contentEl.style.display = isHidden ? "" : "none";
+
+          btn.innerText = isHidden
+            ? "Hide Content"
+            : "Content is more than 1 week old. Tap/Click to View";
+
+          btn.setAttribute("aria-expanded", String(isHidden));
+        };
+
+        contentEl.before(btn);
+      }
+
       async function loadDirectorNotes() {
         try {
           const response = await fetch(DIRECTOR_NOTES_WORKER);
@@ -3015,6 +3081,7 @@
               if (timeEl)
                 timeEl.innerText =
                   "Last Updated: " + formattedTime + " on " + formattedDate;
+                            applyNotesAgeCollapse("director", data.modifiedTime);
             } else {
               const timeEl = document.getElementById("director-timestamp");
               if (timeEl) timeEl.innerText = "Last Updated: Unavailable";
@@ -3125,6 +3192,7 @@
               if (timeEl)
                 timeEl.innerText =
                   "Last Updated: " + formattedTime + " on " + formattedDate;
+                            applyNotesAgeCollapse("manager", data.modifiedTime);
             } else {
               const timeEl = document.getElementById("manager-timestamp");
               if (timeEl) timeEl.innerText = "Last Updated: Unavailable";
